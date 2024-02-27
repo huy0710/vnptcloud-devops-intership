@@ -109,7 +109,9 @@ Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
 ![alt text](<Screenshot from 2024-02-27 15-17-26.png>)
 
 ở đây mình sẽ thêm commit C2 và thực hiện gộp commit C1 với C2 lại với nhau thành một commit và kiểm tra nó bằng câu lệnh **git log --oneline** sau thực hiện push lên remote repo
+
 **5.Một số khái niệm khác**
+
 **.gitignore** là 1 file dùng để chưa các file hay thư mục không được đẩy lên repository
 - nếu cần ignore 1 file: tên file
 - nếu cần ignore 1 folder: tên folder/
@@ -117,12 +119,16 @@ Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
 khi đã up lên github mà muốn ingnore file đó thì dùng **git rm -r --cached /path/to/file_or_folder**
 xong add lại
 **Fork**: Lấy dự án của repo của người khác về repo của mình. Mình có thể theo dõi trực tiếp sự thay đổi của repo của người khác bằng câu lệnh **git remote add + link của repo gốc** sau đó merge repo gốc vào main của mình. 
+
 **6 So sánh merge và rebase**
+
 **Sự khác nhau giữa merge và rebase**
 giả sư ta có 1 nhánh main và 1 nhánh fixbug
 khi ta thực hiện merge thì sẽ xuất hiện 1 commit thể hiện sự hợp nhất của nhánh fixbug và master
 Khi ta thực hiện rebase thì toàn bộ commit của nhánh fixbug sẽ được đưa vào ngọn của nhánh master
+
 **7 Trường hợp conflict**
+
 + RESOLVE MERGED CONFLICT
 các trường hợp có thể gây ra conflict:
 - Nhiều developer sửa đổi cùng một dòng của tệp và cố gắng merge các thay đổi
