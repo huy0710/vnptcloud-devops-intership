@@ -19,11 +19,15 @@
 -B1: ở trong test tạo một thư mục bằng lệnh **touch tên file**
 ![alt text](<Screenshot from 2024-02-26 23-22-24.png>)
 ở hình này gõ lệnh **ls** để check số lượng file trong thư mục test
+
 -B2: gõ lệnh **git status** để kiểm tra trạng thái 
-![alt text](<Screenshot from 2024-02-26 23-26-38.png>)
+![alt text](<Screenshot from 2024-02-26 23-26-38.png>) 
+
 ở đây nó hiện trạng thái untracked tức là file chưa được add vào vùng staging
+
 -B3: thực hiện **git add C1** để add file C1 vào vùng staging và sau đó kiểm tra trạng thái file
 ![alt text](<Screenshot from 2024-02-26 23-34-00.png>)
+
 ở đây đã tạo ra một new file C1 đã được thêm vào vùng staging
 -B4 Đẩy file từ vùng staging lên local repo bằng lệnh **git commit -m**
 ![alt text](<Screenshot from 2024-02-26 23-37-33.png>)
