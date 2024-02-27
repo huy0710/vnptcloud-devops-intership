@@ -132,14 +132,14 @@ GIT WORKFLOW
    khi đã up lên github mà muốn ingnore file đó thì dùng **git rm -r --cached /path/to/file_or_folder**
    xong add lại
 
-**Fork**: Lấy dự án của repo của người khác về repo của mình. Mình có thể theo dõi trực tiếp sự thay đổi của repo của người khác bằng câu lệnh **git remote add + link của repo gốc** sau đó merge repo gốc vào main của mình. 
+   **Fork**: Lấy dự án của repo của người khác về repo của mình. Mình có thể theo dõi trực tiếp sự thay đổi của repo của người khác bằng câu lệnh **git remote add + link của repo gốc** sau đó merge repo gốc vào main của mình. 
 
 **6.So sánh merge và rebase**
 
-**Sự khác nhau giữa merge và rebase**
-   giả sư ta có 1 nhánh main và 1 nhánh fixbug
-   Khi ta thực hiện merge thì sẽ xuất hiện 1 commit thể hiện sự hợp nhất của nhánh fixbug và master
-   Khi ta thực hiện rebase thì toàn bộ commit của nhánh fixbug sẽ được đưa vào ngọn của nhánh master
+   **Sự khác nhau giữa merge và rebase**
+    giả sư ta có 1 nhánh main và 1 nhánh fixbug
+    Khi ta thực hiện merge thì sẽ xuất hiện 1 commit thể hiện sự hợp nhất của nhánh fixbug và master
+    Khi ta thực hiện rebase thì toàn bộ commit của nhánh fixbug sẽ được đưa vào ngọn của nhánh master
 
 **7.Trường hợp conflict**
 
