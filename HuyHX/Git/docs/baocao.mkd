@@ -22,6 +22,8 @@ GIT WORKFLOW
  **Feature** được khởi tạo từ develop branches các feature branches được merge vào develop branches, nhánh này giúp dev có thể cập nhập thêm các chưc năng mà không ảnh hưởng đến code cũ
 
 ![alt text](../image/1.png)
+
+   ở đây nhánh feature được liên kết trực tiếp với nhánh develop để tạo ra những tính mới cho code. Khi dev code xong sẽ đẩy code lên nhánh develop và code đó sẽ được đẩy lên nhánh release để kiểm tra lần cuối và sau đó đẩy lên nhánh master. Nhánh hotfix sẽ liên kết trực tiếp với nhánh master và develop để có thể chỉnh sửa trực tiếp trên môi trường người dùng 
   
 
 **2.Demo các lệnh cơ bản**
@@ -53,7 +55,7 @@ GIT WORKFLOW
 
    ![alt text](<../image/Screenshot from 2024-02-26 23-40-10.png>)
 
-Sau đó kiểm tra trên github
+  Sau đó kiểm tra trên github
 
    ![alt text](<../image/Screenshot from 2024-02-26 23-41-42.png>)
 
@@ -81,7 +83,7 @@ Sau đó kiểm tra trên github
 
    ![alt text](<../image/Screenshot from 2024-02-27 00-01-33.png>)
 
-Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
+   Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
 
 - Thực hiện gộp nhánh vào nhánh **main** ở đây mình sẽ thêm một nhánh mới là nhánh **feature** và thêm nó vào nhanh **main** với câu lệnh **git merge**
 
