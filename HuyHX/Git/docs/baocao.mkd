@@ -3,21 +3,26 @@
 - Có 2 loại repository trong github là Local Repo và Remote Repo
 **Local repository**: là 1 repository nằm trên máy tính cá nhân.
 **Remote repository**: là 1 repository để chia sẻ với nhiều người thường được bố trí trên server
-**staging**: khi commit thì các git sẽ lưu lại một bản chụp được là snapshot ở vùng staging
+- Staging: khi commit thì các git sẽ lưu lại một bản chụp được là snapshot ở vùng staging
 
 ![alt text](<../image/Screenshot from 2024-02-27 15-48-51.png>)
 
-Dữ liệu từ workspace được add vào vùng staging. Ở vùng staging khi git commit thì sẽ tạo ra snapshot lưu trữ những thay đổi ở vùng staging. Tiếp tục dữ liệu sẽ đi từ staging đến local repository. Dữ liệu sẽ được đẩy lên remote repository bằng lệnh git push. Khi muốn lấy dữ liệu từ remote repository về máy tính thì dùng git clone/pull.
+   Dữ liệu từ workspace được add vào vùng staging. Ở vùng staging khi git commit thì sẽ tạo ra snapshot lưu trữ những thay đổi ở vùng staging. Tiếp tục dữ liệu sẽ đi từ staging đến local repository. Dữ liệu sẽ được đẩy lên remote repository bằng lệnh git push. Khi muốn lấy dữ liệu từ remote repository về máy tính thì dùng git clone/pull.
 
 GIT WORKFLOW
 
- **Master branch** nhánh này có sẵn trong git thường được sử dụng là nhanh to nhất
+ **Master branch** nhánh này có sẵn trong git thường được sử dụng là nhanh to nhất, người sử dụng sẽ trực tiếp lấy code ở đây 
+
  **Hotfix** Nhánh này được tạo ra để sửa lỗi khẩn cấp để sửa lỗi một cách nhanh chóng trên môi trường production
- **Release** Nhánh này được tạo ra để cho dev kiểm tra lại trước khi đưa lên master branch
- **Develop** được khởi tạo từ master branches
- **Feature** được khởi tạo từ develop branches các feature branches được merge vào develop branches
+
+ **Release** Nhánh này được tạo ra để cho dev kiểm tra lại trước khi đưa lên master branch, nhánh này có chức năng giúp dev sẽ kiểm tra code lần cuối trước khi đưa lên nhánh master để đưa ra ngoài cho người dùng sử dụng
+
+ **Develop** được khởi tạo từ master branches, nhánh này là nhánh chính dev sẽ code trực tiếp vào đây
+
+ **Feature** được khởi tạo từ develop branches các feature branches được merge vào develop branches, nhánh này giúp dev có thể cập nhập thêm các chưc năng mà không ảnh hưởng đến code cũ
 
 ![alt text](../image/1.png)
+  
 
 **2.Demo các lệnh cơ bản**
 
@@ -58,19 +63,19 @@ Sau đó kiểm tra trên github
 
    ![alt text](<../image/Screenshot from 2024-02-26 23-46-56.png>)
 
-ở đây mình chỉ có một nhánh main
+   ở đây mình chỉ có một nhánh main
 
 - Thực hiện tạo một nhánh mới bằng câu lệnh **git branch + tên nhánh**
 
    ![alt text](<../image/Screenshot from 2024-02-26 23-49-21.png>)
 
-ở đây mình tạo ra một nhánh có tên là **fixbug** và kiểm tra số nó có ở trong nhánh chưa
+   ở đây mình tạo ra một nhánh có tên là **fixbug** và kiểm tra số nó có ở trong nhánh chưa
 
 - Hiện tại ở trên nhánh mình đang làm việc là **main**. Thực hiện câu lệnh **git checkout + tên nhánh** để chuyển nhánh
  
    ![alt text](<../image/Screenshot from 2024-02-26 23-53-03.png>)
 
-ở đây mình chuyển từ nhánh **main** sang nhánh **fixbug**
+   ở đây mình chuyển từ nhánh **main** sang nhánh **fixbug**
 
 - Thực hiện đẩy tất cả lên github bằng câu lệnh **git push origin main**
 
@@ -82,7 +87,7 @@ Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
 
    ![alt text](<../image/Screenshot from 2024-02-27 15-28-39.png>)
 
-ở đây mình đã thực hiện merge nhánh **feature** vào **main**
+   ở đây mình đã thực hiện merge nhánh **feature** vào **main**
 
 **4. Một số lệnh cơ bản với commit**
 
@@ -124,7 +129,7 @@ Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
    - nếu cần ingore 1 file trong folder: dường dần của file trong folder
    khi đã up lên github mà muốn ingnore file đó thì dùng **git rm -r --cached /path/to/file_or_folder**
    xong add lại
-   
+
 **Fork**: Lấy dự án của repo của người khác về repo của mình. Mình có thể theo dõi trực tiếp sự thay đổi của repo của người khác bằng câu lệnh **git remote add + link của repo gốc** sau đó merge repo gốc vào main của mình. 
 
 **6 So sánh merge và rebase**
