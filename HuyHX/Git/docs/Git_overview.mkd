@@ -1,3 +1,5 @@
+**TỔNG QUAN VỀ GIT**
+
 **1.Một số khái niệm cơ bản ở trong git hub**
 - Repository là nơi lưu trữ code hình ảnh hay mọi thứ liên quan đến dự án 
 - Có 2 loại repository trong github là Local Repo và Remote Repo
