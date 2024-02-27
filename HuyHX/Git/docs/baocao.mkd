@@ -5,7 +5,7 @@
 **Remote repository**: là 1 repository để chia sẻ với nhiều người thường được bố trí trên server
 - Staging: khi commit thì các git sẽ lưu lại một bản chụp được là snapshot ở vùng staging
 
-![alt text](<../image/Screenshot from 2024-02-27 15-48-51.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 15-48-51.png>)
 
    Dữ liệu từ workspace được add vào vùng staging. Ở vùng staging khi git commit thì sẽ tạo ra snapshot lưu trữ những thay đổi ở vùng staging. Tiếp tục dữ liệu sẽ đi từ staging đến local repository. Dữ liệu sẽ được đẩy lên remote repository bằng lệnh git push. Khi muốn lấy dữ liệu từ remote repository về máy tính thì dùng git clone/pull.
 
@@ -21,7 +21,7 @@ GIT WORKFLOW
 
  **Feature** được khởi tạo từ develop branches các feature branches được merge vào develop branches, nhánh này giúp dev có thể cập nhập thêm các chưc năng mà không ảnh hưởng đến code cũ
 
-![alt text](../image/1.png)
+   ![alt text](../image/1.png)
 
    ở đây nhánh feature được liên kết trực tiếp với nhánh develop để tạo ra những tính mới cho code. Khi dev code xong sẽ đẩy code lên nhánh develop và code đó sẽ được đẩy lên nhánh release để kiểm tra lần cuối và sau đó đẩy lên nhánh master. Nhánh hotfix sẽ liên kết trực tiếp với nhánh master và develop để có thể chỉnh sửa trực tiếp trên môi trường người dùng 
   
