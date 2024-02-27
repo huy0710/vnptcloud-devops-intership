@@ -14,59 +14,100 @@
 -**Feature** được khởi tạo từ develop branches các feature branches được merge vào develop branches
 ![alt text](<1.png>)
 **2.Demo các lệnh cơ bản**
+
 **Giả sử mình sẽ tạo một file và up muốn nó lên remote repository của github**
 Ở đây mình tạo ra một repo ở trên github và clone nó về có tên là **test**
--B1: ở trong test tạo một thư mục bằng lệnh **touch tên file**
+
+- B1: ở trong test tạo một thư mục bằng lệnh **touch tên file**
 ![alt text](<Screenshot from 2024-02-26 23-22-24.png>)
+
 ở hình này gõ lệnh **ls** để check số lượng file trong thư mục test
 
--B2: gõ lệnh **git status** để kiểm tra trạng thái 
+- B2: gõ lệnh **git status** để kiểm tra trạng thái 
 ![alt text](<Screenshot from 2024-02-26 23-26-38.png>) 
 
 ở đây nó hiện trạng thái untracked tức là file chưa được add vào vùng staging
 
--B3: thực hiện **git add C1** để add file C1 vào vùng staging và sau đó kiểm tra trạng thái file
+- B3: thực hiện **git add C1** để add file C1 vào vùng staging và sau đó kiểm tra trạng thái file
 ![alt text](<Screenshot from 2024-02-26 23-34-00.png>)
 
 ở đây đã tạo ra một new file C1 đã được thêm vào vùng staging
--B4 Đẩy file từ vùng staging lên local repo bằng lệnh **git commit -m**
+
+- B4 Đẩy file từ vùng staging lên local repo bằng lệnh **git commit -m**
+
 ![alt text](<Screenshot from 2024-02-26 23-37-33.png>)
--B5 thực hiện đẩy file lên remote repo bằng lệnh **git push**
+
+- B5 thực hiện đẩy file lên remote repo bằng lệnh **git push**
+
 ![alt text](<Screenshot from 2024-02-26 23-40-10.png>)
+
 Sau đó kiểm tra trên github
+
 ![alt text](<Screenshot from 2024-02-26 23-41-42.png>)
+
 **3.Thực hiện một số câu lệnh cơ bản với nhánh**
+
 - Thực hiện kiểm tra số nhánh đang có bằng câu lệnh **git branch**
+
 ![alt text](<Screenshot from 2024-02-26 23-46-56.png>)
+
 ở đây mình chỉ có một nhánh main
+
 - Thực hiện tạo một nhánh mới bằng câu lệnh **git branch + tên nhánh**
+
 ![alt text](<Screenshot from 2024-02-26 23-49-21.png>)
+
 ở đây mình tạo ra một nhánh có tên là **fixbug** và kiểm tra số nó có ở trong nhánh chưa
-- Hiện tại ở trên nhánh mình đang làm việc là **main**. Thực hiện câu lệnh **git checkout + tên nhánh ** để chuyển nhánh 
+
+- Hiện tại ở trên nhánh mình đang làm việc là **main**. Thực hiện câu lệnh **git checkout + tên nhánh** để chuyển nhánh
+ 
 ![alt text](<Screenshot from 2024-02-26 23-53-03.png>)
+
 ở đây mình chuyển từ nhánh **main** sang nhánh **fixbug**
--Thực hiện đẩy tất cả lên github bằng câu lệnh **git push origin main**
+
+- Thực hiện đẩy tất cả lên github bằng câu lệnh **git push origin main**
+
 ![alt text](<Screenshot from 2024-02-27 00-01-33.png>)
+
 Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
--Thực hiện gộp nhánh vào nhánh **main** ở đây mình sẽ thêm một nhánh mới là nhánh **feature** và thêm nó vào nhanh **main** với câu lệnh **git merge**
+
+- Thực hiện gộp nhánh vào nhánh **main** ở đây mình sẽ thêm một nhánh mới là nhánh **feature** và thêm nó vào nhanh **main** với câu lệnh **git merge**
+
 ![alt text](<Screenshot from 2024-02-27 15-28-39.png>)
+
 ở đây mình đã thực hiện merge nhánh **feature** vào **main**
--Tiếp theo mình sẽ thực hiện câu lệnh gộp nhánh bằng câu lệnh **git rebase** ở đây mình sẽ thêm nhánh mới gọi là **feature1** và thực hiện rebase nó vào nhánh **main**
+
+- Tiếp theo mình sẽ thực hiện câu lệnh gộp nhánh bằng câu lệnh **git rebase** ở đây mình sẽ thêm nhánh mới gọi là **feature1** và thực hiện rebase nó vào nhánh **main**
 **4. Một số lệnh cơ bản với commit**
--Ở đây mình sẽ tạo ra một commit C2 mới nằm ở trong nhánh main 
+
+- Ở đây mình sẽ tạo ra một commit C2 mới nằm ở trong nhánh main
+
 ![alt text](<Screenshot from 2024-02-27 00-06-53.png>)
--Mình sẽ thực hiện kiểm tra lịch sử thay đổi các commit bằng câu lệnh **git log**
+
+- Mình sẽ thực hiện kiểm tra lịch sử thay đổi các commit bằng câu lệnh **git log**
+
 ![alt text](<Screenshot from 2024-02-27 00-10-05.png>)
+
 ở đây nó hiện ra ngày tháng thời gian và HEAD đang chỉ đến commit bao nhiêu
+
 -Thực hiện lệnh **git log --oneline** tìm ra mã SHA của commit có mục đích để xóa hay quay lại code cũ
+
 ![alt text](<Screenshot from 2024-02-27 00-13-41.png>)
+
 - Thực hiện xóa commit C2 bằng câu lệnh **git reset + mã SHA**
+ 
 ![alt text](<Screenshot from 2024-02-27 00-17-49-1.png>)
+
 ở đây mình đã xóa được commit C2 và kiểm tra bằng câu lệnh **git log --oneline**
+
 - Đẩy tất cả lên github bằng câu lệnh **git push --force**
+
 ![alt text](<Screenshot from 2024-02-27 00-20-58.png>)
--Thực hiện câu lệnh gộp các commit lại với nhau
+
+- Thực hiện câu lệnh gộp các commit lại với nhau
+
 ![alt text](<Screenshot from 2024-02-27 15-17-26.png>)
+
 ở đây mình sẽ thêm commit C2 và thực hiện gộp commit C1 với C2 lại với nhau thành một commit và kiểm tra nó bằng câu lệnh **git log --oneline** sau thực hiện push lên remote repo
 **5.Một số khái niệm khác**
 **.gitignore** là 1 file dùng để chưa các file hay thư mục không được đẩy lên repository
