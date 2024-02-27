@@ -3,13 +3,14 @@
 - Có 2 loại repository trong github là Local Repo và Remote Repo
 **Local repository**: là 1 repository nằm trên máy tính cá nhân.
 **Remote repository**: là 1 repository để chia sẻ với nhiều người thường được bố trí trên server
-- **staging**: khi commit thì các git sẽ lưu lại một bản chụp được là snapshot ở vùng staging
+**staging**: khi commit thì các git sẽ lưu lại một bản chụp được là snapshot ở vùng staging
 
 ![alt text](<../image/Screenshot from 2024-02-27 15-48-51.png>)
 
-- Dữ liệu từ workspace được add vào vùng staging. Ở vùng staging khi git commit thì sẽ tạo ra snapshot lưu trữ những thay đổi ở vùng staging. Tiếp tục dữ liệu sẽ đi từ staging đến local repository. Dữ liệu sẽ được đẩy lên remote repository bằng lệnh git push. Khi muốn lấy dữ liệu từ remote repository về máy tính thì dùng git clone/pull.
+Dữ liệu từ workspace được add vào vùng staging. Ở vùng staging khi git commit thì sẽ tạo ra snapshot lưu trữ những thay đổi ở vùng staging. Tiếp tục dữ liệu sẽ đi từ staging đến local repository. Dữ liệu sẽ được đẩy lên remote repository bằng lệnh git push. Khi muốn lấy dữ liệu từ remote repository về máy tính thì dùng git clone/pull.
 
-+ GIT WORKFLOW
+GIT WORKFLOW
+
  **Master branch** nhánh này có sẵn trong git thường được sử dụng là nhanh to nhất
  **Hotfix** Nhánh này được tạo ra để sửa lỗi khẩn cấp để sửa lỗi một cách nhanh chóng trên môi trường production
  **Release** Nhánh này được tạo ra để cho dev kiểm tra lại trước khi đưa lên master branch
@@ -22,125 +23,125 @@
 
 **Giả sử mình sẽ tạo một file và up muốn nó lên remote repository của github**
 
-Ở đây mình tạo ra một repo ở trên github và clone nó về có tên là **test**
+   Ở đây mình tạo ra một repo ở trên github và clone nó về có tên là **test**
 
 - B1: ở trong test tạo một thư mục bằng lệnh **touch tên file**
-![alt text](<../image/Screenshot from 2024-02-26 23-22-24.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-22-24.png>)
 
-ở hình này gõ lệnh **ls** để check số lượng file trong thư mục test
+   ở hình này gõ lệnh **ls** để check số lượng file trong thư mục test
 
 - B2: gõ lệnh **git status** để kiểm tra trạng thái 
-![alt text](<../image/Screenshot from 2024-02-26 23-26-38.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-26-38.png>)
 
-ở đây nó hiện trạng thái untracked tức là file chưa được add vào vùng staging
+   ở đây nó hiện trạng thái untracked tức là file chưa được add vào vùng staging
 
 - B3: thực hiện **git add C1** để add file C1 vào vùng staging và sau đó kiểm tra trạng thái file
-![alt text](<../image/Screenshot from 2024-02-26 23-34-00.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-34-00.png>)
 
-ở đây đã tạo ra một new file C1 đã được thêm vào vùng staging
+   ở đây đã tạo ra một new file C1 đã được thêm vào vùng staging
 
 - B4 Đẩy file từ vùng staging lên local repo bằng lệnh **git commit -m**
 
-![alt text](<../image/Screenshot from 2024-02-26 23-37-33.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-37-33.png>)
 
 - B5 thực hiện đẩy file lên remote repo bằng lệnh **git push**
 
-![alt text](<../image/Screenshot from 2024-02-26 23-40-10.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-40-10.png>)
 
 Sau đó kiểm tra trên github
 
-![alt text](<../image/Screenshot from 2024-02-26 23-41-42.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-41-42.png>)
 
 **3.Thực hiện một số câu lệnh cơ bản với nhánh**
 
 - Thực hiện kiểm tra số nhánh đang có bằng câu lệnh **git branch**
 
-![alt text](<Screenshot from 2024-02-26 23-46-56.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-46-56.png>)
 
 ở đây mình chỉ có một nhánh main
 
 - Thực hiện tạo một nhánh mới bằng câu lệnh **git branch + tên nhánh**
 
-![alt text](<Screenshot from 2024-02-26 23-49-21.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-49-21.png>)
 
 ở đây mình tạo ra một nhánh có tên là **fixbug** và kiểm tra số nó có ở trong nhánh chưa
 
 - Hiện tại ở trên nhánh mình đang làm việc là **main**. Thực hiện câu lệnh **git checkout + tên nhánh** để chuyển nhánh
  
-![alt text](<Screenshot from 2024-02-26 23-53-03.png>)
+   ![alt text](<../image/Screenshot from 2024-02-26 23-53-03.png>)
 
 ở đây mình chuyển từ nhánh **main** sang nhánh **fixbug**
 
 - Thực hiện đẩy tất cả lên github bằng câu lệnh **git push origin main**
 
-![alt text](<Screenshot from 2024-02-27 00-01-33.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 00-01-33.png>)
 
 Hiện tại mình đã có nhánh thứ 2 là **fixbug** ở trên remote repo
 
 - Thực hiện gộp nhánh vào nhánh **main** ở đây mình sẽ thêm một nhánh mới là nhánh **feature** và thêm nó vào nhanh **main** với câu lệnh **git merge**
 
-![alt text](<Screenshot from 2024-02-27 15-28-39.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 15-28-39.png>)
 
 ở đây mình đã thực hiện merge nhánh **feature** vào **main**
 
-- Tiếp theo mình sẽ thực hiện câu lệnh gộp nhánh bằng câu lệnh **git rebase** ở đây mình sẽ thêm nhánh mới gọi là **feature1** và thực hiện rebase nó vào nhánh **main**
 **4. Một số lệnh cơ bản với commit**
 
 - Ở đây mình sẽ tạo ra một commit C2 mới nằm ở trong nhánh main
 
-![alt text](<Screenshot from 2024-02-27 00-06-53.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 00-06-53.png>)
 
 - Mình sẽ thực hiện kiểm tra lịch sử thay đổi các commit bằng câu lệnh **git log**
 
-![alt text](<Screenshot from 2024-02-27 00-10-05.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 00-10-05.png>)
 
-ở đây nó hiện ra ngày tháng thời gian và HEAD đang chỉ đến commit bao nhiêu
+   ở đây nó hiện ra ngày tháng thời gian và HEAD đang chỉ đến commit bao nhiêu
 
--Thực hiện lệnh **git log --oneline** tìm ra mã SHA của commit có mục đích để xóa hay quay lại code cũ
+- Thực hiện lệnh **git log --oneline** tìm ra mã SHA của commit có mục đích để xóa hay quay lại code cũ
 
-![alt text](<Screenshot from 2024-02-27 00-13-41.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 00-13-41.png>)
 
 - Thực hiện xóa commit C2 bằng câu lệnh **git reset + mã SHA**
  
-![alt text](<Screenshot from 2024-02-27 00-17-49-1.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 00-17-49-1.png>)
 
-ở đây mình đã xóa được commit C2 và kiểm tra bằng câu lệnh **git log --oneline**
+   ở đây mình đã xóa được commit C2 và kiểm tra bằng câu lệnh **git log --oneline**
 
 - Đẩy tất cả lên github bằng câu lệnh **git push --force**
 
-![alt text](<Screenshot from 2024-02-27 00-20-58.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 00-20-58.png>)
 
 - Thực hiện câu lệnh gộp các commit lại với nhau
 
-![alt text](<Screenshot from 2024-02-27 15-17-26.png>)
+   ![alt text](<../image/Screenshot from 2024-02-27 15-17-26.png>)
 
-ở đây mình sẽ thêm commit C2 và thực hiện gộp commit C1 với C2 lại với nhau thành một commit và kiểm tra nó bằng câu lệnh **git log --oneline** sau thực hiện push lên remote repo
+   ở đây mình sẽ thêm commit C2 và thực hiện gộp commit C1 với C2 lại với nhau thành một commit và kiểm tra nó bằng câu lệnh **git log --oneline** sau thực hiện push lên remote repo
 
 **5.Một số khái niệm khác**
 
-**.gitignore** là 1 file dùng để chưa các file hay thư mục không được đẩy lên repository
-- nếu cần ignore 1 file: tên file
-- nếu cần ignore 1 folder: tên folder/
-- nếu cần ingore 1 file trong folder: dường dần của file trong folder
-khi đã up lên github mà muốn ingnore file đó thì dùng **git rm -r --cached /path/to/file_or_folder**
-xong add lại
+   **.gitignore** là 1 file dùng để chưa các file hay thư mục không được đẩy lên repository
+   - nếu cần ignore 1 file: tên file
+   - nếu cần ignore 1 folder: tên folder/
+   - nếu cần ingore 1 file trong folder: dường dần của file trong folder
+   khi đã up lên github mà muốn ingnore file đó thì dùng **git rm -r --cached /path/to/file_or_folder**
+   xong add lại
+   
 **Fork**: Lấy dự án của repo của người khác về repo của mình. Mình có thể theo dõi trực tiếp sự thay đổi của repo của người khác bằng câu lệnh **git remote add + link của repo gốc** sau đó merge repo gốc vào main của mình. 
 
 **6 So sánh merge và rebase**
 
 **Sự khác nhau giữa merge và rebase**
-giả sư ta có 1 nhánh main và 1 nhánh fixbug
-khi ta thực hiện merge thì sẽ xuất hiện 1 commit thể hiện sự hợp nhất của nhánh fixbug và master
-Khi ta thực hiện rebase thì toàn bộ commit của nhánh fixbug sẽ được đưa vào ngọn của nhánh master
+   giả sư ta có 1 nhánh main và 1 nhánh fixbug
+   Khi ta thực hiện merge thì sẽ xuất hiện 1 commit thể hiện sự hợp nhất của nhánh fixbug và master
+   Khi ta thực hiện rebase thì toàn bộ commit của nhánh fixbug sẽ được đưa vào ngọn của nhánh master
 
 **7 Trường hợp conflict**
 
 + RESOLVE MERGED CONFLICT
-các trường hợp có thể gây ra conflict:
-- Nhiều developer sửa đổi cùng một dòng của tệp và cố gắng merge các thay đổi
-- Một developer xóa một tệp trong khi một developer khác sửa đổi tệp đó hoặc đổi tên tệp trong khi một developer khác đang sửa đổi tệp đó
-- Cùng sửa đổi 1 đoạn code chức năng ở trong cùng 1 file code
-Kiểm tra xung đột bằng lệnh **git status**  các tệp có xung đột được liệt kê và đánh dấu là "both moified".
-Khi xung đột thì đoạn xung đột thường được đánh dấu là '<<<<'; '>>>>>';'======'
-Cách giải quyết: chỉnh sửa code sau đó **git add** sau đó **git merge** và rồi push lên
+Các trường hợp có thể gây ra conflict:
+   - Nhiều developer sửa đổi cùng một dòng của tệp và cố gắng merge các thay đổi
+   - Một developer xóa một tệp trong khi một developer khác sửa đổi tệp đó hoặc đổi tên tệp trong khi một developer khác đang sửa đổi tệp đó
+   - Cùng sửa đổi 1 đoạn code chức năng ở trong cùng 1 file code
+   - Kiểm tra xung đột bằng lệnh **git status**  các tệp có xung đột được liệt kê và đánh dấu là "both moified".
+   - Khi xung đột thì đoạn xung đột thường được đánh dấu là '<<<<'; '>>>>>';'======'
+   - Cách giải quyết: chỉnh sửa code sau đó **git add** sau đó **git merge** và rồi push lên
 
