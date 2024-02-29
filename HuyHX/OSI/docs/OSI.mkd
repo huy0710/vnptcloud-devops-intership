@@ -76,7 +76,6 @@ Khi bên A muốn gửi một thông tin đến bên B
 - Tiến trình đóng gói tại người gửi(Data Encapsulation)
 
 - Tiến trình mở gói tại trạm nhận (Data De-encapsulation)
-
       ![alt text](../image/10.png)
 
 **3.1 Quá trình đóng gói dữ liệu**
