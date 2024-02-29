@@ -7,7 +7,7 @@
 **2.Vai trò của các tầng trong OSI**
 - Physical layer(1-tầng vật lý):Biến đổi dòng bit logic thành tín hiệu vật lý phù hợp với đường truyền vật lý(ở bên phát) và ngược lại(ở bên thu):Điều chế/giải điều chế, biến đổi, khôi phục tín hiệu .v.v
 - Data link (2-tầng liên kết dữ liệu):
-  - **Các giao thức của Datalink**:
+  **Các giao thức của Datalink**:
    Lớp liên kết dữ liệu thường được chia thành hai lớp phụ: lớp Kiểm soát truy cập phương tiện (Media Access Control – MAC) và lớp Điều khiển liên kết logic (Logical Link Control – LLC).
  
       ![alt text](<../image/Screenshot from 2024-02-29 17-41-11.png>)
@@ -21,7 +21,7 @@
  
        ![alt text](<../image/Screenshot from 2024-02-29 18-32-39.png>)
 
- - **Chức năng**:
+  **Chức năng**:
     + Phát hiện và sửa lỗi khi truyền dữ liệu từ các thực thể trong mạng (switch, router, thiết bị đầu cuối)
     + Nhận dữ liệu từ lớp mạng đóng gói dữ liệu của lớp mạng vào các khung(Frame) phù hợp với tầng vật lý 
     + Tổ chức các bit trong frame theo thứ tự định sẵn
