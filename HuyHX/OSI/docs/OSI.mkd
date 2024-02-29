@@ -28,8 +28,7 @@
     + Hoạt động theo nguyên tác từng chặng
 
 - Network(3-Lớp mạng):
-  
-      ![alt text](<../image/Screenshot from 2024-02-29 19-31-41.png>)
+      ![alt text](../image/network-layer-osi-model.jpg)
 
     + Định tuyến (Routing): Tìm tuyến đường (qua các nút trung gian) để gửi dữ liệu từ nguồn tới đích
     + Chuyển tiếp (Forwarding): Chuyển gói tin trên cổng vào tới cổng ra theo tuyến đường
@@ -40,7 +39,6 @@
 
 
 - Transport(4-Lớp giao vận):
-
       ![alt text](<../image/Screenshot from 2024-02-29 19-36-38.png>)
 
     + Đảm bảo truyền dữ liệu tin cậy giữa 2 thiết bị đầu cuối (end-to-end)
@@ -48,7 +46,9 @@
     + Chia nhỏ hoặc ghép các khối dữ liệu từ lớp Phiên
 
 - Session(5-Lớp phiên)
+
     ![alt text](../image/osi2.png)
+
   Tầng Phiên là tầng thứ năm trong mô hình mạng OSI. Tầng này có trách nhiệm thiết lập, duy trì và kết thúc các phiên (sessions) giao tiếp giữa các ứng dụng trên mạng. Nó tạo ra một môi trường nhất quán cho         
   việc thiết lập và duy trì phiên giao tiếp, đồng bộ hóa dữ liệu và chấm dứt phiên.
 
@@ -69,7 +69,6 @@
 **3.Work flow**
 
 Khi bên A muốn gửi một thông tin đến bên B
-
      ![alt text](../image/10.png)
 
     Hp: Presentation Header, Hi: Session Header, Hs: Transport Header, Hn: Network Header, Hd: Data link Header
@@ -78,8 +77,8 @@ Khi bên A muốn gửi một thông tin đến bên B
 - Tiến trình mở gói tại trạm nhận (Data De-encapsulation)
 
 **3.1 Quá trình đóng gói dữ liệu**
+      ![alt text](../image/11.png)
 
-      
 Bước 1: Trình ứng dụng (bên A) tạo ra dữ liệu và các chương trình phần cứng, phần mềm cài đặt mỗi lớp sẽ bổ sung vào header
 
 Bước 2: Tiếp theo các thông tin đó được chuyển xuống lớp Presentation để chuyển thành dạng chung, rồi mã hoá và nén dữ liệu. Tiếp đó dữ liệu được chuyển xuống lớp Sessionđể bổ sung các thông tin về phiên giao dịch này.
@@ -93,7 +92,7 @@ Bước 5: Tiếp đó dữ liệu được chuyển xuống lớp DataLink, t�
 Bước 6: Cuối cùng, mỗi Frame sẽ được tầng Vật Lý chuyển thành một chuỗi các bit và truyền đến B trên dây mạng.
 
 **3.2 Quá trình mở gói dữ liệu**
-
+      ![alt text](../image/12.png)
       
 
 Bước 1: Lớp Physical kiểm tra quá trình đồng bộ bit và đặt chuỗi bit nhận được vào vùng đệm. Sau đó thông báo cho lớp Data Link dữ liệu đã được nhận.
