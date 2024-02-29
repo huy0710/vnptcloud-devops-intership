@@ -2,7 +2,7 @@
 **1. Mô hình OSI là gì ??**
   - Mô hình OSI là một loại mô hình tham chiếu (7 lớp ) do tổ chức ISO đưa ra 
   
-    ![alt text](<https://github.com/huy0710/vnptcloud-devops-intership/blob/main/HuyHX/OSI/image/a678cfa1874c2a12735d.jpg)
+     ![alt text](../image/a678cfa1874c2a12735d.jpg)
 
 **2.Vai trò của các tầng trong OSI**
 * Physical layer(1-tầng vật lý):Biến đổi dòng bit logic thành tín hiệu vật lý phù hợp với đường truyền vật lý(ở bên phát) và ngược lại(ở bên thu):Điều chế/giải điều chế, biến đổi, khôi phục tín hiệu .v.v
@@ -10,7 +10,7 @@
  - **Các giao thức của Datalink**:
    Lớp liên kết dữ liệu thường được chia thành hai lớp phụ: lớp Kiểm soát truy cập phương tiện (Media Access Control – MAC) và lớp Điều khiển liên kết logic (Logical Link Control – LLC).
  
-      ![alt text](<Screenshot from 2024-02-29 17-41-11.png>)
+      ![alt text](<../image/Screenshot from 2024-02-29 17-41-11.png>)
 
     + LLC: Kiểm soát luồng, dồn kênh, phân kênh các giao thức 
     + MAC: Đóng gói dữ liệu
@@ -19,7 +19,7 @@
            Điều khiển truy nhập đường truyền
     + Vấn đề của lớp MAC là việc chia sẻ tài nguyên truy cập để giải quyết vấn đề đó người ta sẽ sử dụng phương pháp điều khiển đa truy nhập
  
-      ![alt text](<Screenshot from 2024-02-29 18-32-39.png>)
+       ![alt text](<../image/Screenshot from 2024-02-29 18-32-39.png>)
 
  - **Chức năng**:
     + Phát hiện và sửa lỗi khi truyền dữ liệu từ các thực thể trong mạng (switch, router, thiết bị đầu cuối)
@@ -29,7 +29,7 @@
 
 - Network(3-Lớp mạng):
   
-      ![alt text](<Screenshot from 2024-02-29 19-31-41-2.png>)
+      ![alt text](<../image/Screenshot from 2024-02-29 19-31-41.png>)
 
     + Định tuyến (Routing): Tìm tuyến đường (qua các nút trung gian) để gửi dữ liệu từ nguồn tới đích
     + Chuyển tiếp (Forwarding): Chuyển gói tin trên cổng vào tới cổng ra theo tuyến đường
@@ -40,12 +40,15 @@
 
 
 - Transport(4-Lớp giao vận):
-      ![alt text](<Screenshot from 2024-02-29 19-36-38.png>)
+
+      ![alt text](<../image/Screenshot from 2024-02-29 19-36-38.png>)
+
     + Đảm bảo truyền dữ liệu tin cậy giữa 2 thiết bị đầu cuối (end-to-end)
     + Điều khiển luồng (flow control)
     + Chia nhỏ hoặc ghép các khối dữ liệu từ lớp Phiên
 
 - Session(5-Lớp phiên)
+    ![alt text](../image/osi2.png)
   Tầng Phiên là tầng thứ năm trong mô hình mạng OSI. Tầng này có trách nhiệm thiết lập, duy trì và kết thúc các phiên (sessions) giao tiếp giữa các ứng dụng trên mạng. Nó tạo ra một môi trường nhất quán cho         
   việc thiết lập và duy trì phiên giao tiếp, đồng bộ hóa dữ liệu và chấm dứt phiên.
 
@@ -66,7 +69,9 @@
 **3.Work flow**
 
 Khi bên A muốn gửi một thông tin đến bên B
-     ![alt text](</home/huy/vnpt/OSI/image/10.png>)
+
+     ![alt text](../image/10.png)
+
     Hp: Presentation Header, Hi: Session Header, Hs: Transport Header, Hn: Network Header, Hd: Data link Header
 - Tiến trình đóng gói tại người gửi(Data Encapsulation)
 
@@ -74,7 +79,6 @@ Khi bên A muốn gửi một thông tin đến bên B
 
 **3.1 Quá trình đóng gói dữ liệu**
 
-      ![alt text](osi2.png)
       
 Bước 1: Trình ứng dụng (bên A) tạo ra dữ liệu và các chương trình phần cứng, phần mềm cài đặt mỗi lớp sẽ bổ sung vào header
 
