@@ -1,8 +1,8 @@
-**Tìm hiểu mô hình OSI**
+&deg;**Tìm hiểu mô hình OSI**
 **1. Mô hình OSI là gì ??**
   - Mô hình OSI là một loại mô hình tham chiếu (7 lớp ) do tổ chức ISO đưa ra 
   
-     ![alt text](a678cfa1874c2a12735d.jpg)
+    ![alt text](<home/huy/vnptcloud-devops-intership/HuyHX/OSI/image/Screenshot from 2024-02-29 17-41-11.png>)
 
 **2.Vai trò của các tầng trong OSI**
 * Physical layer(1-tầng vật lý):Biến đổi dòng bit logic thành tín hiệu vật lý phù hợp với đường truyền vật lý(ở bên phát) và ngược lại(ở bên thu):Điều chế/giải điều chế, biến đổi, khôi phục tín hiệu .v.v
