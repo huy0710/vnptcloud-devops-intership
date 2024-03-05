@@ -1,0 +1,84 @@
+#healing1 TÌM HIỂU MÔ HÌNH TCP/IP
+
+1.Mô hình tcp/ip là gì??
+  TCP/IP (Transmission Control Protocol/ Internet Protocol – Giao thức điều khiển truyền nhận/ Giao thức liên mạng), là một bộ giao thức trao đổi thông tin được sử dụng để truyền tải và kết nối các thiết bị trong mạng Internet. TCP/IP được phát triển để mạng được tin cậy hơn cùng với khả năng phục hồi tự động.
+   
+![alt text](../image/1_TCP_IP.png)
+
+  Mô hình TCP/IP tiêu chuẩn bao gồm 4 tầng được chồng lên nhau, bắt đầu từ tầng thấp nhất là:
+
+Tầng 1: Tầng vật lý (Physical)
+Tầng 2: Tầng mạng (Internet)
+Tầng 3: Tầng giao vận (Transport)
+Tầng 4: Tầng ứng dụng (Application)
+
+2.Các lớp mô hình của tcp/ip
+
+   ![alt text](../image/IP_stack_connections.png)
+
+- Lớp ứng dụng: Đây là lớp giao tiếp trên cùng của mô hình. Đúng với tên gọi, tầng ứng dụng đảm nhận vai trò giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau (duyệt web, chat, gửi email, một số giao thức trao đổi dữ liệu: SMTP, SSH, FTP,…). Dữ liệu khi đến đây sẽ được định dạng theo kiểu Byte nối Byte, cùng với đó là các thông tin định tuyến giúp xác định đường đi đúng của một gói tin.
+
+   ![alt text](<../image/Screenshot from 2024-03-04 17-22-51.png>)
+
+- Lớp giao vận: Các giao thức ở lớp vận chuyển TCP/IP trao đổi đã xác nhận dữ liệu và truyền lại các gói tin để đảm bảo các gói tin theo đúng thứ tự và không bị lỗi. Trong tầng này còn bao gồm 2 giao thức cốt lõi là TCP và UDP. Trong đó, TCP đảm bảo chất lượng gói tin nhưng tiêu tốn thời gian khá lâu để kiểm tra đầy đủ thông tin từ thứ tự dữ liệu cho đến việc kiểm soát vấn đề tắc nghẽn lưu lượng dữ liệu. Trái với điều đó, UDP cho thấy tốc độ truyền tải nhanh hơn nhưng lại không đảm bảo được chất lượng dữ liệu được gửi đi.
+
+   ![alt text](<../image/Screenshot from 2024-03-04 17-48-02.png>)
+
+- Lớp mạng: Lớp này tương đương với các chức năng của lớp mạng của OSI. Nó xác định các giao thức chịu trách nhiệm truyền dữ liệu logic trên toàn bộ mạng. Các giao thức chính nằm ở lớp này như sau:
+
+  + IP: IP là viết tắt của Internet Protocol và nó chịu trách nhiệm phân phối các gói từ máy chủ nguồn đến máy chủ đích bằng cách xem địa chỉ IP trong tiêu đề gói. IP có 2 phiên bản: IPv4 và IPv6. IPv4 là cái mà hầu hết các trang web đang sử dụng hiện nay. Nhưng IPv6 đang ngày càng phát triển do số lượng địa chỉ IPv4 bị giới hạn về số lượng khi so sánh với số lượng người dùng.
+  
+  + ICMP: là viết tắt của Internet Control Message Protocol, ICMP được sử dụng để kiểm tra khả năng tiếp cận máy chủ hoặc mạng.
+  
+  + ARP: ARP là viết tắt của Address Resolution Protocol. Công việc của nó là tìm địa chỉ phần cứng của máy chủ từ một địa chỉ IP đã biết. 
+  
+   ![alt text](<../image/Screenshot from 2024-03-04 18-02-47.png>)
+
+- Lớp vật lý: Là sự kết hợp giữa tầng vật lý (physical) và tầng liên kết dữ liệu (Datalink) của mô hình OSI. Chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng. Tại đây, các gói dữ liệu được đóng vào khung (gọi là Frame) và được định tuyến đi đến đích đã được chỉ định ban đầu.
+
+3.So sánh mô hình OSI và TCP/IP 
+
+- Sự khác nhau:
+   ![alt text](<Screenshot from 2024-03-04 18-22-59.png>)
+- Sự giống nhau:
+   + OSI và TCP/IP đều là hai mô hình Logic.
+   + Đều dùng để xác định tiêu chuẩn cho Network.
+   + Cả hai mô hình đều có tầng mạng và tầng giao vận.
+   + Đều chia quá trình trong tầng giao tiếp Network thành các lớp
+   + Tất cả đều sử dụng công nghệ truyền gói tin.
+   + Cho phép kết hợp các thiết bị và thành phần mạng từ các nhà sản xuất khác nhau
+
+4.Workflow
+- Bước 1: Ở tầng ứng dụng người dùng tiến hành đưa thông tin cần gửi vào máy tính như: hình ảnh, văn bản...
+
+- Bước 2: Sau khi nhận dữ liệu từ tầng ứng dụng đẩy xuống tần giao vẫn thì dữ liệu được phân đoạn thành các segment. Ở tầng này có 2 giao thức là TCP và UDP. gói tin sẽ sử dụng 1 trong hai giao thức này
+
+- Bước 3: Tiếp đó, dữ liệu sẽ được chuyển xuống tầng Network (Tầng 3). Ở tầng này, các segment lại tiếp tục được cắt ra thành nhiều gói Package khác nhau và bổ sung thông tin định tuyến. Tầng Network này chức năng chính của nó là định tuyến đường đi cho gói tin chứa dữ liệu.
+
+- Bước 4: Dữ liệu tiếp tục được chuyển xuống tầng network access, ở đây các Package được băm nhỏ ra nhiều frame và được bổ sung thêm các thông tin để kiểm tra gói tin ở máy nhận. Cuối cùng các frame này sẽ được chuyển thành các chuỗi bit nhị phân để truyền đến máy nhận 
+
+   ![alt text](<../image/Screenshot from 2024-03-04 18-30-38.png>)
+
+5.So sánh UDP và TCP
+- Về TCP: Khi bạn làm việc với TCP, bạn sẽ được đảm bảo rằng tất cả các byte được gửi sẽ giống hệt với các byte được nhận và chúng sẽ đến đầu bên kia theo cùng một thứ tự. TCP sẽ thực hiện việc chuyển lại những data bị mất, chống tắc nghẽn … Để thực hiện được quá trình trên TCP có 1 quá trình gọi là Three-way handshake
+
+   ![alt text](<../image/Screenshot from 2024-03-04 21-38-37.png>)
+
+Threeway-handshake bao gồm 3 bước như cái tên của nó:
+
+  + SYN: Client chọn 1 con số ngẫu nhiên x và gửi 1 packet SYN (Synchronize Sequence Number), packet này có thể bao gồm thêm 1 vài flag hoặc option cho kết nối TCP tới server.
+
+  + SYN ACK: Server nhận SYN từ client và tăng x lên 1 đơn vị, sau đó chọn 1 số ngẫu nhiên y khác, gán thêm các tùy chọn cho TCP và gửi lại phản hồi cho client.
+
+  + ACK: Client sẽ tiếp tục tăng x và y lên 1 đơn vị, sau đó hoàn tất việc bắt tay bằng cách gửi đi tiếp gói ACK (Acknowledgement Sequence Number) cho server.
+
+- Về UDP: là giao thức Lớp vận chuyển. UDP là một phần của bộ Giao thức Internet, được gọi là bộ UDP/IP. Không giống như TCP, nó là một giao thức không đáng tin cậy và không có kết nối. Vì vậy, không cần thiết lập kết nối trước khi truyền dữ liệu. UDP giúp thiết lập các kết nối có độ trễ thấp và khả năng chịu mất mát được thiết lập qua mạng.
+
+   ![alt text](<../image/Screenshot from 2024-03-04 21-44-15.png>)
+ 
+- Sự khác nhau của UDP và TCP
+
+   ![alt text](<../image/Screenshot from 2024-03-04 21-18-33.png>)
+
+
+
