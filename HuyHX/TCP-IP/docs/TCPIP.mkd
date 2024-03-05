@@ -42,7 +42,9 @@ Tầng 4: Tầng ứng dụng (Application)
 3.So sánh mô hình OSI và TCP/IP 
 
 - Sự khác nhau:
-   ![alt text](<Screenshot from 2024-03-04 18-22-59.png>)
+
+   ![alt text](<../image/Screenshot from 2024-03-04 18-22-59.png>)
+   
 - Sự giống nhau:
    + OSI và TCP/IP đều là hai mô hình Logic.
    + Đều dùng để xác định tiêu chuẩn cho Network.
