@@ -1,6 +1,7 @@
- TÌM HIỂU MÔ HÌNH TCP/IP
+  TÌM HIỂU MÔ HÌNH TCP/IP
 
 1.Mô hình tcp/ip là gì??
+
   TCP/IP (Transmission Control Protocol/ Internet Protocol – Giao thức điều khiển truyền nhận/ Giao thức liên mạng), là một bộ giao thức trao đổi thông tin được sử dụng để truyền tải và kết nối các thiết bị trong mạng Internet. TCP/IP được phát triển để mạng được tin cậy hơn cùng với khả năng phục hồi tự động.
    
 ![alt text](../image/1_TCP_IP.png)
@@ -82,6 +83,46 @@ Threeway-handshake bao gồm 3 bước như cái tên của nó:
    ![alt text](<../image/Screenshot from 2024-03-04 21-44-15.png>)
  
 - Sự khác nhau của UDP và TCP
+  + UDP: User datagram protocol
+  
+  + Đặc điểm: Sự dụng cơ chế không liên kết (connectionless): Không cần thiết lập phiên truyền giữa nguồn và đích
+  
+  + UDP là giao thức không tin cậy:
+  
+      Không có phúc đáp ACK
+
+      Không có cơ chế tự động phát lại
+
+      Không có kiểm tra lỗi(checksum):chỉ kiểm tra phần đầu khung(header)
+
+      Không có cơ chế phát hiện mất gói, gói tin đến không đúng   thứ tự 
+
+      Không có cơ chế điều kiển luồng
+
+   + Chức năng chính của UDP là ghép tách kênh
+
+   + TCP: Transmisson control protocol
+   
+   + Đặc điểm: Hướng liên kết (connection-oriented)
+   
+       Thiết lập kết nối: "3-way handshake": Thiết lập kết nối 3 bước 
+
+       Hủy bỏ kết nối:"2-way handshake": hủy bỏ kết nối 2 bước 
+
+       Client - server: client thiết lập kết nối 
+
+    + TCP là giao thức truyền tin cậy
+    
+       Có cơ chế phúc đáp ACK khi nhận dữ liệu
+
+       Mã chống lỗi để bảo vệ dữ liệu
+
+       Số thứ tự (sequence number) để phát gói mất và gói không đúng thứ tự 
+
+       Cơ chế timeout( sau một thời gian bên phát không nhận được ACK) để gửi lại dữ liệu 
+
+       Cơ chế điều kiển luồng bằng cửa sổ trượt 
+
 
    ![alt text](<../image/Screenshot from 2024-03-04 21-18-33.png>)
 
