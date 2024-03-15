@@ -1,6 +1,6 @@
-  TÌM HIỂU MÔ HÌNH TCP/IP
+# TÌM HIỂU MÔ HÌNH TCP/IP
 
-1.Mô hình tcp/ip là gì??
+## 1.Mô hình tcp/ip là gì??
 
   TCP/IP (Transmission Control Protocol/ Internet Protocol – Giao thức điều khiển truyền nhận/ Giao thức liên mạng), là một bộ giao thức trao đổi thông tin được sử dụng để truyền tải và kết nối các thiết bị trong mạng Internet. TCP/IP được phát triển để mạng được tin cậy hơn cùng với khả năng phục hồi tự động.
    
@@ -16,7 +16,7 @@ Tầng 3: Tầng giao vận (Transport)
 
 Tầng 4: Tầng ứng dụng (Application)
 
-2.Các lớp mô hình của TCP/IP
+## 2.Các lớp mô hình của TCP/IP
 
    ![alt text](../image/IP_stack_connections.png)
 
@@ -40,7 +40,7 @@ Tầng 4: Tầng ứng dụng (Application)
 
 - Lớp vật lý: Là sự kết hợp giữa tầng vật lý (physical) và tầng liên kết dữ liệu (Datalink) của mô hình OSI. Chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng. Tại đây, các gói dữ liệu được đóng vào khung (gọi là Frame) và được định tuyến đi đến đích đã được chỉ định ban đầu.
 
-3.So sánh mô hình OSI và TCP/IP 
+# 3.So sánh mô hình OSI và TCP/IP 
 
 - Sự khác nhau:
 
@@ -54,7 +54,7 @@ Tầng 4: Tầng ứng dụng (Application)
    + Tất cả đều sử dụng công nghệ truyền gói tin.
    + Cho phép kết hợp các thiết bị và thành phần mạng từ các nhà sản xuất khác nhau
 
-4.Workflow
+# 4.Workflow
 - Bước 1: Ở tầng ứng dụng người dùng tiến hành đưa thông tin cần gửi vào máy tính như: hình ảnh, văn bản...
 
 - Bước 2: Sau khi nhận dữ liệu từ tầng ứng dụng đẩy xuống tần giao vẫn thì dữ liệu được phân đoạn thành các segment. Ở tầng này có 2 giao thức là TCP và UDP. gói tin sẽ sử dụng 1 trong hai giao thức này
@@ -65,7 +65,7 @@ Tầng 4: Tầng ứng dụng (Application)
 
    ![alt text](<../image/Screenshot from 2024-03-04 18-30-38.png>)
 
-5.So sánh UDP và TCP
+# 5.So sánh UDP và TCP
 - Về TCP: Khi bạn làm việc với TCP, bạn sẽ được đảm bảo rằng tất cả các byte được gửi sẽ giống hệt với các byte được nhận và chúng sẽ đến đầu bên kia theo cùng một thứ tự. TCP sẽ thực hiện việc chuyển lại những data bị mất, chống tắc nghẽn … Để thực hiện được quá trình trên TCP có 1 quá trình gọi là Three-way handshake
 
    ![alt text](<../image/Screenshot from 2024-03-04 21-38-37.png>)
