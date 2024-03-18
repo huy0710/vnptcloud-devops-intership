@@ -1,0 +1,92 @@
+# Tìm hiểu IPv4
+
+ ## 1.IPv4 là gì?
+   IPv4 (Internet Protocol version 4) là một giao thức của tầng Internetworking được dùng để định tuyến và chuyển tiếp gói tin 
+ ## 2.Cấu trúc của một gói tin IPv4 ?
+   Cấu trúc của một gói tin IPv4
+      ![alt text](../image/3_khuon_dang_ban_tin.png)
+
+  + Version: 4 bit nếu IPv4(0100) IPv6(0110)
+  + IHL(Internet Header Length): 4bit thể hiện chiều dài của header
+  + TOS(Type of Service):8bit
+  + Total Length: 16bit thể hiện độ dài của một gói tin(65536 byte)
+  + TTL:(Time to Live): 8bit thể hiện  thời gian sống của một gói tin nếu gói tin bị huỷ TTL= 0
+  + Protocol:8bit cho biết các giao thức được đóng vào gói tin IP ví dụ như TCP(6) hay UDP(17)
+  + Header Checksum:16bit kiểm tra lỗi cho header
+  + Options: Độ dài thay đổi có thể lên đên 40byte được sử dụng để thêm các chức năng mới 
+  + Các trường Identification, Flags, Fragment offset được sử dụng để thực hiện phân mảnh gói tin
+  Ví dụ khi kích thước truyền đi là 1500byte khi đi qua Router 1 có thể nhận tối đa 500byte thì cần phân mảnh gói tin
+  + Trường Identification: 16bit là một số ngẫu nhiên các gói tin cùng một gói tin đã phân mảnh thì cùng ID
+  + Trường Flags: 3bit Bít thứ 1 không sử dụng(0) bít thứ 2 thể hiện được phép phân mảnh hay không (1) là không được phép phân mảnh (0) là được phép phân mảnh. Bít thứ 3 thể hiện gói đó có còn phân mảnh hay không (1) còn phân mảnh tiếp theo (0) phân mảnh cuối cùng 
+  + Offset: 13bit: Vị trí của gói tin phân mảng trong gói tin ban đầu
+       ![alt text](<../image/Screenshot 2024-03-18 094615.png>)
+
+## 3.Các thành phần của địa chỉ IP
+  - Địa chỉ IP được viết dưới dạng X.X.X.X trong đó X có giá trị từ (0 đến 255) tương đương 8 bit 
+  - Địa chỉ IP có hai phần là: Network ID (địa chỉ mạng) và Host ID(địa chỉ máy trạm)
+    + Network ID: Xác định một mạng. Các máy tính trong cùng một mạng thì có cùng một Network ID các bit phần Network ID không được đồng thời bằng (0)
+    + Host ID: là số duy nhất được gán cho host trong mạng. Nếu tất cả các bit phần HostID là (0) thì gọi là địa chỉ mạng, nếu tất các bit bằng (1) gọi là địa chỉ broadcast  
+       ![alt text](../image/4_thanh_phan.png)
+    Ví dụ 171.64.15.0 là một địa chỉ mạng hoặc 171.64.15.255 là một địa chỉ quảng bá trong phạm vi mạng 171.64.15.0
+
+## 4.Các lớp của địa chỉ IP
+  - Địa chỉ IP gồm 5 lớp (A, B, C, D , E)
+       ![alt text](<../image/Screenshot 2024-03-18 102115.png>)
+  - Lớp A:
+    + Định dạng: NetID.HostID.HostID.HostID
+    + Địa chỉ IP lớp A từ 1.0.0.0 đến 126.0.0.0
+    + Bit đầu tiên của byte đầu tiên phải là bit 0. Dạng nhị phân của octet này là 0xxxxxxx
+    + Phần NETID, bỏ đi bit 0 đầu tiên, ta sẽ có được 128 (2^7) mạng lớp A khác nhau. Bỏ tiếp đi hai trường hợp đặc biệt là 0 và 127. Kết quả là lớp A chỉ còn 126 địa chỉ mạng, 1.0.0.0 đến 126.0.0.0. Phần HostID chiếm 24 bit (2^24 = 16777216) host khác nhau trong mỗi mạng. Bỏ đi hai trường hợp đặc biệt (phần host_id chứa toàn các bit 0 và bit 1). Còn lại: 16777214 host
+    + 127.0.0.0 là địa chỉ loopback( locohost)
+ - Lớp B: 
+   + Định dạng : NetID.NetID.HostID.HostID
+   + Địa chỉ IP lớp B từ 128.0.0.0 đến 191.255.0.0
+   + Hai bit đầu tiên của byte đầu tiên phải là (10). Dạng nhị phân của octet này là 10xxxxxx
+   + Phần network_id chiếm 16 bit bỏ đi 2 bit làm ID cho lớp, còn lại 14 bit cho phép ta đánh thứ tự 16384 (=2 mũ 14) mạng khác nhau (128.0.0.0 đến 191.255.0.0).
+   + Phần host_id dài 16 bit hay có (2^16) host giá trị khác nhau. Trừ đi 2 trường hợp đặc biệt còn lại 65534 host trong một mạng lớp B
+ - Lớp C:
+   + Định dạng : NetID.NetID.NetID.HostID
+   + Ba bit đầu tiên của byte đầu tiên phải là 110. Dạng nhị phân của octet này là 110xxxxx  
+   + Phần network_id chiếm 24 bit bỏ đi 2 bit làm ID cho lớp, còn lại 22 bit cho phép ta đánh thứ tự (2^22) mạng khác nhau (192.0.0.0 đến 223.255.255.0)
+ - Lớp D:
+   + Địa chỉ:224.0.0.0 -> 239.255.255.255 
+   + Dùng làm địa chỉ multicast. 
+   + Ví dụ: 224.0.0.5 dùng cho OSPF 
+            224.0.0.9 dùng cho RIPv2 
+ - Lớp E:
+   + Lớp E có 4 bit đầu tiên luôn là (1111)
+   + Nó sẽ có địa chỉ từ 240.0.0.0 đến 254.255.255.255.
+   + Lớp E được dành riêng cho việc nhiên cứu.
+## 5. Phân biệt IP public và IP private
+  - IP public: là địa chỉ IP sử dụng cho các gói tin đi trên môi trường Internet, được định tuyến trên môi trường Internet, không sử dụng trong mạng LAN. Địa chỉ public phải là duy nhất cho mỗi host tham gia vào Internet
+  - IP private: chỉ được sử dụng trong mạng nội bộ (mạng LAN), không được định tuyến trên môi trường Internet. Có thể được sử dụng lặp đi lặp lại trong các mạng LAN khác nhau
+  - Ví dụ: Các web server, email server, hay các server game bất kì đa số đều được kết nối trực tiếp từ Internet thông qua địa chỉ public IP. Hoặc ở các mạng gia đình, ký túc xá,... thì router giữ public IP để kết nối trực tiếp đến Internet. Các máy tính, smartphones,... và các thiết bị "đằng sau" của router chỉ sử dụng các địa chỉ private IP để kết nối đến router. Router bây giờ hoạt động như một người trung gian, forward lưu lượng dữ liệu đến các địa chỉ IP cục bộ theo yêu cầu, và đảm bảo dữ liệu gửi/nhận đến các địa chỉ chính xác!
+  - Dải địa chỉ private (được quy định trong RFC 1918): 
+    + Lớp A: 10.x.x.x 
+    + Lớp B: 172.16.x.x -> 172.31.x.x 
+    + Lớp C: 192.168.x.x
+  - Kỹ thuật NAT (Network Address Translation) được sử dụng để chuyển đổi giữa IP private và IP public. 
+  - Ý nghĩa của địa chỉ private: được sử dụng để bảo tồn địa chỉ IP public đang dần cạn kiệt
+  - NAT có 3 loại:
+    + Static NAT: Là quá trình ánh xạ 1-1 từ địa chỉ IP private thành địa chỉ IP public. Được sử dụng khi số lượng IP trong LAN bằng số NAT-IP
+       ![alt text](<../image/Screenshot 2024-03-18 105851.png>)
+
+    + Dynamic NAT: là quá trình ánh xạ từ một địa chỉ IP private thành một địa chỉ IP public từ một dải địa chỉ IP đã được đăng kí. Tức là mỗi kết bối từ bên trong muốn ra ngoài sẽ được cung cấp một địa chỉ IP trong dải. Nếu địa chỉ dải này đã được cấp phát hết thì các kết nối không thể đi ra ngoài nữa
+      Ví dụ như địa chỉ IP 192.168.1.2 sẽ chuyển đổi sang địa chỉ trong dải địa chỉ IP public 200.18.123.10 đến 200.18.123.20
+    + NPAT(Network Port Address Translation): các địa chỉ IP trong mạng LAN được đánh dấu dưới một địa chỉ NAT-IP. Mỗi gói tin được gửi ra ngoài bằng địa chỉ NAT-IP và port nguồn được thay thế bằng một cổng nào đó chưa được sử dụng ở NAT(thường lớn hơn 1204). Khi nhận được gói tin, router sẽ kiểm tra địa chỉ IP và port trong bảng NAT và chuyển nó đến host -> tiết kiệm địa chỉ thực
+       ![alt text](<../image/Screenshot 2024-03-18 110945.png>)
+      Ở đây các địa chỉ private đều chuyển thành địa chỉ 200.18.123.10 nhưng với số port khác nhau
+## 6.Phân biệt multicast và broadcast
+   - Sự khác nhau của multicast unicast và broadcast:
+       
+     ![alt text](<../image/Screenshot 2024-03-18 112433.png>)
+## 7.Khái niệm: subnet, subnet mask, prefex
+   - Subnet mask: Subnet mask là một dải 32 bit nhị phân đi kèm với một địa chỉ IP, được các host sử dụng để xác định địa chỉ mạng của địa chỉ IP này. Để làm được điều đó, host sẽ đem địa chỉ IP thực hiện phép tính AND từng bit một của địa chỉ với subnet mask của nó, kết quả host sẽ thu được địa chỉ mạng tương ứng của địa chỉ IP. 
+   Ví dụ: Xét địa chỉ 192.168.1.1 với subnet mask tương ứng là 255.255.255.0 
+     ![alt text](<../image/Screenshot 2024-03-18 113340.png>)
+
+   - Subnet: Thường được biểu diễn bằng địa chỉ IP kèm theo mặt nạ mạng (subnet mask)
+   Ví dụ: Một địa chỉ IP: 171.64.15.82 có subnet mask 255.255.255.0 thể hiện 3 byte đầu là địa chỉ mạng còn 8 bit cuối thể hiện số máy host cách biểu diễn của nó: 171.64.15.0/24
+   
+   - Số prefix: Khi khai báo một địa chỉ IP ta luôn phải khai báo kèm theo một subnet mask. Tuy nhiên, subnet mask dù đã được viết dưới dạng số thập phân vẫn khá dài dòng nên để mô tả một địa chỉ IP một cách ngắn gọn hơn, người ta dùng một đại lượng được gọi là số prefix. Số prefix đơn giản chỉ là số bit mạng trong một địa chỉ IP, được viết ngay sau địa chỉ IP, và được ngăn cách với địa chỉ này bằng một dấu “/”
+                              
