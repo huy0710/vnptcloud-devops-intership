@@ -102,7 +102,8 @@
      ![alt text](<../image/Screenshot 2024-03-18 113340.png>)
 
    - Subnet: Subnet là một khái niệm trong mạng máy tính, nó được sử dụng để phân chia một mạng lớn thành các mạng con nhỏ hơn
-   
+  
+      ![alt text](<../image/Screenshot 2024-03-18 162800.png>)
 
    - Số prefix: Khi khai báo một địa chỉ IP ta luôn phải khai báo kèm theo một subnet mask. Tuy nhiên, subnet mask dù đã được viết dưới dạng số thập phân vẫn khá dài dòng nên để mô tả một địa chỉ IP một cách ngắn gọn hơn, người ta dùng một đại lượng được gọi là số prefix. Số prefix đơn giản chỉ là số bit mạng trong một địa chỉ IP, được viết ngay sau địa chỉ IP, và được ngăn cách với địa chỉ này bằng một dấu “/”
                               
