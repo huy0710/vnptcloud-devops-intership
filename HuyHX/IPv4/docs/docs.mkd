@@ -34,7 +34,7 @@
     Ví dụ 171.64.15.0 là một địa chỉ mạng hoặc 171.64.15.255 là một địa chỉ quảng bá trong phạm vi mạng 171.64.15.0
 
 ## 4.Các lớp của địa chỉ IP
-  - Địa chỉ IP gồm 5 lớp (A, B, C, D , E)
+  - Địa chỉ IP có 5 phân lớp (A, B, C, D , E)
    
        ![alt text](<../image/Screenshot 2024-03-18 102115.png>)
 
@@ -101,8 +101,8 @@
     
      ![alt text](<../image/Screenshot 2024-03-18 113340.png>)
 
-   - Subnet: Thường được biểu diễn bằng địa chỉ IP kèm theo mặt nạ mạng (subnet mask)
-   Ví dụ: Một địa chỉ IP: 171.64.15.82 có subnet mask 255.255.255.0 thể hiện 3 byte đầu là địa chỉ mạng còn 8 bit cuối thể hiện số máy host cách biểu diễn của nó: 171.64.15.0/24
+   - Subnet: Subnet là một khái niệm trong mạng máy tính, nó được sử dụng để phân chia một mạng lớn thành các mạng con nhỏ hơn
+   
 
    - Số prefix: Khi khai báo một địa chỉ IP ta luôn phải khai báo kèm theo một subnet mask. Tuy nhiên, subnet mask dù đã được viết dưới dạng số thập phân vẫn khá dài dòng nên để mô tả một địa chỉ IP một cách ngắn gọn hơn, người ta dùng một đại lượng được gọi là số prefix. Số prefix đơn giản chỉ là số bit mạng trong một địa chỉ IP, được viết ngay sau địa chỉ IP, và được ngăn cách với địa chỉ này bằng một dấu “/”
                               
