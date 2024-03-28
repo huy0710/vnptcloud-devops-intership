@@ -1,0 +1,30 @@
+# Tìm hiểu về thiết bị mạng
+## 1.Router
+- Khái niệm: Router (thiết bị định tuyến hoặc bộ định tuyến) là thiết bị mạng dùng để chuyển các gói dữ liệu đến các thiết bị đầu cuối. Nói một cách dễ hiểu, Router là một thiết bị để chia sẻ Internet tới nhiều các thiết bị khác trong cùng lớp mạng.
+ 
+   ![alt text](../images/router.png)
+
+## 2.Switch
+- Switch hay bộ chuyển mạch là một thiết bị quan trọng trong hệ thống mạng, nó dùng để kết nối các đoạn mạng với nhau tạo thành một mô hình sao (Star). Switch sẽ đóng vai trò trung tâm, các thiết khác như: máy tính, máy in,... sẽ được kết nối về đây và tạo ra một đường trung chuyển dữ liệu. Ngoài ra, switch còn được tích hợp công nghệ Full Duplex giúp mở rộng băng thông của đường truyền, điều mà các thiết bị khác không thể làm được.
+- Switch Layer 2 và Switch Layer 3 là các khái niệm được sử dụng dựa trên mô hình OSI để mô tả và giải thích chức năng của từng switch khi tham gia vào hệ thống mạng. Trong mô hình OSI, Switch Layer 2 tương ứng với lớp Data Link và Switch Layer 3 tương ứng lớp Network.
+ + Switch Layer 2 là các thiết bị chuyển mạch thường được sử dụng để kết nối xuống các thiết bị đầu cuối, cung cấp kết nối mạng tới các thiết bị nhưng PC, Laptop, máy in, camera, server ... Switch Layer 2 được thiết kế tuân thủ theo các quy chuẩn của lớp Data Link.
+ + Switch Layer 3 là các thiết bị chuyển mạch thường được sử dụng cho các hệ thống Core hoặc Distribution để kết nối các switch access (switch layer 2) hoặc kết nối sang các mạng khác. Switch Layer 3 được thiết kế tuân thủ theo các quy chuẩn của lớp Network trong mô hình OSI.
+  
+## 3.Bridge
+Bridge là thiết bị mạng thuộc lớp thứ 2 trong mô hình OSI (Data Link Layer). Bridge được sử dụng để ghép giữa 2 mạng với nhau. Để tạo thành một mạng lớn.Khi có một gói tin từ một máy tính thuộc mạng này gửi đến một máy tính thuộc mạng khác. Bridge sẽ sao chép lại gói tin. Và gửi nó tới mạng đích. Bridge là hoạt động trong suốt. Các máy tính thuộc các mạng khác nhau có thể gửi các thông tin qua lại với nhau đơn giản. Mà không cần biết sự có mặt của Bridge. Bridge chỉ kết nối được những mạng cùng loại. Việc sử dụng Bridge cho những mạng tốc độ cao sẽ khó nếu chúng nằm xa nhau. 
+    ![alt text](../images/bridge.jpg)
+
+## 4.Repeater
+Repeater là một cách thức tiếp sóng mà không cần dùng đến đường truyền kết nối các thiết bị vào Modem bằng dây dẫn. Repeater tiếp sóng từ modem wifi giúp mạng wifi truyền đi xa hơn. Repeater là thiết bị ở lớp 1 (Physical Layer) trong mô hình OSI. Repeater có vai trò khuếch đại tín hiệu vật lý ở đầu vào và cung cấp tín hiệu ở đầu ra để có thể đến được điểm xa hơn trên mạng.
+
+## 5.Hub
+- Hub là thiết bị mạng cơ bản nhất kết nối nhiều PC hoặc kết nối các thiết bị mạng khác với nhau. Không giống như bộ chuyển mạch Switch hoặc bộ định tuyến Router, Hub không có bảng định tuyến hoặc thông tin về nơi gửi và phát tất cả dữ liệu mạng trên mỗi kết nối.
+
+- Hub và Switch đóng vai trò như một kết nối trung tâm với tất cả các thiết bị mạng của bạn và xử lý một kiểu dữ liệu gọi là khung. Khi nhận được một khung, nó được khuếch đại và sau đó truyền đến cổng của máy tính đích. Trong một bộ tập trung Hub, một Frame được truyền đi hoặc “broadcast” tới tất cả các cổng của nó. Hub không có cách nào phân biệt cổng nào sẽ được gửi đến. Chuyển nó đến tất cả các cổng đảm bảo rằng nó sẽ đạt đến đích dự kiến của nó. Điểm này đặt rất nhiều lưu lượng truy cập trên mạng và có thể dẫn đến thời gian phản hồi mạng kém.
+ 
+   ![alt text](../images/hub.jpg)
+
+## 6.Gateway
+Chức năng chính của thiết bị Gateway là kết nối các máy tính với nhau một cách dễ dàng ngay cả khi những thiết bị này không sử dụng chung một giao thức. Ví dụ như Gateway có thể kết nối máy tính sử dụng giao thức IP với máy tính sử dụng giao thức SNA, IPX,.. Ngoài ra, thiết bị này còn có khả năng phân biệt các giao thức. Vì vậy, thường được ứng dụng trong việc chuyển thư điện tử từ mạng này sang mạng khác kể cả đường truyền xa
+
+   ![alt text](../images/gateway-la-gi-1.jpg)
