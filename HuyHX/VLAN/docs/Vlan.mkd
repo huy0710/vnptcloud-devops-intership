@@ -1,0 +1,4 @@
+# Tìm hiểu về VLAN
+## 1.VLAN là gì?
+- Trước khi tìm hiểu về VLAN, thì cần tìm hiểu LAN là gì. LAN (Local Area Network) là một nhóm thiết bị mạng trong cùng một khu vực cùng kết nối vào mạng vật lý
+- VLAN (Virtual Local Area Network) là một mạng LAN ảo   
