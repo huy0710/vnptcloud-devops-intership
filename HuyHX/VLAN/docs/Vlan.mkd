@@ -1,4 +1,27 @@
 # Tìm hiểu về VLAN
-## 1.VLAN là gì?
+## 1.1 VLAN là gì?
 - Trước khi tìm hiểu về VLAN, thì cần tìm hiểu LAN là gì. LAN (Local Area Network) là một nhóm thiết bị mạng trong cùng một khu vực cùng kết nối vào mạng vật lý
-- VLAN (Virtual Local Area Network) là một mạng LAN ảo   
+- VLAN (Virtual Local Area Network) là một mạng LAN ảo, cho phép một con Switch vật lý thành nhiều con Switch ảo,
+- Một con Switch sẽ tạo được VLAN 0 đến 4095, trong đó VLAN1 không được sử dụng, VLAN2 - 1001 normal range ( có thể sử dụng được ), VLAN 1002-1005: dùng để kết nối cho các hệ thống mạng như: Token Ring.. , VLAN 1006-4094: VLAN dùng cho các Switch Transpatent
+   ![alt text](../images/VLAN.png)
+## 1.2 Phân loại VLAN
+- Static VLAN (VLAN tĩnh)
+ + Static VLAN là loại VLAN được tạo bằng cách gắn các cổng Switch cho một VLAN.
+- Dynamic VLAN (VLAN động)
+ + Được biết Dynamic VLAN là loại VLAN được tạo ra bằng cách sử dụng những phần mềm điển hình như Ciscowork 2000. Khi này người dùng sẽ sử dụng VLAN Management Policy Server (VMPS) để đăng ký các cổng Switch kết nối tới VLAN tự động. Quá trình kết nối được thực hiện dựa trên địa chỉ MAC nguồn của loại thiết bị được kết nối tới cổng
+## 1.3 Ứng dụng của VLAN
+- Tăng tính bảo mật: VLAN giúp tăng tính bảo mật cho mạng bằng cách phân chia mạng vật lý thành nhiều mạng ảo độc lập với nhau. Việc phân chia này giúp ngăn chặn các cuộc tấn công từ các thiết bị không được phép trong cùng một VLAN và giảm thiểu sự lan truyền của các thông tin bảo mật trên toàn mạng.
+- Quản lý dễ dàng: VLAN giúp quản lý mạng dễ dàng hơn bằng cách phân chia mạng vật lý thành các mạng ảo độc lập với nhau tùy thuộc vào các tiêu chí nhất định. Việc này giúp cho việc quản lý mạng trở nên dễ dàng hơn.
+- Giảm tải mạng: VLAN giúp giảm tải mạng bằng cách giảm lượng thông tin broadcast và multicast trên mạng. Khi một địa chỉ broadcast được gửi trên mạng vật lý, nó sẽ ảnh hưởng đến tất cả các thiết bị trên mạng. Khi chia mạng vật lý thành các VLAN, các địa chỉ broadcast chỉ được gửi đến các thiết bị trong cùng VLAN, giảm tải cho các thiết bị không cần nhận địa chỉ broadcast.
+- Tăng cường hiệu suất: VLAN giúp tăng cường hiệu suất mạng bằng cách tối ưu hóa lưu lượng truyền thông giữa các thiết bị trong cùng VLAN. Việc tối ưu hóa này giúp giảm thời gian chờ đợi trong việc truyền thông giữa các thiết bị và tăng tốc độ truyền thông trên mạng.
+Phân tích lưu lượng mạng: VLAN giúp phân tích và quản lý lưu lượng truyền thông trên mạng. Việc này giúp người quản trị mạng có thể quản lý và giám sát lưu lượng mạng một cách hiệu quả hơn.
+## 1.4 Cách hoạt động của VLAN
+- Các VLAN ở trong một mạng được xác định bằng một con số cụ thể phạm vi từ 1 - 4094 được gọi là ID VLAN. Các host cùng trong ID VLAN có thể trao đổi dữ liệu cho nhau. Các host được kết nối qua một cổng của Switch
+- Các ID VLAN trong các con Switch khác nhau có thể kết nối với nhau bằng các trực tiếp hoặc là trunking theo chuẩn 802.1q
+ 
+## 2.Tìm hiểu về Trunk
+- Khái niệm: 
+ Trong hệ thống mạng truyền thông, người ta dùng trunk để chỉ đường trung kế kết nối giữa các thiết bị đầu cuối, trạm con,… Đường trung kế được hiểu là đường truyền hoặc liên kết được thiết kế để mang nhiều tín hiệu. Đồng thời để cung cấp quyền truy cập mạng giữa hai điểm.Trunk thường kết nối các trung tâm chuyển mạch trong một hệ thống truyền thông. Các tín hiệu có thể truyền tải bất kỳ loại dữ liệu truyền thông.
+- Phân loại:
++ Chuẩn DOT1Q hay 802.1q, 2 chuẩn này do IEEE đề ra
++ Chuẩn ISL do Cisco đề ra. Thế nhưng không phải dòng sản phẩm nào của Cisco cũng hỗ trợ chuẩn ISL. Chính vì vậy hiện nay chuẩn dot1q được sử dụng phổ biến hơn so với các chuẩn còn lạ       
