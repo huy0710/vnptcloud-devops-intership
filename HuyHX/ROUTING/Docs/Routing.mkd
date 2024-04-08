@@ -1,0 +1,6 @@
+# TÌM HIỂU VỀ ROUTING
+## 1.Routing là gì?
+- Khái niệm: Định tuyến là quá trình chọn đường đi qua các nút mạng để tới đích một cách tối ưu, định tuyến được thực hiện ở lớp mạng 
+- Định tuyến có hai thành phần:
+  + Bảng định tuyến(routing table)
+  +  Giải thuật định tuyến 
