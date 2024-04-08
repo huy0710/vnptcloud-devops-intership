@@ -4,3 +4,33 @@
 - Định tuyến có hai thành phần:
   + Bảng định tuyến(routing table)
   +  Giải thuật định tuyến 
+    ![alt text](<../Images/Screenshot 2024-04-03 165124.png>)
+
+Nguyên tắc định tuyến của router: Longest prefix match 
+- Có hai loại định tuyến thường gặp: 
+  + Định tuyến tĩnh (static routing)
+  + Định tuyến động (dynamic routing)
+   
+     ![alt text](../Images/2_phan_loai.png)
+- Các chỉ số ảnh hường đến quá trình định tuyến:
+ + Độ trễ: Là khoảng thời gian do bộ routing thực hiện để xử lý, xếp hàng và truyền một gói dữ liệu tới một giao diện. Các giao thức sử dụng số liệu này để xác định giá trị độ trễ cho tất cả các liên kết dọc theo đường dẫn end-to-end. Đường dẫn có giá trị trễ thấp nhất sẽ được coi là đường dẫn tốt nhất.
+ + Băng thông: Dung lượng của liên kết được gọi là băng thông của liên kết. Băng thông được đo bằng bit trên giây. Liên kết có tốc độ truyền cao hơn như gigabit được ưu tiên hơn liên kết có dung lượng thấp hơn như 56 kb. Giao thức sẽ xác định dung lượng băng thông cho tất cả các liên kết dọc theo đường dẫn và băng thông tổng thể cao hơn sẽ được coi là đường tốt nhất.
+ + Độ tin cậy: Độ tin cậy là một yếu tố thước đo có thể bao gồm một giá trị cố định. Nó phụ thuộc vào các liên kết mạng và giá trị của nó được đo động. Một số mạng gặp sự cố thường xuyên hơn những mạng khác. Sau khi lỗi mạng, một số liên kết mạng được sửa chữa dễ dàng hơn các liên kết mạng khác. Bất kỳ hệ số độ tin cậy nào cũng có thể được xem xét để chỉ định xếp hạng độ tin cậy, thường là các giá trị số được chỉ định bởi người quản trị hệ thống.
+## 2. Định tuyến tĩnh: 
+- là phương pháp định tuyến mà người quản trị mạng cập nhập bảng định tuyến một cách thủ công và không sử dụng giao thức định tuyến 
+- Ưu điểm của định tuyến tĩnh:
+ + Sử dụng ít băng thông hơn so với các phương thức định tuyến khác.
+ + Không tiêu tốn tài nguyên để tính toàn và phân tích gói tin định tuyến.
+ + Dễ dàng triển khai, cấu hình.
+ + Có tính bảo mật tốt hơn.
+- Nhược điểm của định tuyến tĩnh:
+ + Không có khả năng tự động cập nhật đường đi.
+ + Phải cấu hình thủ công khi mạng có sự thay đổi.
+ + Khả năng mở rộng kém, phù hợp với mô hình mạng nhỏ 
+- Khi nào sử dụng định tuyến tĩnh:
+ + Đường truyền có băng thông thấp.
+ + Người quản trị cần kiểm soát các kết nối trong hệ thống.
+ + Hệ thống co các tuyến kết nối ít.
+ + Kết nối dùng định tuyến tĩnh là đường dự phòng cho đường kết nối dùng giao thức định tuyến động
+  
+   ![alt text](<../Images/Screenshot 2024-04-08 093141.png>)             
