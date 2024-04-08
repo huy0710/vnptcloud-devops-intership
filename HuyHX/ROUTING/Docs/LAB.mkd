@@ -1,33 +1,46 @@
 # LAB STATIC ROUTE
 ## 1.Topology: 
 - Data truyền dữ liêu từ PC1 sang PC2 thông qua Router 1 và Router 2:
+  
    ![alt text](<../Images/Screenshot 2024-04-08 134016.png>)
 
 + Bước 1: Đặt tên cho router 1
+ 
    ![alt text](<../Images/Screenshot 2024-04-08 141117.png>)
 
 + Bước 2: Cấu hình ip cho các cổng trên Router1
+ 
    ![alt text](<../Images/Screenshot 2024-04-08 141533.png>)
 
 + Bước 3: Xem cấu hình của Router
+ 
    ![alt text](<../Images/Screenshot 2024-04-08 141635.png>)
 
 + Bước 4: Đặt tên cho router 2:
+ 
    ![alt text](<../Images/Screenshot 2024-04-08 141932.png>)
 
 + Bước 5: Cấu hình cho router 2:
+
    ![alt text](<../Images/Screenshot 2024-04-08 142522.png>)
 
 + Bước 6: Cấu hình cho 2 máy tính
-  - PC1:    
+ 
+  - PC1:
+       
    ![alt text](<../Images/Screenshot 2024-04-08 143007.png>)
+
 
   - PC2:
    ![alt text](<../Images/Screenshot 2024-04-08 143056.png>)
+
+
 + Bước 7: Định tuyến để cho router 1 truyền đến router 2
   
    ![alt text](<../Images/Screenshot 2024-04-08 144348.png>)
     
    ![alt text](<../Images/Screenshot 2024-04-08 144532.png>)
-+ Bước 8: Hiện thị kết quả: 
+
++ Bước 8: Hiện thị kết quả:
+  
     ![alt text](<../Images/Screenshot 2024-04-08 144633.png>)
