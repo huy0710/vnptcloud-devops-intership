@@ -1,0 +1,13 @@
+# TÌM HIỂU VỀ NAT 
+## 1.NAT là gì?
+ - Kỹ thuật NAT (Network Address Translation) được sử dụng để chuyển đổi giữa IP private và IP public. 
+ - Ý nghĩa của địa chỉ private: được sử dụng để bảo tồn địa chỉ IP public đang dần cạn kiệt
+## 2. Các loại NAT
+- NAT có 3 loại:
+    + Static NAT: Là quá trình ánh xạ 1-1 từ địa chỉ IP private thành địa chỉ IP public. Được sử dụng khi số lượng IP trong LAN bằng số NAT-IP 
+      ![alt text](<../Images/Screenshot 2024-03-18 105851.png>)
+    + Dynamic NAT: là quá trình ánh xạ một địa chỉ IP private thành một địa chỉ IP public từ một dải các địa chỉ IP đã được đăng kí. Mỗi kết nối từ bên trong muốn ra ngoài sẽ được cung cấp một địa chỉ trong dải. Nếu dải địa chỉ này đã được cấp phát hết thì các kết nối sẽ không thể ra ngoài nữa.
+       ![alt text](<../Images/Screenshot 2024-04-16 165503.png>)
+       Máy tính với địa chỉ IP 192.168.1.2 sẽ chuyển đổi sang địa chỉ đầu tiên chưa  được sử dụng trong dải địa chỉ public 200.18.123.10 đến 200.18.123.20
+    + NPAT (Network Port Address Translation) các địa chỉ IP trong mạng LAN được dấu dưới một địa chỉ NAT-IP. Mỗi gói tin được gửi ra ngoài bằng địa chỉ NAT-IP và port nguồn được thay thế bằng một cổng nào đó chưa được dùng ở NAT (thường lớn hơn 1204). Khi nhận được gói tin, router sẽ kiểm tra địa chỉ IP và port trong bảng NAT và chuyển nó đến host.   
+       ![alt text](<../Images/Screenshot 2024-04-16 165839.png>)
