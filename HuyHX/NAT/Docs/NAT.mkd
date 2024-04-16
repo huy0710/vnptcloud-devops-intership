@@ -11,3 +11,10 @@
        Máy tính với địa chỉ IP 192.168.1.2 sẽ chuyển đổi sang địa chỉ đầu tiên chưa  được sử dụng trong dải địa chỉ public 200.18.123.10 đến 200.18.123.20
     + NPAT (Network Port Address Translation) các địa chỉ IP trong mạng LAN được dấu dưới một địa chỉ NAT-IP. Mỗi gói tin được gửi ra ngoài bằng địa chỉ NAT-IP và port nguồn được thay thế bằng một cổng nào đó chưa được dùng ở NAT (thường lớn hơn 1204). Khi nhận được gói tin, router sẽ kiểm tra địa chỉ IP và port trong bảng NAT và chuyển nó đến host.   
        ![alt text](<../Images/Screenshot 2024-04-16 165839.png>)
+## 3. Công dụng của NAT
+- Tránh được sự chồng chéo địa chỉ IP.
+- Linh hoạt và sự dễ dàng trong quản lý.
+- Các máy bên trong LAN có thể chia sẻ kết nối internet với 1 địa chỉ IP duy nhất       
+## 4. SNAT và DNAT 
+- SNAT SNAT là viết tắt của Source Network Address Translation, SNAT được sử dụng khi muốn một máy tính muốn kết nối ra bên ngoài, Thiết bị thực hiện NAT thay đổi địa chỉ IP private của máy chủ nguồn thành IP Public. Nó cũng có thể thay đổi cổng nguồn trong TCP/ UDP
+- DNAT DNAT là viết tắt của Destination Network Address Translation. Nó có chức năng thay đổi địa chỉ đích trong IP của gói tin. Ngoài ra, DNAT cũng có thể thay đổi cổng đích trong TCP / UDP. Ứng dụng của DNAT là khi muốn truyền một gói tin từ địa chỉ IP public đến IP private. Người dùng qua internet truy cập máy chủ web được lưu trữ trong trung tâm dữ liệu là một ví dụ điển hình mà DNAT được sử dụng để ẩn địa chỉ private. Đồng thời, thiết bị NAT chuyển IP đích public mà người dùng internet có thể truy cập thành địa chỉ IP private của máy chủ web.
