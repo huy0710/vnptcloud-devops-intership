@@ -1,0 +1,153 @@
+# Tìm hiểu về Linux cở bản 
+## 1.Linux là gì?
+- Linux là một hệ điều hành tương tự với Microsoft Windows, nhưng linux được tự do phát triển theo nhu cầu sử dụng và hoàn toàn miễn phí,
+ ![alt text](../Images/Tux.svg.png) 
+
+- Lịch sử hình thành: Lịch sử của Linux bắt đầu vào năm 1991 với sự bắt đầu của một dự án cá nhân của sinh viên Phần Lan Linus Torvalds để tạo ra một hệ điều hành tự do mới. Kể từ đó, các kết quả của hệ điều hành Linux đã được tăng trưởng liên tục trong suốt lịch sử của nó. Kể từ khi phát hành mã nguồn của nó lần đầu vào năm 1991, nó đã phát triển từ một số nhỏ các tập tin viết bằng C theo một giấy phép cấm phân phối thương mại đến các phiên bản 3.10 vào năm 2013 với hơn 16 triệu dòng mã nguồn, và đến bản phát hành 4.15 năm 2008 nó đã lên có 23.3 triệu dòng lệnh. Hiện nay, Linux được chia ra thành các phiên bản như: Ubuntu, Linux Mint, Fedora, Debian,… nhưng phần lớn người sử dụng nhiều vẫn là Ubuntu. Linux là một trong những ví dụ nổi bật nhất của phần mềm nguồn mở và của việc phát triển mã nguồn mở. Mã nguồn có thể được dùng, sửa đổi và phân phối – thương mại hoặc phi thương mại – bởi bất kỳ ai, theo các điều khoản của giấy phép tương ứng, ví dụ như GNU General Public License. 
+## 2. Cấu trúc của hệ điều hành Linux 
+- Kiến trúc tổng quan của hệ thống linux bao gồm 3 phần gồm Kernel, Shell, Applications
+ ![alt text](../Images/unix-linux-la-gi-1.jpg)
+
+ + Kernel: Đây là phần quan trọng và được ví như trái tim của hệ điều hành. Phần Kernel chưa các module, thư viện để quản lý và giao tiếp với phần cứng và các ứng dụng 
+ + Shell: Shell là một chương trình. Có chức năng thực thi các lệnh(command) từ ngưỜi dùng hoặc từ các ứng dụng - tiện ích yêu cầu chuyển đến cho kernel xử lý. Có các loại Shell như Sh, Bash, csh....
+ + Applications: Là các ứng dụng và tiện ích mà người dùng cài đặt
+  
+- Kiến trúc hệ thống File:
+ Cấu trúc hệ thống file trên Centos được bố trí theo dạng hình cây như sau
+
+   ![alt text](<../Images/Screenshot 2024-04-24 142731.png>)
+
+ Bắt đầu là thư mục gốc "/", Sau đó là các thư mục con như: /bin, /sbin, /home, /mnt .....
+
+ Mỗi thư mục con của thư mục gốc có chức năng khác nhau
+ + /bin: Chức các file binary của các tập lệnh trong Linux
+ + /sbin: Tương tự như /bin, nhưng là lệnh chỉ đưỢc sử dụng bởi root user
+ + /boot: Chứa các thư viện cần thiết cho quá trình khởi động
+ + /dev: Chứa thông tin các file thiết bị 
+ + /etc: Chứa file cấu hình của hệ thống và ứng dụng
+ + /lib: Chứa thư viện chia sẻ được dùng bởi các tiến trình, các lệnh boot, lệnh hệ thông như /bin, /sbin
+ + /lib64: Tương tự như lib nhưng dùng cho 64bit
+ + /opt: Dành riêng cho các tiện ích chương trình được cài đặt
+ + /proc: Lưu các thông tin về tình trạng của hệ thống
+ + /mnt: Thư mục này được dùng để gắn các hệ thống tập tin tạm thời 
+ + /srv: Chứa dữ liệU, các file của các dịch vụ trên hệ thống
+ + /root: Thư mục home của user root
+ + /home: Thư mục chứa các thư mục home của các user được tạp 
+## 3.Ưu điểm, hạn chế của Linux 
+- Ưu điểm: 
+ + Miễn phí, được hỗ trợ những ứng dụng văn phòng LibreOffice và OpenOffice.
+ + Có tính bảo mật cao,tất cả các phần mềm mã độc, virus,… đều không thể hoat động trên Linux.
+ + Linux hỗ trợ cho máy cấu hình yếu, không sợ xảy ra tình trạng lag, giật, không hoạt động,… trên những máy tính với cấu hình không cao.
+ + Khi sử dụng Linux, người dùng có thể linh hoạt trong việc chỉnh sửa hệ điều hành theo nhu cầu của mình. Là một ưu điểm rất hữu ích trong quá trình sử dụng của các lập trình viên.
+- Nhược điểm
+ + Những nhà phát triển về phần mềm hiện tại vẫn chưa để tâm tới hệ điều hành vô cùng tiềm năng này vì vậy số lượng những phần mềm được hỗ trợ ở thời điểm hiện tại vẫn còn đang hạn chế.
+ + Một số những nhà sản xuất hiện tại vẫn không phát triển driver để hỗ trợ cho nền tảng Linux.
+ + Khó tiếp cận và làm quen khi bạn đã quá quen thuộc với Windows thì khi chuyển sang Linux bạn cần một thời gian để có thể làm quen được hệ điều hành này. 
+## 4.Linux command là gì?
+- Command line trong Linux (hay còn gọi là Terminal) là một giao diện dòng lệnh cho phép người dùng tương tác với hệ thống thông qua các lệnh và câu lệnh. Với command line, người dùng có thể thực hiện các tác vụ như xem, sao chép, di chuyển, xóa, tạo thư mục, thiết lập quyền truy cập, chạy chương trình, đặt lịch và tương tác với các ứng dụng và dịch vụ khác. Terminal trong Linux là một ứng dụng dòng lệnh (command-line interface) cho phép người dùng tương tác với hệ thống. Nó cho phép người dùng nhập các lệnh bằng cách gõ trực tiếp từ bàn phím và xem kết quả trực tiếp trên màn hình. Terminal là một công cụ mạnh mẽ để quản lý hệ thống, quản lý các tệp tin và thư mục, cài đặt và quản lý các gói phần mềm, và thực hiện các tác vụ khác. Terminal trong Linux là một chương trình dòng lệnh (command-line interface) giúp người dùng thao tác với hệ thống và các ứng dụng thông qua gõ các lệnh vào dòng lệnh.
+- Cách command phổi biến của linux:
+ + free + opition (-b, -k ... )
+    ![alt](<../Images/Screenshot 2024-04-24 151025.png>)
+
+   Coi thông tin về RAM 
+
+ + uname + opitions (-a, -ra) 
+     ![alt text](<../Images/Screenshot 2024-04-24 151258.png>)
+
+   Coi thông tin Kernel
+
+ + date: Xem ngày tháng năm;
+ 
+ + pwd: Cho biết mình đang đứng ở thư mục nào
+     ![alt text](<../Images/Screenshot 2024-04-24 151620.png>)  
+
+ + top: Xem các tiến trình đang chạy
+ + hostname: Xem tên server
+ + ip a: xem địa chỉ IP
+ + ls + opitions (-l, -a ...) -a: xem các file ẩn , -l chi tiết 
+  
+     ![alt text](<../Images/Screenshot 2024-04-24 152528.png>)
+
+ + cd + opition: Di chuyển đến các thư mục
+     ![alt text](<../Images/Screenshot 2024-04-24 152700.png>) 
+
+   Ở đây di chuyển vào thư mục datas và kiểm tra vị trí làm việc
+
+## 5.Các loại user trong linux 
+Ở Linux có hai loại user đó là user hệ thống và user người dùng
+- User hệ thống: Dùng để thực thi các module, script cần thiết để phục vụ cho hệ điều hành
+ 
+- User người dùng: là những tài khoản để login để sử dụng hệ điều hành. Trong đó thì tài khoản user root là tài khoản quan trọng nhất. Tài khoản này đã được tạo tự động khi cài đặt linux. Tài khoản này không thể đổi tên hoặc xoá bỏ. User root còn được gọi là super user vì có quyền trên toàn hệ thống. Chỉ làm việc với tài khoản user root khi muốn thực hiện công tác quản trị hệ thống  
+
+- Mỗi user có các đặc điểm sau:
+ + Tên mỗi user là duy nhất, chỉ có thể đặt tên chữ thường, chữ hoa
+ + Mỗi user có một mã định danh duy nhất(uid)
+ + Mỗi user có thể thuộc về nhiều nhóm
+
+- File /etc/passwd: là file văn bản chứ thông tin về các tài khoản user trên máy. Mọi user đều có thể đọc tập tin này nhưng chỉ có root mới có quyền thay đổi
+ 
+ + Để xem câu lệnh ta dùng vi /etc/passwd
+   ![alt text](<../Images/Screenshot 2024-04-24 155015.png>) 
+
+ Trong đó các thành phần được mô tả như sau:
+   ![alt text](<../Images/Screenshot 2024-04-24 155123.png>)
+
+- File /etc/shadown: là tập tin về mật khẩu của các tài khoản user trên máy
+
+- Tạo tài khoản user: có thể sử dụng useradd hoặc adduser + login_name
+ 
+- Sửa thông tin tài khoản: usermod + login_name
+- Xoá tài khoản userdel + login_name
+
+## 6. Distro linux là gì ? Phân loại các distro Linux
+- Distro là gì: Distro là từ viết tắt thay thế cho Linux Distribution bản phân phối của Linux - là một hệ điều hành được tập hợp từ nhiều phần mềm dựa trên nhân Linux (Linux Kernel) và thường có một hệ thống quản lý các gói tin.
+ 
+- Hiện tại, có khoảng 600 bản distro tồn tại, với gần 500 trong số đó phát triển tích cực, liên tục được sửa đổi và cải thiện. Bởi sự sẵn có của số lượng lớn phần mềm, distro khá là đa dạng về hình thức - phù hợp với từ desktop, server, laptop, netbooks, điện thoại di động, máy tính bảng cũng như môi trường tối thiếu thường để sử dụng trong các hệ thống nhúng
+ 
+- Có nhiều bản phân phối thương mại như Fedora (Red hat), OpenSUSE (SUSE), Ubuntu (Canonical Ltd); và hoàn toàn phân phối dựa vào cộng đồng như Debian, Slackware, Gentoo hay Arch Linux. 
+
+- Các nhánh distro phổ biến
+ 
+ Debian: Là một bản phân phối phi thương mại và là một trong những bản phân phối ra đời sớm nhất, duy trì bởi một cộng đồng phát triển tình nguyện với một cam kết mạnh mẽ cho nguyên tắc phần mềm miễn phí và quản lý dự án dân chủ.
+   
+      ![alt text](../Images/687474703a2f2f692e696d6775722e636f6d2f61624e4a777a632e706e67.png)
+
+  + Có 3 dạng khác nhau:
+
+       Phiên bản ổn định mà người dùng được khuyến khích sử dụng.
+
+       Phiên bản không ổn định.
+
+       Phiên bản thử nghiệm cho những ai mong muốn có được phần mềm mới nhất.
+ 
+  + Hệ thống gói quản lý phần mềm sử dụng:
+
+       dpkg  cài đặt các gói phần mềm .deb
+
+       apt cài đặt phần mềm từ các kho trên mạng.
+
+  + Debian có chính sách nghiêm ngặt đối với chất lượng các gói và bản phát hành cũng như tiến trình phát triển và kiểm tra mở. Cách này giúp cho việc nâng cấp các bản phát hành cũng như việc đặt hay gỡ bỏ dễ dàng hơn.
+
+  + Có khá nhiều distro phát triển dựa trên distro Debian như: Raspbian, Knoppix, Astra Linux, Kali Linux, ... và phổ biến nhất là nhánh Ubuntu
+     
+Fedora: Là một bản phân phối cộng đồng được "đỡ đầu" bởi một công ty của Mỹ - Red Hat. Nó được tạo ra nhằm kiểm thử các công nghệ cho một bản phân phối thương mại khác của Red Hat - nơi mà các phần mềm nguồn mở mới được tạo lập, phát triển và kiểm thử trong môi trường cộng đồng trước khi được đưa vào Red Hat Enterprise Linux.  
+
+  ![alt text](../Images/687474703a2f2f696d6775722e636f6d2f32596e674670382e706e67.png)
+
+  + Chu kì ra phiên bản mới của Fedora là 6 tháng. Phiên bản mới với các tính năng bảo mật mà các chuyên gia đánh giá khá tốt.
+
+  + Có thể nâng cấp lên phiên bản mới mà không cần cài đặt lại.
+
+  + Dùng yum để quản lý các gói phần mềm định dạng .rpm
+
+  + Fedora có thể dùng cho máy tính để bàn và máy trạm, thậm chí máy chủ; dành cho những người mới tiếp cận PMTDNM hay những người đã có nhiều kinh nghiệm.
+
+  + 2 distro phổ biến nhất được phát triển dựa trên Fedora là Red Hat Enterprise Linux - với đối tượng hướng tới là các doanh nghiệp và công ty lớn (tất nhiên là có tính phí) ; và CentOS - free và hướng tới đối tượng là người sử dụng cá nhân.  
+- Linux có hàng trăm bản distro khác nhau đủ để phù hợp với nhu cầu của nhiều đối tượng sử dụng: từ người mới bắt đầu tới những người đã có hiểu biết chuyên sâu.
+
+  + Với người sử dụng cá nhân thì các distro phổ biến là: Ubuntu, Linux Mint, Arch Linux, CentOS, Fedora, openSuSE ...
+
+  + Với đối tượng sử dụng là hệ thống sever có thể kể đến như là : Red Hat Enterprise Linux, Ubuntu Server, CentOS, SUSE Enterprise Linux.. 
+
+
+
