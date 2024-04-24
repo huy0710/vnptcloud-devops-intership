@@ -4,6 +4,7 @@
  ![alt text](../Images/Tux.svg.png) 
 
 - Lịch sử hình thành: Lịch sử của Linux bắt đầu vào năm 1991 với sự bắt đầu của một dự án cá nhân của sinh viên Phần Lan Linus Torvalds để tạo ra một hệ điều hành tự do mới. Kể từ đó, các kết quả của hệ điều hành Linux đã được tăng trưởng liên tục trong suốt lịch sử của nó. Kể từ khi phát hành mã nguồn của nó lần đầu vào năm 1991, nó đã phát triển từ một số nhỏ các tập tin viết bằng C theo một giấy phép cấm phân phối thương mại đến các phiên bản 3.10 vào năm 2013 với hơn 16 triệu dòng mã nguồn, và đến bản phát hành 4.15 năm 2008 nó đã lên có 23.3 triệu dòng lệnh. Hiện nay, Linux được chia ra thành các phiên bản như: Ubuntu, Linux Mint, Fedora, Debian,… nhưng phần lớn người sử dụng nhiều vẫn là Ubuntu. Linux là một trong những ví dụ nổi bật nhất của phần mềm nguồn mở và của việc phát triển mã nguồn mở. Mã nguồn có thể được dùng, sửa đổi và phân phối – thương mại hoặc phi thương mại – bởi bất kỳ ai, theo các điều khoản của giấy phép tương ứng, ví dụ như GNU General Public License. 
+ 
 ## 2. Cấu trúc của hệ điều hành Linux 
 - Kiến trúc tổng quan của hệ thống linux bao gồm 3 phần gồm Kernel, Shell, Applications
  ![alt text](../Images/unix-linux-la-gi-1.jpg)
@@ -38,20 +39,24 @@
  + Miễn phí, được hỗ trợ những ứng dụng văn phòng LibreOffice và OpenOffice.
  + Có tính bảo mật cao,tất cả các phần mềm mã độc, virus,… đều không thể hoat động trên Linux.
  + Linux hỗ trợ cho máy cấu hình yếu, không sợ xảy ra tình trạng lag, giật, không hoạt động,… trên những máy tính với cấu hình không cao.
- + Khi sử dụng Linux, người dùng có thể linh hoạt trong việc chỉnh sửa hệ điều hành theo nhu cầu của mình. Là một ưu điểm rất hữu ích trong quá trình sử dụng của các lập trình viên.
+ + Khi sử dụng Linux, người dùng có thể linh hoạt trong việc chỉnh sửa hệ điều hành theo nhu cầu của mình. Là một ưu điểm rất hữu ích trong quá trình sử dụng của các lập trình viên
+  
 - Nhược điểm
  + Những nhà phát triển về phần mềm hiện tại vẫn chưa để tâm tới hệ điều hành vô cùng tiềm năng này vì vậy số lượng những phần mềm được hỗ trợ ở thời điểm hiện tại vẫn còn đang hạn chế.
  + Một số những nhà sản xuất hiện tại vẫn không phát triển driver để hỗ trợ cho nền tảng Linux.
  + Khó tiếp cận và làm quen khi bạn đã quá quen thuộc với Windows thì khi chuyển sang Linux bạn cần một thời gian để có thể làm quen được hệ điều hành này. 
+  
 ## 4.Linux command là gì?
 - Command line trong Linux (hay còn gọi là Terminal) là một giao diện dòng lệnh cho phép người dùng tương tác với hệ thống thông qua các lệnh và câu lệnh. Với command line, người dùng có thể thực hiện các tác vụ như xem, sao chép, di chuyển, xóa, tạo thư mục, thiết lập quyền truy cập, chạy chương trình, đặt lịch và tương tác với các ứng dụng và dịch vụ khác. Terminal trong Linux là một ứng dụng dòng lệnh (command-line interface) cho phép người dùng tương tác với hệ thống. Nó cho phép người dùng nhập các lệnh bằng cách gõ trực tiếp từ bàn phím và xem kết quả trực tiếp trên màn hình. Terminal là một công cụ mạnh mẽ để quản lý hệ thống, quản lý các tệp tin và thư mục, cài đặt và quản lý các gói phần mềm, và thực hiện các tác vụ khác. Terminal trong Linux là một chương trình dòng lệnh (command-line interface) giúp người dùng thao tác với hệ thống và các ứng dụng thông qua gõ các lệnh vào dòng lệnh.
 - Cách command phổi biến của linux:
  + free + opition (-b, -k ... )
+  
     ![alt](<../Images/Screenshot 2024-04-24 151025.png>)
 
    Coi thông tin về RAM 
 
- + uname + opitions (-a, -ra) 
+ + uname + opitions (-a, -ra)
+   
      ![alt text](<../Images/Screenshot 2024-04-24 151258.png>)
 
    Coi thông tin Kernel
@@ -59,16 +64,21 @@
  + date: Xem ngày tháng năm;
  
  + pwd: Cho biết mình đang đứng ở thư mục nào
+  
      ![alt text](<../Images/Screenshot 2024-04-24 151620.png>)  
 
  + top: Xem các tiến trình đang chạy
+  
  + hostname: Xem tên server
+  
  + ip a: xem địa chỉ IP
+  
  + ls + opitions (-l, -a ...) -a: xem các file ẩn , -l chi tiết 
   
      ![alt text](<../Images/Screenshot 2024-04-24 152528.png>)
 
  + cd + opition: Di chuyển đến các thư mục
+  
      ![alt text](<../Images/Screenshot 2024-04-24 152700.png>) 
 
    Ở đây di chuyển vào thư mục datas và kiểm tra vị trí làm việc
@@ -108,7 +118,7 @@
 
 - Các nhánh distro phổ biến
  
- Debian: Là một bản phân phối phi thương mại và là một trong những bản phân phối ra đời sớm nhất, duy trì bởi một cộng đồng phát triển tình nguyện với một cam kết mạnh mẽ cho nguyên tắc phần mềm miễn phí và quản lý dự án dân chủ.
+Debian: Là một bản phân phối phi thương mại và là một trong những bản phân phối ra đời sớm nhất, duy trì bởi một cộng đồng phát triển tình nguyện với một cam kết mạnh mẽ cho nguyên tắc phần mềm miễn phí và quản lý dự án dân chủ.
    
       ![alt text](../Images/687474703a2f2f692e696d6775722e636f6d2f61624e4a777a632e706e67.png)
 
