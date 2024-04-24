@@ -1,0 +1,104 @@
+# Tìm hiểu cách cài đặt, sử dụng VMWare Workstation
+## 1.Cài đặt VMware Workstation
+
+- Bước 1: Lên google tải  VMware Workstation Pro
+- Bước 2: Tiến hành cài đặt, bước này chỉ cần ấn next hết 
+
+- Bước 3: Sau khi cài đặt xong thì sẽ hiện ở trên Desktop
+   ![alt text](<../Images/Screenshot 2024-04-22 224804.png>)
+
+- Bước 4: Mở lên 
+   ![alt text](<../Images/Screenshot 2024-04-22 224914.png>)
+
+## 2. Cài đặt Ubuntu Server 22.04
+
+- Bước 1: chọn create a New Virtual Machine như hình vẽ:  
+   ![alt text](<../Images/Screenshot 2024-04-22 225342.png>)
+
+- Bước 2: Tải file .iso ở trên web lưu ý chọn đúng file cần tải 
+
+   ![alt text](<../Images/Screenshot 2024-04-22 225609.png>)
+
+- Bước 3: Khởi tạo tên và nơi lưu trữ server:
+   ![alt text](<../Images/Screenshot 2024-04-22 225823.png>)
+
+- Bước 4: Lựa chọn kích thước server (tối thiểu 20GB)
+  
+- Bước 5: Sau đó ấn finsh và kết thúc
+   ![alt text](<../Images/Screenshot 2024-04-22 230059.png>)
+
+- Bước 6: Vào chọn ngôn ngữ:
+   ![alt text](<../Images/Screenshot 2024-04-22 230153.png>)
+
+
+- Bước 7: Cấu hình dung lượng của server và tên server + password: 
+   ![alt text](<../Images/Screenshot 2024-04-22 230525.png>)
+
+- Bước 8: Install SSH: 
+   ![alt text](<../Images/Screenshot 2024-04-22 230648.png>)
+
+- Bước 9: Đợi xong rồi ấn reboot:
+   ![alt text](<../Images/Screenshot 2024-04-22 230753.png>)
+
+## 3.Phân biệt 3 chế độ network trong VMware: NAT, Bridge, Host-only    
+- Host-only: Trong chế độ này, card mạng của máy ảo chỉ được kết nối với một mạng ảo riêng trên máy chủ VMware. Máy ảo có thể giao tiếp với máy chủ VMware và các máy ảo khác trong cùng mạng ảo, nhưng không thể truy cập vào mạng bên ngoài hoặc các máy tính khác trong mạng vật lý. Chế độ Host-Only thường được sử dụng để tạo ra một mạng riêng trong môi trường phát triển hoặc kiểm thử mà không cần kết nối với mạng bên ngoài.
+  ![alt text](../Images/vmware_host_only_networking.png) 
+
+- Bridge: Trong chế độ này, card mạng của máy ảo sẽ được kết nối trực tiếp với mạng vật lý bên ngoài thông qua một card mạng vật lý trên máy chủ VMware hoặc máy tính chủ. Máy ảo sẽ có địa chỉ IP duy nhất trên mạng vật lý và có thể truy cập vào các thiết bị và nguồn tài nguyên trong mạng bên ngoài. Chế độ Bridge cho phép máy ảo tham gia vào mạng như một máy tính riêng biệt và có thể giao tiếp với các máy tính khác trong mạng.  
+  ![alt text](<../Images/Screenshot 2024-04-24 083952.png>)
+
+- NAT: Trong chế độ này, card mạng của máy ảo sẽ được kết nối thông qua một card mạng ảo trên máy chủ VMware, và máy chủ VMware sẽ hoạt động như một bộ định tuyến NAT. Card mạng ảo trên máy chủ VMware sẽ cung cấp địa chỉ IP cho máy ảo và chuyển tiếp các gói tin giữa máy ảo và mạng bên ngoài. Máy ảo có thể truy cập vào Internet và các nguồn tài nguyên bên ngoài, nhưng không thể trực tiếp truy cập vào các máy tính khác trong mạng.
+
+## 4. Sử dụng chế độ mạng NAT cho các máy ảo để truy cập internet (cấu hình IP tĩnh)
+- Bước 1: Vào sudo -i 
+- Bước 2: Gõ câu lệnh nano /etc/netplan/00-installer-config.yaml
+- Bước 3: Dựa vào virtual network editor để cấU hình: 
+   ![alt text](<../Images/Screenshot 2024-04-22 233444.png>)
+- Bước 4: Cấu hình như hình:
+   ![alt text](<../Images/Screenshot 2024-04-22 233405.png>) 
+- Bước 5: Ấn ctrl + X để thoát và lưu file sau đó thực hiện câu lệnh netplan apply
+- Bước 6: Kiểm tra bằng câu lệnh ip a
+   ![alt text](<../Images/Screenshot 2024-04-22 233801.png>)    
+- Bước 7: Thực hiện câu lệnh ping 8.8.8.8:      
+   ![alt text](<../Images/Screenshot 2024-04-22 233931.png>)
+
+## 5.Sử dụng chế độ card Host-only để 2 máy ảo kết nối với nhau 
+- Bước 1: Vào virtual network editor coi có mạng Host-only không nêu không thì ấn vào addnetwork và chọn mạng Host-only
+   ![alt text](<../Images/Screenshot 2024-04-24 092108.png>)
+
+- Bước 2: Tạo VM mới và tiến hành cài đặt bình thường đến khi thấy    
+   ![alt text](<../Images/Screenshot 2024-04-24 085725.png>)
+
+- Bước 3: Cấu hình cho máy ảo card mạng host-only 
+- Bước 4: Cài đặt và kiểm tra lại máy ảo coi đúng với mạng của VMNet chưa
+   ![alt text](<../Images/Screenshot 2024-04-24 092437.png>)
+
+Như chúng ta đã thấy máy ảo VM đã nằm trong hốc mạng của VMNet 1 mang card mạng host-only như vậy việc cài đặt là hoàn tất
+
+- Bước 5: Tạo thêm một máy ảo nữa và thực hiện ping giữa 2 máy ảo
+  + Kiểm tra ip của máy ảo thứ 2: 
+    ![alt text](<../Images/Screenshot 2024-04-24 093533.png>)
+
+  + Thực hiện ping giữa 2 máy ảo:   
+    ![alt text](<../Images/Screenshot 2024-04-24 093806.png>)     
+    
+## 6.Sử dụng 1 card Bridge để từ máy ảo ping ra máy laptop cá nhân
+- Bước 1: Vào virtual network editor coi có mạng Bridge không nêu không thì ấn vào addnetwork và chọn mạng Bridge
+    ![alt text](<../Images/Screenshot 2024-04-24 085536.png>)
+
+- Bước 1: Tạo VM mới
+- Bước 2: Tiến hành cài đặt như bình thường và khi đến 
+   ![alt](<../Images/Screenshot 2024-04-24 085725.png>)
+
+- Bước 3: Vào để chọn Network adapter 
+- Bước 4: Chọn VMnet0 (card mạng được cấu hình sẵn)
+ 
+- Bước 5: Kiểm tra cấu hình của máy tính thật
+   ![alt text](<../Images/Screenshot 2024-04-24 090829.png>)
+
+- Bước 6: Kiểm tra cấu hình của máy ảo
+   ![alt text](<../Images/Screenshot 2024-04-24 090742.png>)
+
+- Bước 7: Ping máy ảo đến máy thật
+   ![alt text](<../Images/Screenshot 2024-04-24 091051.png>)
+       
