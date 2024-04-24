@@ -75,7 +75,7 @@
   
 - Bước 6: Kiểm tra bằng câu lệnh ip a
    ![alt text](<../Images/Screenshot 2024-04-22 233801.png>)
-       
+
 - Bước 7: Thực hiện câu lệnh ping 8.8.8.8:      
    ![alt text](<../Images/Screenshot 2024-04-22 233931.png>)
 
@@ -115,8 +115,10 @@ Như chúng ta đã thấy máy ảo VM đã nằm trong hốc mạng của VMNe
    ![alt text](<../Images/Screenshot 2024-04-24 090829.png>)
 
 - Bước 7: Kiểm tra cấu hình của máy ảo
+ 
    ![alt text](<../Images/Screenshot 2024-04-24 090742.png>)
 
-- Bước 7: Ping máy ảo đến máy thật
+- Bước 8: Ping máy ảo đến máy thật
+ 
    ![alt text](<../Images/Screenshot 2024-04-24 091051.png>)
        
