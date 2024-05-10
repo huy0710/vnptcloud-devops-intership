@@ -52,13 +52,15 @@
 ## 3.Phân biệt 3 chế độ network trong VMware: NAT, Bridge, Host-only    
 - Host-only: Trong chế độ này, card mạng của máy ảo chỉ được kết nối với một mạng ảo riêng trên máy chủ VMware. Máy ảo có thể giao tiếp với máy chủ VMware và các máy ảo khác trong cùng mạng ảo, nhưng không thể truy cập vào mạng bên ngoài hoặc các máy tính khác trong mạng vật lý. Chế độ Host-Only thường được sử dụng để tạo ra một mạng riêng trong môi trường phát triển hoặc kiểm thử mà không cần kết nối với mạng bên ngoài.
  
-  ![alt text](../Images/vmware_host_only_networking.png) 
+  ![HuyHX/VMWare Workstation/Images/4_hostonly.png](../Images/4_hostonly.png)
 
 - Bridge: Trong chế độ này, card mạng của máy ảo sẽ được kết nối trực tiếp với mạng vật lý bên ngoài thông qua một card mạng vật lý trên máy chủ VMware hoặc máy tính chủ. Máy ảo sẽ có địa chỉ IP duy nhất trên mạng vật lý và có thể truy cập vào các thiết bị và nguồn tài nguyên trong mạng bên ngoài. Chế độ Bridge cho phép máy ảo tham gia vào mạng như một máy tính riêng biệt và có thể giao tiếp với các máy tính khác trong mạng. 
   
   ![alt text](<../Images/Screenshot 2024-04-24 083952.png>)
 
 - NAT: Trong chế độ này, card mạng của máy ảo sẽ được kết nối thông qua một card mạng ảo trên máy chủ VMware, và máy chủ VMware sẽ hoạt động như một bộ định tuyến NAT. Card mạng ảo trên máy chủ VMware sẽ cung cấp địa chỉ IP cho máy ảo và chuyển tiếp các gói tin giữa máy ảo và mạng bên ngoài. Máy ảo có thể truy cập vào Internet và các nguồn tài nguyên bên ngoài, nhưng không thể trực tiếp truy cập vào các máy tính khác trong mạng.
+
+  ![alt text](../Images/6_NAT.png) 
 
 ## 4. Sử dụng chế độ mạng NAT cho các máy ảo để truy cập internet (cấu hình IP tĩnh)
 - Bước 1: Vào sudo -i
