@@ -86,9 +86,7 @@ Mỗi dòng trong tập tin chứa thông tin về các nhóm user trên máy, �
 | Các cột  | Ý nghĩa của từng cột |
 |------- |-------|
 | Cột 1 | Tên nhóm |
-| Cột 2 | Mật khẩu đã được mã hóa. 
-          Để trống “ ”: không có mật khẩu, 
-          Dấu “*”: tài khoản bị tạm ngưng (disable). |
+| Cột 2 | Mật khẩu đã được mã hóa. Để trống “ ”: không có mật khẩu, dấu “*”: tài khoản bị tạm ngưng (disable). |
 | Cột 3 | Mã nhóm (gid) |
 | Cột 4 |  Danh sách các user thuộc nhóm |
 
