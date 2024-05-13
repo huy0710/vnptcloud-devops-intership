@@ -90,5 +90,33 @@ Mỗi dòng trong tập tin chứa thông tin về các nhóm user trên máy, �
 | Cột 3 | Mã nhóm (gid) |
 | Cột 4 |  Danh sách các user thuộc nhóm |
 
+### 2. Các lệnh quản lý group
+- Lệnh groupadd: tạo nhóm 
+
+  Cấu trúc lệnh:
+  > groupadd [options] group
+
+  trong đó group là tên nhóm mình định nghĩa
+
+  options: -g GID: Định nghĩa nhóm với mã nhóm GID
+
+- Lệnh groupmod: Sửa thông tin nhóm 
+
+  Cấu trúc lệnh
+ > groupmod [options] group
+
+   Options: 
+  + -g GID: Sửa mã nhóm thành GID
+  + -n group_name: Sửa tên nhóm thành group_name
+   group: Tên nhóm cần chỉnh sửa. 
+
+- Lệnh groupdel: dùng để xoá nhóm
+
+  Cấu trúc lệnh
+   > groupdel group
+
+  trong đó group là tên định nghĩa mà bạn muốn xoá  
+ 
+  
  
  
