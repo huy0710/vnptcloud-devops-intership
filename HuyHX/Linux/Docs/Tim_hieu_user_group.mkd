@@ -103,11 +103,11 @@ Mỗi dòng trong tập tin chứa thông tin về các nhóm user trên máy, �
 - Lệnh groupmod: Sửa thông tin nhóm 
 
   Cấu trúc lệnh
- > groupmod [options] group
+  > groupmod [options] group
 
    Options: 
-  + -g GID: Sửa mã nhóm thành GID
-  + -n group_name: Sửa tên nhóm thành group_name
+   -g GID: Sửa mã nhóm thành GID
+   -n group_name: Sửa tên nhóm thành group_name
    group: Tên nhóm cần chỉnh sửa. 
 
 - Lệnh groupdel: dùng để xoá nhóm
