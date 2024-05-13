@@ -20,12 +20,16 @@ Cấu trúc của file gồm nhiều hàng, mỗi hàng là thông tin của 1 u
 
 Ý nghĩa của các cột
 
-| Các cột | Ý nghĩa của từng cột |
-|-------|-------|
+| Các cột  | Ý nghĩa của từng cột |
+|------- |-------|
 | Cột 1 | Tên người sử dụng|
-| Cột 2 |  Mã liên quan đến mật khẩu cho Unix chuẩn và ‘x’ đối với Linux. Linux lưu mã này trong một tập tin khác /etc/shadow mà chỉ có root mới có quyền đọc |
+| Cột 2 | Mã liên quan đến mật khẩu cho Unix chuẩn và ‘x’ đối với Linux. Linux lưu mã này trong một tập tin khác /etc/shadow mà chỉ có root mới có quyền đọc |
 | Cột 3 | user ID |
 | Cột 4 | group ID |
+| Cột 5 | Tên mô tả người sử dụng (Comment) |
+| Cột 6 | Thư mục home của user. Thường sẽ nằm trong /home/”tên_tài_khoản” |
+| Cột 7 | Shell sẽ hoạt động sau khi user login, thường là /bin/bash |
+
 
  
  
