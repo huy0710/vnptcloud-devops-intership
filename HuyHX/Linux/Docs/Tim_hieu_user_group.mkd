@@ -1,0 +1,15 @@
+# Tìm hiểu User, Group trong Linux
+## I. Quản trị User
+Trên linux có hai loại tài khoản user đó là user hệ thống và user người dùng 
+- User hệ thống: Dùng để thực thi các module. script cần thiết để phục vụ hệ điều hành 
+- User người dùng: Là những tài khoản để login để sử dụng hệ điều hành. Trong đó thì tài khoản user root là tài khoản quan trọng nhất. Tài khoản này đã được tạo tự động khi cài đặt linux. Tài khoản này không thể đổi tên hoặc xoá bỏ. User root còn được gọi là super user vì có quyền trên toàn hệ thống. Chỉ làm việc với tài khoản user root khi muốn thực hiện công tác quản trị hệ thống 
+- Mỗi user có các đặc điểm sau:
+  + Tên mỗi user là duy nhất, chỉ có thể đặt tên chữ thường, chữ hoa.
+  + Mỗi user có một mã định danh duy nhất (uid).
+  + Mỗi user có thể thuộc về nhiều nhóm.
+  + Tài khoản superuser có uid = gid = 0. 
+### 1 File etc/passwd
+Là file văn bản chứa thông tin về các tài khoản user trên máy. Mọi user đều có thể đọc tập tin này nhưng chỉ có root mới có quyền thay đổi.
+Để xem được file này ta gõ lệnh 
+> nano /etc/passwd
+ 
