@@ -30,6 +30,67 @@ Cấu trúc của file gồm nhiều hàng, mỗi hàng là thông tin của 1 u
 | Cột 6 | Thư mục home của user. Thường sẽ nằm trong /home/”tên_tài_khoản” |
 | Cột 7 | Shell sẽ hoạt động sau khi user login, thường là /bin/bash |
 
+### 2. File /etc/shadown
+Là tập tin văn bản chứa thông tin về mật khẩu của các tài khoản user trên máy. Chỉ có root mới có quyền đọc tập tin này. User root có quyền reset mật khẩu của bất kỳ user nào trên máy. Mỗi dòng trong tập tin chứa thông tin về mật khẩu của user, định dạng của dòng gồm nhiều cột giá trị, dấu “:” được sử dụng để phân cách các cột.
+### 3. Các lệnh quản lý user 
+
+- Lệnh useradd:
+   Cấu trúc lệnh:
+
+   > useradd [options] login_name
+
+   options: 
+    + -c:  comment, tạo bí danh.
+    + -u:  set user ID. Mặc định sẽ lấy số ID tiếp theo để gán cho user
+    + -d: chỉ định thư mục home.
+    + -g: chỉ định nhóm chính.  
+    + -G: chỉ định nhóm phụ (nhóm mở rộng).
+    + -s: chỉ định shell cho user sử dụng.
+     
+  Thực hiện câu lệnh
+
+   > useradd huyhx1
+
+  Kiểm tra kết quả bằng câu lệnh etc/passwd ta thấy đã có thêm  user "huyhx1"
+
+   ![alt text](<../Images/Screenshot 2024-05-13 144413.png>)
+
+- Lệnh usermod: Sửa thông tin tài khoản 
+ 
+  Cấu trúc lệnh:  
+   > usermod [options] login_name
+
+  options: 
+  -c: comment, tạo bí danh.
+  -l -d: thay đổi thư mục home.
+  -g: chỉ định nhóm chính.
+  -G: chỉ định nhóm phụ (nhóm mở rộng).
+  -s: chỉ định shell cho user sử dụng.
+  -L: Lock account  
+
+- Lệnh userdel: Xoá tài khoản user
+
+  Cấu trúc câu lệnh
+  > userdel [options] login_name
+
+  option: 
+  -r : Xóa thư mục home của user 
+
+## II.Quản trị Group
+Nhóm là tập hợp của nhiều user. Mỗi nhóm có tên duy nhất, và có một mã định danh duy nhất (gid). Khi tạo một user (không dùng option -g) thì mặc định một group được tạo ra.
+### 1. File /etc/group 
+Là tập tin văn bản chứa thông tin về nhóm user trên máy. Mọi user đều có thể đọc tập tin này nhưng chỉ có root mới có quyền thay đổi.
+Mỗi dòng trong tập tin chứa thông tin về các nhóm user trên máy, định dạng của dòng gồm nhiều cột giá trị, dấu “:” được sử dụng để phân cách các cột. 
+Ý nghĩa các cột giá trị như sau:
+
+| Các cột  | Ý nghĩa của từng cột |
+|------- |-------|
+| Cột 1 | Tên nhóm |
+| Cột 2 | Mật khẩu đã được mã hóa. 
+         - Để trống “ ”: không có mật khẩu, 
+         - Dấu “*”: tài khoản bị tạm ngưng (disable). |
+| Cột 3 | Mã nhóm (gid) |
+| Cột 4 |  Danh sách các user thuộc nhóm |
 
  
  
