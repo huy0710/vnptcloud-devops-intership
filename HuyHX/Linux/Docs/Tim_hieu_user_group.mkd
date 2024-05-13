@@ -106,8 +106,9 @@ Mỗi dòng trong tập tin chứa thông tin về các nhóm user trên máy, �
   > groupmod [options] group
 
    Options: 
-   -g GID: Sửa mã nhóm thành GID
    
+   -g GID: Sửa mã nhóm thành GID
+
    -n group_name: Sửa tên nhóm thành group_name
    group: Tên nhóm cần chỉnh sửa. 
 
