@@ -10,6 +10,21 @@ Trên linux có hai loại tài khoản user đó là user hệ thống và user
   + Tài khoản superuser có uid = gid = 0. 
 ### 1 File etc/passwd
 Là file văn bản chứa thông tin về các tài khoản user trên máy. Mọi user đều có thể đọc tập tin này nhưng chỉ có root mới có quyền thay đổi.
+
 Để xem được file này ta gõ lệnh 
 > nano /etc/passwd
+ 
+Cấu trúc của file gồm nhiều hàng, mỗi hàng là thông tin của 1 user. Dòng đầu tiên của tập tin mô tả thông tin cho user root (có ID = 0), tiếp theo là các tài khoản khác của hệ thống, cuối cùng là các tài khoản người dùng thường. Mỗi hàng được chia làm 7 cột cách nhau bằng dấu “:”.
+
+  ![alt text](<../Images/Screenshot 2024-05-13 140614.png>)
+
+Ý nghĩa của các cột
+
+
+| Cột 1 | Tên người sử dụng|
+| Cột 2 |  Mã liên quan đến mật khẩu cho Unix chuẩn và ‘x’ đối với Linux. Linux lưu mã này trong một tập tin khác /etc/shadow mà chỉ có root mới có quyền đọc |
+| Cột 3 | user ID |
+| Cột 4 | group ID |
+
+ 
  
