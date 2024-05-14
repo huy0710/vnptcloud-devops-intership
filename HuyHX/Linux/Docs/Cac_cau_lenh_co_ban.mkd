@@ -5,7 +5,7 @@
  
    ![alt text](<../Images/Screenshot 2024-05-14 083909.png>)
 
-Ví dụ hiện tại thư mục đang làm việc là /home/huyhx/
+ Ví dụ hiện tại thư mục đang làm việc là /home/huyhx/
 
 - Cấu trúc lệnh:
  > pwd  
@@ -19,6 +19,7 @@ Ví dụ hiện tại thư mục đang làm việc là /home/huyhx/
   
  Options:
  -l: liệt kê chi tiết.
+ 
  -a: liệt kê tất cả các file ẩn
 
    ![alt text](<../Images/Screenshot 2024-05-14 085229.png>)
@@ -32,7 +33,9 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
   > cd [Path]
 
  cd .. Chuyển lên thư mục cấp cao hơn (cha)
+
  cd Chuyển về thư mục home
+
  cd ~ Chuyển về thư mục home 
 
 - Ví dụ muốn di chuyển đến thư mục /etc ta dùng câu lệnh 
