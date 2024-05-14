@@ -52,5 +52,5 @@
   + Thông báo bản quyền và thông báo cho phép của phần mềm gốc sử dụng giấy phép MIT sẽ phải bao gồm trong tất cả các bản sao hoặc phần quan trọng của phần mềm . 
 
 # Tài liệU tham khảo
-- [Text hiển thị](https://news.cloud365.vn/cac-loai-giay-phep-ma-nguon-mo-open-source-licences/#comments))
-- [text](https://opensource.org/licenses)
+- [https://news.cloud365.vn/cac-loai-giay-phep-ma-nguon-mo-open-source-licences/](https://news.cloud365.vn/cac-loai-giay-phep-ma-nguon-mo-open-source-licences/#comments))
+- [https://opensource.org/licenses](https://opensource.org/licenses)
