@@ -118,6 +118,20 @@ Mỗi dòng trong tập tin chứa thông tin về các nhóm user trên máy, �
    > groupdel group
 
   trong đó group là tên định nghĩa mà bạn muốn xoá  
+
+- Thêm user vào group: 
+
+Ví dụ thêm user huyhx2 vào group myteam bằng câu lệnh
+> usermod -aG myteam huyhx2
+
+![alt text](<../Images/Screenshot 2024-05-14 114449.png>)
+
+Kiểm tra user nào ở trong group nào bằng câu lệnh:
+ > groups username 
+
+Ví dụ trong hình thực hiện câu lệnh:
+ > groups huyhx2
+
  
   
  
