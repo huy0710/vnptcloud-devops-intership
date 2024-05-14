@@ -119,9 +119,20 @@ Mỗi dòng trong tập tin chứa thông tin về các nhóm user trên máy, �
 
   trong đó group là tên định nghĩa mà bạn muốn xoá  
 
-- Thêm user vào group: 
+- Thêm user vào group:
+
+  Cấu trúc câu lệnh:
+
+  > usermod -aG groupname username
+ 
+  Trong đó 
+  -a: Tùy chọn này (append) dùng để thêm người dùng vào nhóm mà không loại bỏ họ khỏi các nhóm khác. Đây là tùy chọn quan trọng vì nếu không có nó, người dùng sẽ bị xóa khỏi tất cả các nhóm hiện tại và chỉ còn lại trong nhóm mới.
+  
+  -G: Tùy chọn này chỉ định các nhóm bổ sung mà người dùng sẽ được thêm vào. Sau -G là danh sách các nhóm, có thể là một hoặc nhiều nhóm, được phân cách bằng dấu phẩy.
+ 
 
 Ví dụ thêm user huyhx2 vào group myteam bằng câu lệnh
+
 > usermod -aG myteam huyhx2
 
 ![alt text](<../Images/Screenshot 2024-05-14 114449.png>)
