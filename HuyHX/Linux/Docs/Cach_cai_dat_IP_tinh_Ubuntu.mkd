@@ -1,0 +1,42 @@
+# Cài đặt IP tĩnh cho Ubuntu
+## 1.Cấu hình IP tĩnh bằng file
+
+- Bước 1: Vào sudo -i
+ 
+- Bước 2: Gõ câu lệnh 
+  > nano /etc/netplan/00-installer-config.yaml
+
+- Bước 3: Dựa vào virtual network editor để cấU hình:
+ 
+  ![alt text](<../Images/Screenshot 2024-04-22 233444.png>)  
+
+- Bước 4: Cấu hình như hình:
+
+   ![alt text](<../Images/Screenshot 2024-04-22 233405.png>) 
+
+- Bước 5: Ấn ctrl + X để thoát và lưu file sau đó thực hiện câu lệnh netplan apply
+
+- Bước 6: Kiểm tra bằng câu lệnh ip a
+ 
+   ![alt text](<../Images/Screenshot 2024-04-22 233801.png>) 
+
+## 2. Cấu hình IP tĩnh bằng lệnh 
+### 2.1 Thêm địa chỉ IP tĩnh 
+- Câu lệnh 
+  
+  > ip address add [IP address/ prefix subnet mask] dev [device]
+
+Ví dụ:
+
+  > ip addr add 192.168.20.130/24 dev ens33
+
+  ![alt text](<../Images/Screenshot 2024-05-14 160050.png>)
+
+### 2.2 Xoá địa chỉ IP tĩnh 
+  
+- Câu lệnh 
+
+  > ip addr del  [IP address/ prefix subnet mask] dev [device]
+
+
+ 
