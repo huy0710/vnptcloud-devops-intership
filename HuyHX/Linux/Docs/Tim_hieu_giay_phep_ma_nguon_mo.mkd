@@ -1,0 +1,56 @@
+# Tìm hiểu về giấy phép mã nguồn mở 
+## I.Định nghĩa về giấy phép mã nguồn mở
+- Giấy phép nguồn mở (open source license) là các điều khoản pháp lý cho phép người dùng được tự do sử dụng, sửa đổi và phân phối phần mềm nguồn mở.
+## II. Các loại giấy phép mã nguồn mở
+### 1.Apache license 2.0
+- Phát hành ngày 1/2004
+  
+- Giấy phép Apache là một giấy phép phần mềm tự do của Quỹ phần mềm Apache (Apache Software Foundation – ASF) . Giấy phép Apache trao cho người dùng phần mềm nguồn mở , quyền tự do sử dụng phần mềm với bất kì mục đích nào , phân phối chỉnh sửa , và phân phối bản sửa đổi của phần mềm , theo các điều khoản của giấy phép mà không lo vấn đề bản quyền.
+  
+### 2.BSD 3-Clause “New” or “Revised” license
+- Phát hành ngày 22-07-1999.
+  
+- Giấy phép BSD ( Berkeley Software Distribution License ) có thể nói là lâu đời nhất trong các giấy phép nguồn mở, nó đã và đang tồn tại ở một số dạng kể từ những năm 1980.
+ 
+- Điều khoản của giấy phép: Tái phân phối và sử dụng ở dạng mã nguồn và nhị phân, có hoặc không có sửa đổi mã nguồn , đều được cho phép miễn là các điều khoản sau được đáp ứng:
+ 
+  + Việc phân phối lại mã nguồn phải giữ lại thông báo bản quyền, danh sách các điều kiện và tuyên bố từ chối trách nhiệm.
+   
+  + Việc phân phối lại dưới dạng nhị phân phải sao chép thông báo bản quyền, danh sách các điều kiện và tuyên bố từ chối trách nhiệm trong tài liệu và/hoặc các tài liệu khác được cung cấp bởi bản phân phối
+   
+  + Tên của người giữ bản quyền cũng như tên của những người đóng góp của nó có thể được sử dụng để xác nhận hoặc quảng cáo các sản phẩm có nguồn gốc từ phần mềm này mà không có sự cho phép trước bằng văn bản cụ thể 
+### 3.BSD 2-Clause “Simplified” or “FreeBSD” license
+- Phát hành tháng 04-1999.
+  
+- Giấy phép BSD 2-Clause “Simplified” or “FreeBSD” license về cơ bản giống với giấy phép BSD 3-Clause. Nhưng BSD 2-Clause yêu cầu “Tên của những người đóng góp trước đó không được sử dụng để quảng cáo cho bất kỳ phiên bản phái sinh nào mà không có được sự cho phép bằng văn bản của họ”. BSD 3-Clause đã giảm bớt sự phiền hà khi sử dụng phần mềm nguồn mở theo giấy phép BSD. 
+
+### 4.GNU General Public License (GPL) 
+- Giấy phép GNU hiện đang có 2 phiên bản được sử dụng phổ biến là GPL-2.0 và GPL-3.0.
+ 
+- Phiên bản mới nhất ( GPL-3.0 ) phát hành ngày 29-06-2007.
+ 
+- Quyền lợi khi sử dụng phần mềm áp dụng giấy phép GPL:
+ 
+  + Được sao chép và phân phối chương trình, được yêu cầu trả phí cho việc phân phối đó.
+   
+  + Được thay đổi chương trình để sử dụng cho mục đích cá nhân.
+ 
+  + Được phân phối bản đã được thay đổi đó.
+   
+- Nghĩa vụ:
+ 
+  + Khi sao chép và phân phối chương trình, phải đính kèm các thông báo về bản quyền gốc và không bảo hành( trừ trường hợp có văn bản thêm về quy định bảo hành)
+   
+  + Khi phân phối bản đã được thay đổi bởi bản thân , phải chú thích rõ đó là bản đã được thay đổi, các thành phần được thay đổi, và áp dụng giấy phép GNU cho bản đã được thay đổi đó .
+   
+  + Khi phát hành chương trình phải công khai mã nguồn của chương trình, đồng thời phải công bố mã nguồn của chương trình trong tối thiểu 3 năm mà không được đòi một khoản phí nào từ những người yêu cầu mã nguồn trừ chi phí vận chuyển hay tương đương.
+
+## 5.MIT License
+- Được phát hành bởi Massachusetts Institute of Technology (MIT).  
+- Giấy phép MIT là loại giấy phép cho phép sử dụng mã nguồn tự do nhất, nó có thể kết hợp với các mã nguồn khác và đảm bảo tương thích theo điều kiện của mọi loại giấy phép khác .
+- Với giấy phép MIT bạn có thể sử dụng, sao chép, sửa đổi, hợp nhất, xuất bản, phân phối và/hoặc bán các bản sao của phần mềm mà không vi phạm bản quyền. Bạn chỉ cần tuân thủ điều kiện duy nhất sau:
+  + Thông báo bản quyền và thông báo cho phép của phần mềm gốc sử dụng giấy phép MIT sẽ phải bao gồm trong tất cả các bản sao hoặc phần quan trọng của phần mềm . 
+
+# Tài liệU tham khảo
+- [Text hiển thị](https://news.cloud365.vn/cac-loai-giay-phep-ma-nguon-mo-open-source-licences/#comments))
+- [text](https://opensource.org/licenses)
