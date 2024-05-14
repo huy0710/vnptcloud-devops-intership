@@ -1,0 +1,123 @@
+# Các câu lệnh cơ bản trong Linux
+## I. Các lệnh quản lý file và thư mục
+### 1.Lệnh pwd 
+- Lệnh này có tác dụng cho biết đường dẫn mà thư mục mình đang làm việc
+ 
+   ![alt text](<../Images/Screenshot 2024-05-14 083909.png>)
+
+Ví dụ hiện tại thư mục đang làm việc là /home/huyhx/
+
+- Cấu trúc lệnh:
+ > pwd  
+### 2.Lệnh ls
+- Lệnh này có tác dụng liệt kệ nội dung có trong thư mục
+ 
+   ![alt text](<../Images/Screenshot 2024-05-14 084348.png>)
+
+- Cấu trúc lệnh:
+ > ls [options] [path] 
+  
+ Options:
+ -l: liệt kê chi tiết.
+ -a: liệt kê tất cả các file ẩn
+
+   ![alt text](<../Images/Screenshot 2024-05-14 085229.png>)
+
+Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
+
+### 3.Lệnh cd
+- Lệnh này có tác dụng dùng để di chuyển thư mục làm việc 
+
+- Cấu trúc lệnh:
+  > cd [Path]
+
+ cd .. Chuyển lên thư mục cấp cao hơn (cha)
+ cd Chuyển về thư mục home
+ cd ~ Chuyển về thư mục home 
+
+- Ví dụ muốn di chuyển đến thư mục /etc ta dùng câu lệnh 
+ > cd /etc
+
+  ![alt text](<../Images/Screenshot 2024-05-14 091136.png>)
+
+### 4.Lệnh cp 
+- Lệnh này có tác dụng dùng để sao chép file
+
+- Cấu trúc lệnh 
+ > cp [options] source dest
+
+ Options:
+ -R, -r : Sao chép toàn bộ thư mục.
+ Source, Dest: Lần lượt là tên thư mục/tập tin nguồn, đích 
+
+Ví dụ sao chép file passwd ở thư mục /etc sang file passwd ở thư mục /home/huyhx
+
+  ![alt text](<../Images/Screenshot 2024-05-14 092141.png>)
+
+### 5.Lệnh mv
+- Lệnh này có tác dụng dùng để đổi tên hoặc di chuyển thư mục hoặc file từ nơi này sang nơi khác
+
+- Cấu trúc lệnh 
+ > mv [options] source dest 
+
+ Options:
+ -i : Nhắc trước khi di chuyển với tập tin/thư mục đích đã có rồi.
+ -f: Ghi đè khi di chuyển với tập tin/thư mục đích đã có rồi.
+
+Ví dụ đổi tên thư mục datas thành thư mục data2 như hình: 
+
+   ![alt text](<../Images/Screenshot 2024-05-14 092735.png>)
+
+Ví dụ di chuyển file abc vào thư mục data1
+   
+   ![alt text](<../Images/Screenshot 2024-05-14 093006.png>)
+
+### 6.Lệnh mkdir
+-  Lệnh mkdir: dùng để tạo thư mục
+  
+-  Cấu trúc lệnh:  
+ > mkdir [option] directory
+
+ Options:
+ -p : Cho phép tạo thư mục con ngay cả khi chưa có thư mục cha.
+
+ Directory: Tên thư mục muốn tạo.
+
+Ví dụ tạo thư mục data3 và thư mục con data4 nằm trong thư mục data3
+
+   ![alt text](<../Images/Screenshot 2024-05-14 093650.png>)
+
+### 7.Lệnh rmdir
+- Lệnh rmdir: dùng để xóa thư mục rỗng. Thư mục rỗng là thư mục không chứa bất kỳ thành phần nào
+
+- Cấu trúc lệnh 
+ > rmdir [options] directory
+
+ Options:
+ -p : xóa thư mục và cả thư mục cha.
+ Directory: Tên thư mục muốn xóa
+
+Ví dụ xoá thư mục rỗng data3 trong đó có chưa thư mục rỗng data4
+  
+   ![alt text](<../Images/Screenshot 2024-05-14 094504.png>)
+
+### 8.Lệnh rm 
+- Lệnh rm: dùng để xoá file/thư mục
+
+- Cấu trúc lệnh 
+  > rm [options] file
+
+  Options:
+ -f: xóa không cần hỏi
+ -i: hỏi trước khi xóa
+ -R, -r: xóa toàn bộ thư mục, kể cả thư mục con
+
+Ví dụ xoá thư mục data1 trong đó có file abc.txt
+
+   ![alt text](<../Images/Screenshot 2024-05-14 095343.png>)
+
+
+
+
+
+
