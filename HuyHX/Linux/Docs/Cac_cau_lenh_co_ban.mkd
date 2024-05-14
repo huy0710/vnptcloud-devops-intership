@@ -22,6 +22,8 @@
 
  -a: liệt kê tất cả các file ẩn
 
+ -lrt: Hiển thị các lệnh được sắp xếp vào ngày sửa đổi. Bạn sẽ thấy các tệp được sửa đổi gần đây nhất trong danh sách.
+
    ![alt text](<../Images/Screenshot 2024-05-14 085229.png>)
 
 Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
