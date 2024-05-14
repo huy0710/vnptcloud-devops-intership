@@ -19,7 +19,7 @@
   
  Options:
  -l: liệt kê chi tiết.
- 
+
  -a: liệt kê tất cả các file ẩn
 
    ![alt text](<../Images/Screenshot 2024-05-14 085229.png>)
@@ -50,7 +50,9 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
  > cp [options] source dest
 
  Options:
+
  -R, -r : Sao chép toàn bộ thư mục.
+ 
  Source, Dest: Lần lượt là tên thư mục/tập tin nguồn, đích 
 
 Ví dụ sao chép file passwd ở thư mục /etc sang file passwd ở thư mục /home/huyhx
@@ -64,7 +66,9 @@ Ví dụ sao chép file passwd ở thư mục /etc sang file passwd ở thư m�
  > mv [options] source dest 
 
  Options:
+
  -i : Nhắc trước khi di chuyển với tập tin/thư mục đích đã có rồi.
+
  -f: Ghi đè khi di chuyển với tập tin/thư mục đích đã có rồi.
 
 Ví dụ đổi tên thư mục datas thành thư mục data2 như hình: 
@@ -82,6 +86,7 @@ Ví dụ di chuyển file abc vào thư mục data1
  > mkdir [option] directory
 
  Options:
+
  -p : Cho phép tạo thư mục con ngay cả khi chưa có thư mục cha.
 
  Directory: Tên thư mục muốn tạo.
@@ -97,7 +102,9 @@ Ví dụ tạo thư mục data3 và thư mục con data4 nằm trong thư mục 
  > rmdir [options] directory
 
  Options:
+
  -p : xóa thư mục và cả thư mục cha.
+
  Directory: Tên thư mục muốn xóa
 
 Ví dụ xoá thư mục rỗng data3 trong đó có chưa thư mục rỗng data4
@@ -111,8 +118,11 @@ Ví dụ xoá thư mục rỗng data3 trong đó có chưa thư mục rỗng dat
   > rm [options] file
 
   Options:
+
  -f: xóa không cần hỏi
+
  -i: hỏi trước khi xóa
+
  -R, -r: xóa toàn bộ thư mục, kể cả thư mục con
 
 Ví dụ xoá thư mục data1 trong đó có file abc.txt
