@@ -56,6 +56,9 @@ Ví dụ:
   ```
   ip a
   ```
+  Kết quả ta thấy   
+
+   ![alt text](<../Images/Screenshot 2024-05-15 230928.png>)
 
 
 
