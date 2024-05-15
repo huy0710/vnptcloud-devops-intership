@@ -38,5 +38,25 @@ Ví dụ:
 
   > ip addr del  [IP address/ prefix subnet mask] dev [device]
 
+## 3. Cấu hình 2 card mạng trên Ubuntu 22.04
+
+- Bước 1: Vitural Machine Settings
+  
+  ![alt text](<../Images/Screenshot 2024-05-15 230420.png>)
+
+- Bước 2: Ấn vào Add xong rồi chọn network adapter:
+  
+  ![alt text](<../Images/Screenshot 2024-05-15 230536.png>)
+
+- Bước 3: Chọn mạng phù hợp, Ở đây chọn host-only
+
+  ![alt text](<../Images/Screenshot 2024-05-15 230706.png>) 
+
+- Bước 4: Kiểm tra bằng câu lệnh 
+  ```
+  ip a
+  ```
+
+
 
  
