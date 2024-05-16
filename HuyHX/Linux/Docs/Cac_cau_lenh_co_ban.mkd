@@ -40,43 +40,43 @@ Ví dụ
  
   + (1): Chương trình thực thi hoặc lệnh shell
 
-  Ví dụ như các lệnh: ls, mkdir, cp.....  
+    Ví dụ như các lệnh: ls, mkdir, cp.....  
 
   + (2): Lời gọi hệ thống
   
-  Ví dụ như các lệnh: open(), read(),.....
+    Ví dụ như các lệnh: open(), read(),.....
 
   + (3): Lời gọi hàm được định nghĩa trong các thư viện
 
-  Ví dụ: Khi ta gõ câu lệnh  
-  ```
-  man 3 printf 
-  ```
-  Thì bạn sẽ được cung cấp hướng dẫn chi tiết về các sử dụng hàm printf() ở trong thư viện C 
+    Ví dụ: Khi ta gõ câu lệnh  
+    ```
+    man 3 printf 
+    ```
+  T hì bạn sẽ được cung cấp hướng dẫn chi tiết về các sử dụng hàm printf() ở trong thư viện C 
 
   + (4): Các loại file đặc biệt và các thiết bị trong hệ thống
 
-  Ví dụ: Khi ta gõ câu lệnh
-  ```
-  man 4 port
-  ```
-  Thì bạn sẽ được cung cấp hướng dẫn chi tiết về port
+    Ví dụ: Khi ta gõ câu lệnh
+    ```
+    man 4 port
+    ```
+    Thì bạn sẽ được cung cấp hướng dẫn chi tiết về port
 
-  + 5 :Định dạng và quy ước về tệp
+  + (5) :Định dạng và quy ước về tệp
 
-  Ví dụ Khi gõ câu lệnh:
-  ```
-  man 5 passwd 
-  ```
-  Thì sẽ xuất hiện những mô tả của file passwd ở trong /etc/passwd
+    Ví dụ Khi gõ câu lệnh:
+    ```
+    man 5 passwd 
+    ```
+    Thì sẽ xuất hiện những mô tả của file passwd ở trong /etc/passwd
 
-  + 6 :Trò chơi
+  + (6) :Trò chơi
   
-  + 7 :Khác (bao gồm các gói và quy ước vĩ mô), ví dụ: man(7)
+  + (7) :Khác (bao gồm các gói và quy ước vĩ mô), ví dụ: man(7)
  
-  + 8 :Lệnh quản trị hệ thống (thường chỉ dành cho root)
+  + (8) :Lệnh quản trị hệ thống (thường chỉ dành cho root)
   
-  + 9 :Kernel routines [Không chuẩn]     
+  + (9) :Kernel routines [Không chuẩn]     
 
 - Các tuỳ chọn của câu lệnh `man`
 
