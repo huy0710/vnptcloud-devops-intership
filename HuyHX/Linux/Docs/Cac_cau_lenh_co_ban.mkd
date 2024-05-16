@@ -52,7 +52,7 @@ Ví dụ
     ```
     man 3 printf 
     ```
-  T hì bạn sẽ được cung cấp hướng dẫn chi tiết về các sử dụng hàm printf() ở trong thư viện C 
+    Thì bạn sẽ được cung cấp hướng dẫn chi tiết về các sử dụng hàm printf() ở trong thư viện C 
 
   + (4): Các loại file đặc biệt và các thiết bị trong hệ thống
 
