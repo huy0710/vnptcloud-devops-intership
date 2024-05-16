@@ -1,6 +1,137 @@
 # Các câu lệnh cơ bản trong Linux
-## I. Các lệnh quản lý file và thư mục
-### 1.Lệnh pwd 
+### 1. Lệnh man (manual)
+- Lệnh man là công cụ để hiển thị trang hướng dẫn (manual page) cho các lệnh, cho các lời gọi hệ thống khác nhau, và thêm các tiện ích khác
+
+- Cấu trúc lệnh:
+  ```
+  man [options] [command]
+  ```
+Ví dụ 
+ ```
+ man ls
+ ```
+   ![alt text](<../Images/Screenshot 2024-05-16 083429.png>)
+
+- Các thao tác với manual page
+
+ + Spacebar: chuyển tới một sang tiếp theo
+  
+ + Enter: chuyển tới một dòng tiếp theo
+  
+ + q: thoát khỏi manual page
+
+ + ctrl+b: quay lại trang trước đó     
+
+- Các thành phần ở trong manual page
+   
+ + Name: Cung cấp tên và mô tả ngắn gọn về câu lệnh
+  
+ + Synopsis: Cung cấp cú pháp của câu lệnh giúp người dùng thực hiện chúng
+ 
+ + Description: Cung cấp cho người dùng những giải thích chi tiết về câu lệnh đang sử dụng 
+ 
+ + Options: Liệt kê các tuỳ chọn có sẵn của một câu lệnh và mô tả chúng
+
+ + Examples: Cung cấp các ví dụ minh hoạ để thực hiện câu lệnh
+ 
+ + See Also: Cung cấp thêm các thông tin về câu lệnh đang sử dụng 
+
+- Một trang hướng dẫn có thể được xếp vào các phần sau:
+ 
+ + (1): Chương trình thực thi hoặc lệnh shell
+
+ Ví dụ như các lệnh: ls, mkdir, cp.....  
+
+ + (2): Lời gọi hệ thống
+  
+ Ví dụ như các lệnh: open(), read(),.....
+
+ + (3): Lời gọi hàm được định nghĩa trong các thư viện
+
+ Ví dụ: Khi ta gõ câu lệnh  
+ ```
+ man 3 printf 
+ ```
+ Thì bạn sẽ được cung cấp hướng dẫn chi tiết về các sử dụng hàm printf() ở trong thư viện C 
+
+ + (4): Các loại file đặc biệt và các thiết bị trong hệ thống
+
+ Ví dụ: Khi ta gõ câu lệnh
+ ```
+ man 4 port
+ ```
+ Thì bạn sẽ được cung cấp hướng dẫn chi tiết về port
+
+ + 5 :Định dạng và quy ước về tệp
+
+ Ví dụ Khi gõ câu lệnh:
+ ```
+ man 5 passwd 
+ ```
+ Thì sẽ xuất hiện những mô tả của file passwd ở trong /etc/passwd
+
+ + 6 :Trò chơi
+  
+ + 7 :Khác (bao gồm các gói và quy ước vĩ mô), ví dụ: man(7)
+ 
+ + 8 :Lệnh quản trị hệ thống (thường chỉ dành cho root)
+  
+ + 9 :Kernel routines [Không chuẩn]     
+
+- Các tuỳ chọn của câu lệnh `man`
+
+|Options      | Mô tả chi tiết | 
+|-------------|-------------|
+| `man [command]`  | Hiển thị hướng dẫn cho một lệnh chỉ định trước  | 
+| -f, whatis | Hiển thị mô tả ngắn ngọn của một dòng lệnh |
+| -k, –apropos | Tìm kiếm các lệnh liên quan đến một từ khoá nhất định |
+| -a, –all | Hiển thị tất cả các trang phù hợp với câu lệnh được chỉ định |
+| -w       | Dùng để hiển thị đường dẫn của trang hướng dẫn | 
+
+- Thực hiện các câu lệnh:
+ + Lệnh với SECTION-NUM
+  
+ ```
+ man [SECTION-NUM] [COMMAND NAME]
+ ```
+ Ví dụ 
+
+ ``` 
+ man 2 intro 
+ ```
+ Lệnh này cung cấp phần giới thiệu về lời gọi hệ thống (system call)
+
+ ![alt text](<../Images/Screenshot 2024-05-16 100739.png>)
+
+ + Lệnh với tuỳ chọn -f và whatis
+  ```
+  man -f [COMMAND NAME]
+  ```
+   ![alt text](<../Images/Screenshot 2024-05-16 101119.png>) 
+
+  ```
+  whatis [COMMAND NAME]
+  ```
+   ![alt text](<../Images/Screenshot 2024-05-16 101249.png>)
+
+   Ở đây dùng câu lệnh 
+   ```
+   man -f ls
+   ```
+
+ + Lệnh với tuỳ chọn -k và apropos:
+
+  ```
+  man -k [COMMAND NAME]
+  ```
+   ![alt text](<../Images/Screenshot 2024-05-16 101546.png>)
+ 
+  ```
+  apropos [COMMAND NAME]
+  ```
+   ![alt text](<../Images/Screenshot 2024-05-16 101852.png>) 
+   
+### 2.Lệnh pwd 
 - Lệnh này có tác dụng cho biết đường dẫn mà thư mục mình đang làm việc
  
    ![alt text](<../Images/Screenshot 2024-05-14 083909.png>)
@@ -9,7 +140,7 @@
 
 - Cấu trúc lệnh:
  > pwd  
-### 2.Lệnh ls
+### 3.Lệnh ls
 - Lệnh này có tác dụng liệt kệ nội dung có trong thư mục
  
    ![alt text](<../Images/Screenshot 2024-05-14 084348.png>)
