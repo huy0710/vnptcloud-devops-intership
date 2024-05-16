@@ -84,7 +84,7 @@ Ví dụ
 |-------------|-------------|
 | `man [command]`  | Hiển thị hướng dẫn cho một lệnh chỉ định trước  | 
 | -f, whatis | Hiển thị mô tả ngắn ngọn của một dòng lệnh |
-| -k, –apropos | Tìm kiếm các lệnh liên quan đến một từ khoá nhất định |
+| -k, apropos (Display Appropriate Commands) | Tìm kiếm các lệnh liên quan đến một từ khoá nhất định |
 | -a, –all | Hiển thị tất cả các trang phù hợp với câu lệnh được chỉ định |
 | -w       | Dùng để hiển thị đường dẫn của trang hướng dẫn | 
 
@@ -177,8 +177,8 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 
   ![alt text](<../Images/Screenshot 2024-05-14 091136.png>)
 
-### 4.Lệnh cp 
-- Lệnh này có tác dụng dùng để sao chép file
+### 4.Lệnh cp (copy file and directories)
+- Lệnh này có tác dụng dùng để sao chép file và các thư mục 
 
 - Cấu trúc lệnh 
  > cp [options] source dest
