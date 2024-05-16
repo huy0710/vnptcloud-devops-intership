@@ -180,18 +180,67 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 ### 4.Lệnh cp (copy file and directories)
 - Lệnh này có tác dụng dùng để sao chép file và các thư mục 
 
-- Cấu trúc lệnh 
- > cp [options] source dest
+- Thực hiện copy file1 sang file2  
+  ```
+  cp [options] file1 file2
+  ``` 
+  Ví dụ copy nội dung file `abc.txt` vào file `xyz.txt`
+
+  ```
+  cp abc.txt xyz.txt
+  ```
+   ![alt text](<../Images/Screenshot 2024-05-16 105340.png>)
+
+- Thực hiện copy file1 file2 vào thư mục dir1. Thư mục dir1 phải có từ trước 
+  ```
+  cp file1 file2 dir1
+  ``` 
+
+  Ví dụ copy nội dung file `abc.txt` và file `xyz.txt` vào thư mục dir1
+
+   ![alt text](<../Images/Screenshot 2024-05-16 110715.png>)
+
+- Thực hiện copy thư mục dir1 vào thư mục dir2. Thư mục dir2 phải tồi tại
+  ```
+  cp dir1/* dir2
+  ```
+
+  Ví dụ copy nội dung của thư mục dir1 vào thư mục dir2
+
+  ![alt text](<../Images/Screenshot 2024-05-16 111358.png>)
+
 
  Options:
 
- -R, -r : Sao chép toàn bộ thư mục.
+  -i(interactive): Hỏi khi ghi dè lên file
+   
+    Ví dụ:
+    ```
+    cp -i abc.txt xyz.txt
+    ```
+    Khi bạn ấn `yes` thì yêu cầu được thực hiện
+
+   ![alt text](<../Images/Screenshot 2024-05-16 110039.png>)
+
+  -r (recursive): có nghĩa là đệ quy. Tức là khi sao chép thư mục dir1 sang thư mục dir2 thì nó sẽ được sao chép toàn bộ các thư mục con cũng như  các tệp tin trong thư mục dir1
+
+  -u (update): Khi sao chép tập tin từ thư mục này sang thư mục khác, chỉ sao chép các tập tin không tồn tại hoặc mới hơn các tập tin tương ứng hiện có trong thư mục đích.
+
+  -v (verbose): Hiển thị chi tiết khi thực hiện sao chép:
+
+   ![alt text](<../Images/Screenshot 2024-05-16 112958.png>)
+
+  -a (archive): Sao chép mọi thứ bao gồm cả nội dung và mọi quyền sở hữu của thư mục gốc
+
+**CHÚ Ý**: Khi copy thư mục thì cần yêu cầu có option -r hoặc -a  
+
+
+
+
+
+
+    
  
- Source, Dest: Lần lượt là tên thư mục/tập tin nguồn, đích 
-
-Ví dụ sao chép file passwd ở thư mục /etc sang file passwd ở thư mục /home/huyhx
-
-  ![alt text](<../Images/Screenshot 2024-05-14 092141.png>)
 
 ### 5.Lệnh mv
 - Lệnh này có tác dụng dùng để đổi tên hoặc di chuyển thư mục hoặc file từ nơi này sang nơi khác
