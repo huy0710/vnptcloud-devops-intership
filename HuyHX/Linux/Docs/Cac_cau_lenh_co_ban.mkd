@@ -235,82 +235,105 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 **CHÚ Ý**: Khi copy thư mục thì cần yêu cầu có option -r hoặc -a  
 
 
+### 5.Lệnh mv (Move and Rename file)
+
+- Lệnh này có tác dụng dùng để đổi tên hoặc di chuyển thư mục hoặc file từ nơi này sang nơi khác.
+
+- Thực hiện di chuyển nội dung file1 vào file2 và khi đó file1 biến mất sau khi thực hiện câu lệnh
+  
+  ```
+  mv file1 file2
+  ```
+
+  Ví dụ như thực hiện chuyển nội dung của file `abc.txt` vào `xyz.txt`
+
+   ![alt text](<../Images/Screenshot 2024-05-16 140435.png>)
+
+- Di chuyển một hay nhiều file đến một thư mục 
+
+  ```
+  mv file1 file2 .... dir
+  ```
+
+  Ví dụ như thực hiện di chuyển file `abc.txt` và `xyz.txt` vào dir3
+
+   ![alt text](<../Images/Screenshot 2024-05-16 141059.png>)
+
+- Di chuyển nhiều hay một thư mục vào một thư mục
+
+   ```
+   mv dir1 dir2..... dir
+   ```
+
+  Ví dụ như thực hiện chuyển thư mục dir1 dir2 vào dir3
+
+    ![alt text](<../Images/Screenshot 2024-05-16 141848.png>)
 
 
+  - Các Options:
+
+    + -i (interactive): Trước khi thực hiện ghi đè một tập tin thì cho người dùng xác nhận
+
+     ![alt text](<../Images/Screenshot 2024-05-16 143014.png>) 
+
+    + -u (update): Khi di chuyển tập tin từ thư mục này sang thư mục khác, chỉ di chuyển các tập tin không tồn tại hoặc mới hơn
+      các tập tin tương ứng hiện có trong thư mục đích
+
+    + -v (verbose): Hiển thị thông báo đầy đủ thông tin khi thực hiện di chuyển.   
 
 
-    
- 
-
-### 5.Lệnh mv
-- Lệnh này có tác dụng dùng để đổi tên hoặc di chuyển thư mục hoặc file từ nơi này sang nơi khác
-
-- Cấu trúc lệnh 
- > mv [options] source dest 
-
- Options:
-
- -i : Nhắc trước khi di chuyển với tập tin/thư mục đích đã có rồi.
-
- -f: Ghi đè khi di chuyển với tập tin/thư mục đích đã có rồi.
-
-Ví dụ đổi tên thư mục datas thành thư mục data2 như hình: 
-
-   ![alt text](<../Images/Screenshot 2024-05-14 092735.png>)
-
-Ví dụ di chuyển file abc vào thư mục data1
-   
-   ![alt text](<../Images/Screenshot 2024-05-14 093006.png>)
-
-### 6.Lệnh mkdir
+### 6.Lệnh mkdir (Create Directories)
 -  Lệnh mkdir: dùng để tạo thư mục
+
+- Tạo một hay nhiều thư mục 
+
+  ```
+  mkdir dir1 dir2....
+  ```
+
+  Ví dụ tạo thư mục dir4 và dir5
+   
+   ![alt text](<../Images/Screenshot 2024-05-16 145720.png>)
+   
+- Tạo một thư mục con trong một thư mục cha
+
+  ```
+  mkdir -p dir1/dir2
+  ```
+
+   ![alt text](<../Images/Screenshot 2024-05-16 150302.png>)
   
--  Cấu trúc lệnh:  
- > mkdir [option] directory
-
- Options:
-
- -p : Cho phép tạo thư mục con ngay cả khi chưa có thư mục cha.
-
- Directory: Tên thư mục muốn tạo.
-
-Ví dụ tạo thư mục data3 và thư mục con data4 nằm trong thư mục data3
-
-   ![alt text](<../Images/Screenshot 2024-05-14 093650.png>)
-
-### 7.Lệnh rmdir
-- Lệnh rmdir: dùng để xóa thư mục rỗng. Thư mục rỗng là thư mục không chứa bất kỳ thành phần nào
-
-- Cấu trúc lệnh 
- > rmdir [options] directory
-
- Options:
-
- -p : xóa thư mục và cả thư mục cha.
-
- Directory: Tên thư mục muốn xóa
-
-Ví dụ xoá thư mục rỗng data3 trong đó có chưa thư mục rỗng data4
-  
-   ![alt text](<../Images/Screenshot 2024-05-14 094504.png>)
-
-### 8.Lệnh rm 
+### 7.Lệnh rm (Remove Files and Directories) 
 - Lệnh rm: dùng để xoá file/thư mục
 
-- Cấu trúc lệnh 
-  > rm [options] file
+- Để xoá một file hoặc một thư mục thì ta dùng câu lệnh:
 
-  Options:
+ ```
+ rm [options] item...
+ ```
+  item có thể là một file hoặc nhiều file hoặc nhiều thư mục
 
- -f: xóa không cần hỏi
+ Ví dụ để xoá hai file `abc.txt` và `xyz.txt`:
 
- -i: hỏi trước khi xóa
+  ![alt text](<../Images/Screenshot 2024-05-16 151115.png>)
 
- -R, -r: xóa toàn bộ thư mục, kể cả thư mục con
 
-Ví dụ xoá thư mục data1 trong đó có file abc.txt
+ Các options:
+ + -d (directory): dùng để xoá thư mục rỗng
 
-   ![alt text](<../Images/Screenshot 2024-05-14 095343.png>)
+    ![ alt text ](<../Images/Screenshot 2024-05-16 152024.png>)
+
++  -r(recursive): dùng để xoá các thư mục mà bên trong nó có chưa có thư mục con hoặc cái file bên trong thư mục đó 
+  
+    ![alt text](<../Images/Screenshot 2024-05-16 153048.png>) 
+  
++  -f (force): Dùng để xoá các file và tập tin mà không nhắc người dùng nó trái ngược với --interactive
+        
+  
+
+
+
+
 
 
 
