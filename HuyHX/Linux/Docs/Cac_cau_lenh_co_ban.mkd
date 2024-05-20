@@ -1,5 +1,5 @@
 # Các câu lệnh cơ bản trong Linux
-### 1. Lệnh man (manual)
+### 1. Lệnh `man` (manual)
 - Lệnh man là công cụ để hiển thị trang hướng dẫn (manual page) cho các lệnh, cho các lời gọi hệ thống khác nhau, và thêm các tiện ích khác
 
 - Cấu trúc lệnh:
@@ -132,7 +132,7 @@ Ví dụ
   ```
    ![alt text](<../Images/Screenshot 2024-05-16 101852.png>) 
    
-### 2.Lệnh pwd 
+### 2.Lệnh `pwd` 
 - Lệnh này có tác dụng cho biết đường dẫn mà thư mục mình đang làm việc
  
    ![alt text](<../Images/Screenshot 2024-05-14 083909.png>)
@@ -141,7 +141,7 @@ Ví dụ
 
 - Cấu trúc lệnh:
  > pwd  
-### 3.Lệnh ls
+### 3.Lệnh `ls`
 - Lệnh này có tác dụng liệt kệ nội dung có trong thư mục
  
    ![alt text](<../Images/Screenshot 2024-05-14 084348.png>)
@@ -160,7 +160,7 @@ Ví dụ
 
 Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 
-### 3.Lệnh cd
+### 4.Lệnh `cd`
 - Lệnh này có tác dụng dùng để di chuyển thư mục làm việc 
 
 - Cấu trúc lệnh:
@@ -177,7 +177,7 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 
   ![alt text](<../Images/Screenshot 2024-05-14 091136.png>)
 
-### 4.Lệnh cp (copy file and directories)
+### 5.Lệnh `cp` (copy file and directories)
 - Lệnh này có tác dụng dùng để sao chép file và các thư mục 
 
 - Thực hiện copy file1 sang file2  
@@ -235,7 +235,7 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 **CHÚ Ý**: Khi copy thư mục thì cần yêu cầu có option -r hoặc -a  
 
 
-### 5.Lệnh mv (Move and Rename file)
+### 6.Lệnh `mv` (Move and Rename file)
 
 - Lệnh này có tác dụng dùng để đổi tên hoặc di chuyển thư mục hoặc file từ nơi này sang nơi khác.
 
@@ -282,7 +282,7 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
     + -v (verbose): Hiển thị thông báo đầy đủ thông tin khi thực hiện di chuyển.   
 
 
-### 6.Lệnh mkdir (Create Directories)
+### 7.Lệnh `mkdir` (Create Directories)
 -  Lệnh mkdir: dùng để tạo thư mục
 
 - Tạo một hay nhiều thư mục 
@@ -303,7 +303,7 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 
    ![alt text](<../Images/Screenshot 2024-05-16 150302.png>)
   
-### 7.Lệnh rm (Remove Files and Directories) 
+### 8.Lệnh `rm` (Remove Files and Directories) 
 - Lệnh rm: dùng để xoá file/thư mục
 
 - Để xoá một file hoặc một thư mục thì ta dùng câu lệnh:
@@ -323,11 +323,207 @@ Liệt kê chi tiết các file ẩn trong thư mục /home/huyhx
 
     ![ alt text ](<../Images/Screenshot 2024-05-16 152024.png>)
 
-+  -r(recursive): dùng để xoá các thư mục mà bên trong nó có chưa có thư mục con hoặc cái file bên trong thư mục đó 
+ +  -r(recursive): dùng để xoá các thư mục mà bên trong nó có chưa có thư mục con hoặc cái file bên trong thư mục đó 
   
     ![alt text](<../Images/Screenshot 2024-05-16 153048.png>) 
   
-+  -f (force): Dùng để xoá các file và tập tin mà không nhắc người dùng nó trái ngược với --interactive
+ +  -f (force): Dùng để xoá các file và tập tin mà không nhắc người dùng nó trái ngược với --interactive
+
+### 9.Lệnh `touch`
+- Lệnh này có tác dụng để tạo một file trống hay để thay đổi timestamp(dấu thời gian) của một thư mục hay một tập tin
+- Các timestamp bao gồm:
+
+  + access time: Thời gian lần cuối tập tin được truy cập
+   
+  + modify time: Thời gian lần cuối tập tin được sửa đổi
+   
+  + change time: Thời gian lần cuối cùng metadata của tệp tin hoặc 
+  thư mục (như quyền, chủ sở hữu) được thay đổi.   
+
+- Tạo một hoặc file trống:
+
+  + Câu lệnh 
+
+   ```
+   touch <file1> <file2>
+   ```
+   ![alt text](<../Images/Screenshot 2024-05-20 140051.png>)
+
+- Các Options:
+ 
+  + Thay đổi thời gian access time của file (-a)
+   ```
+   touch -a file1
+   ```
+   
+   ![alt text](<../Images/Screenshot 2024-05-20 140301.png>)
+
+  + Thay đổi thời gian chỉnh sửa file (-m)
+
+  + Tạo 1 tệp tin với dấu thời gian nhất định hoặc thay đổi dấu thời gian của 1 tệp đã có.
+
+   ``` 
+   touch -t YYYYMMDDHHMM <filename>
+   ```
+   ![alt text](<../Images/Screenshot 2024-05-20 141315.png>)
+
+### 10. Lệnh `echo`
+- Dùng để hiển thị một dòng văn bản
+
+ ```
+ echo <string>
+ ```
+   ![alt text](<../Images/Screenshot 2024-05-20 143022.png>)
+
+- Các Options
+
+  + Dùng để liệt kê các file thư muc
+
+   ```
+   echo *
+   ```
+    ![alt text](<../Images/Screenshot 2024-05-20 144237.png>)
+
+  + Ngăn xuóng dòng khi in
+
+   ```
+   echo -n <string>
+   ```
+    ![alt text](<../Images/Screenshot 2024-05-20 144624.png>)
+
+  + Với option `-e`, nó cho phép ta xác định sự liên tục của văn bản đầu vào. `e - escape`
+
+  + `\b: backspace` dùng để xoá kí tự trưỚc đó:
+   
+     ![alt text](<../Images/Screenshot 2024-05-20 145415.png>) 
+     
+  + `\c` cắt văn bản và không xuống dòng
+     
+     ![alt text](<../Images/Screenshot 2024-05-20 145619.png>)
+
+  + `\n: new line` xuống dòng
+
+     ![alt text](<../Images/Screenshot 2024-05-20 145721.png>)  
+
+  + `\t: tab` tạo khoảng cách giữa cái chữ:
+   
+     ![alt text](<../Images/Screenshot 2024-05-20 145954.png>)
+
+  + `\r` trả về văn bản sau đó
+
+     ![alt text](<../Images/Screenshot 2024-05-20 150243.png>)  
+
+### 11. Lệnh `cat`
+- Cat: concatenate (tiếp nối)
+ 
+- Lệnh này có tác dụng dùng để nối các tập tin, xem, tạo nội dung của các tập tin
+  
+- Xem nội dung của file:
+
+  ```
+  cat <file>
+  ```
+
+   ![alt text](<../Images/Screenshot 2024-05-20 151634.png>)
+
+- Nối nôi dung của nhiều tệp và in ra
+
+  ```
+  cat <file1> <file2>
+  ```
+
+   ![alt text](<../Images/Screenshot 2024-05-20 151823.png>)
+
+- Xem nôi dung file với đánh số dòng `-n: number`
+
+  ``` 
+  cat -n <file>
+  ```
+
+   ![alt text](<../Images/Screenshot 2024-05-20 152118.png>)
+
+- Tạo file 
+
+  ```
+  cat >newfile
+  ```
+
+   ![alt text](<../Images/Screenshot 2024-05-20 152328.png>)
+
+- Sao chép file
+
+  ```
+  cat s_filename > d_filename
+  ```
+
+   ![alt text](<../Images/Screenshot 2024-05-20 152657.png>)
+
+- `-s: squeeze-blank`Bỏ những dòng trống ở đầu file.
+
+   ![alt text](<../Images/Screenshot 2024-05-20 152842.png>) 
+
+- `-E: shows end` Thêm `$` vào cuối dòng
+
+   ![alt text](<../Images/Screenshot 2024-05-20 153603.png>)
+
+### 12. Lệnh `tail`
+- Dùng để in ra các dòng cuối cùng của file 
+
+  ```
+  tail <filename>
+  ```
+
+   ![alt text](<../Images/Screenshot 2024-05-20 154626.png>)
+
+- `-n: munber` dùng để xác định số dòng cuối cùng in ra
+   
+   ```
+   tail -n <filename>
+   ```
+
+    ![alt text](<../Images/Screenshot 2024-05-20 155029.png>)
+
+   Có thể không cần kí tự n 
+ 
+   Sừ dụng `+` để in ra số dòng bắt đầu đến hết
+
+    ![alt text](<../Images/Screenshot 2024-05-20 155331.png>)
+
+- `-v` in ra số lương dòng kèm theo tên file
+
+    ![alt text](<../Images/Screenshot 2024-05-20 155901.png>)
+
+
+### 13.
+
+         
+
+
+     
+   
+   
+        
+    
+    
+
+
+    
+   
+
+   
+     
+
+
+        
+
+
+
+
+
+
+    
+
+
         
   
 
