@@ -1,0 +1,113 @@
+# Tìm hiểu cách cài đặt gói trên Linux (Ubuntu 22.04)
+## 1. Tìm hiểu các lệnh về `apt`
+### 1.1 Định nghĩa về `apt`
+- `apt` viết tăt của Advanced Package Tool. Nó là một công cụ dòng lệnh dùng để quản lý các gói phần mền trên hệ điều hành. Nó được thiết kế để giúp người dùng cài đặt, cập nhật, nâng cấp và gỡ bỏ các gói phần mềm một cách dễ dàng và hiệu quả. apt là viết tắt của "Advanced Package Tool" và là một phần của hệ thống quản lý gói của Debian. 
+### 1.2 Các câu lệnh cơ bản của `apt`
+
+- `apt update`: Thực hiện cập nhập danh sách các gói hiện có và các phiên bản có sẵn từ kho lưu trữ 
+
+- `apt upgrade`: Nâng cấp các gói đã cài đặt lên phiên bản mới nhất.  
+
+- `apt install`: Cài đặt một hay nhiều gói 
+
+- `apt show`: Lệnh này hiển thị thông tin chi tiết về một gói, bao gồm mô tả, kích thước, phụ thuộc, và các thông tin khác.
+
+- `apt search`: Tìm kiếm các gói trong gói có sẵn
+
+- `apt remove`: Lệnh này gỡ bỏ một gói đã cài đặt nhưng giữ lại các tệp cấu hình của nó
+
+- `apt purge`: Lệnh này gỡ bỏ một gói đã cài đặt cùng với tất cả các tệp cấu hình của nó.
+
+## 2.Tìm hiểu về cách cài đặt gói `.deb`
+
+- Để cài đặt gói `.deb` người ta sử dụng một công cụ gọi là dpkg (Debian Package)
+
+### 2.1 Định nghĩa về Debian Package
+
+- dpkg (Debian Package) là một công cụ quản lý gói phần mềm cơ bản dành cho các hệ điều hành dựa trên Debian như Debian, Ubuntu và các bản phân phối Linux khác. dpkg được sử dụng để cài đặt, gỡ bỏ và quản lý các gói phần mềm có định dạng `deb`.
+
+### 2.2 Các câu lệnh cơ bản của `dpkg`
+
+- `dpkg --info`: Xem thị thông tin của một package
+
+- `dpkg --status`: Hiển thị thông tin nhưng ít thông tin hơn  `--info` 
+
+- `dpkg -l`: Cung cấp tình trạng của các gói, nó cung cấp thông tin chi tiết về trạng thái, phiên bản và mô tả của từng gói, giúp bạn dễ dàng quản lý các gói phần mềm trên hệ thống của mình.
+
+- `dpkg -L`: Cho biết các tệp và thư mục đã được cài đặt bởi gói đó 
+
+- `dpkg -i`: Cài đặt một hoặc nhiều gói package cụ thể
+  
+- `dpkg -r`: Xoá một package cụ thể nhưng không xoá nó khỏi tệp cấu hình
+
+- `dpkg -P`: Xoá một package cụ thể và xoá nó khỏi tệp cấu hình 
+
+- `dpkg -S`: Tìm bạn muốn tìm gói nào chứa tệp thực thi đó 
+
+# Tìm hiểu cách cài đặt gói trên CentOS
+## 1. Tìm hiểu về lệnh `yum`
+
+- Lệnh yum là một trình quản lý gói (package manager) được sử dụng trên các hệ điều hành Linux, đặc biệt là các bản phân phối thuộc họ Red Hat như CentOS, Fedora
+
+- Các câu lệnh cơ bản của lệnh `yum`
+
+ + `yum install`: Cài đặt một gói mới 
+
+ + `yum update`: Cập nhập các gói đã được cài đặt
+
+ + `yum remove`: Xoá gói một gói đã cài đặt
+
+ + `yum search`: Tìm kiếm một gói
+
+ + `yum info`: Hiển thị thông tin về một gói
+
+ + `yum list installed`: Hiển thị các gói đã được cài đặt
+
+## 2. Tìm hiểu về lệnh `dnf`
+
+- `dnf` (Dandified YUM) là thế hệ tiếp theo của trình quản lý gói `yum`. Mặc dù cả hai đều phục vụ cùng một mục đích là quản lý gói trên các hệ điều hành Linux thuộc họ Red Hat như Fedora, CentOS và RHEL, nhưng `dnf` mang lại nhiều cải tiến so với `yum`. 
+
+- Cú pháp cài gói bằng `dnf` 
+
+  ```
+  dnf install ten_goi
+
+  hoặc
+
+  dnf install -y ten_goi
+
+  ```
+  Về bản chất, trình quản lý gói DNF là được link tới YUM trong CentOS 8. Có nghĩa là bạn vẫn dùng được lệnh `yum install ten_goi` để cài đặt các gói cần thiết. Ta sẽ kiểm tra việc này.  
+
+# Cách cài đặt gói offline
+ - Thực hiện cài gói offline ở Ubuntu 22.04:
+   
+   + Bước 1: Down gói có định dạng `.deb` 
+     
+     ![alt text](<../Images/Screenshot 2024-05-24 141055.png>)
+
+    Ở đây mình đã tải một gói tin ` htop_3.0.5-7build2_amd64.deb`
+
+   + Bước 2: Thực hiện câu lệnh `sudo -i` để vào user root và thực hiện:
+
+    ```
+    /etc/netplan/00-installer-config.yaml
+    ```
+
+   + Bước 3: Thực hiện xoá `gateway4` và `nameserver` của file cấu hình 
+
+     ![alt text](<../Images/Screenshot 2024-05-24 141632.png>)
+
+   + Bước 4: Thực hiện câu lệnh `netplan apply ` và `ping 8.8.8.8`
+  
+     ![alt text](<../Images/Screenshot 2024-05-24 141930.png>)
+
+   + Bước 5: Thực hiện cài gói `deb` bằng câu lệnh `sudo dpkg -i htop_3.0.5-7build2_amd64.deb` 
+     
+     ![alt text](<../Images/Screenshot 2024-05-24 142129.png>)
+    
+
+ - Cài đặt gói offline ở CentOS    
+
+  + Đọc hướng dẫn tại: [https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/](https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/)
+
