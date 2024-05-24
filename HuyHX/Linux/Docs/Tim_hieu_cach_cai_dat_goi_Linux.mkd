@@ -107,7 +107,7 @@
      ![alt text](<../Images/Screenshot 2024-05-24 142129.png>)
     
 
- - Cài đặt gói offline ở CentOS    
-
-  + Đọc hướng dẫn tại: [https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/](https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/)
+ - Cài đặt gói offline ở CentOS
+      
+   + Đọc hướng dẫn tại: [https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/](https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/)
 
