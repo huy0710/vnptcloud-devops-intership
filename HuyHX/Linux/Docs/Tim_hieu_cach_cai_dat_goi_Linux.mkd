@@ -77,7 +77,7 @@
   dnf install -y ten_goi
 
   ```
-  Về bản chất, trình quản lý gói DNF là được link tới YUM trong CentOS 8. Có nghĩa là bạn vẫn dùng được lệnh `yum install ten_goi` để cài đặt các gói cần thiết. Ta sẽ kiểm tra việc này.  
+  Về bản chất, trình quản lý gói DNF là được link tới YUM trong CentOS 8. Có nghĩa là bạn vẫn dùng được lệnh `yum install ten_goi` để cài đặt các gói cần thiết. 
 
 # Cách cài đặt gói offline
  - Thực hiện cài gói offline ở Ubuntu 22.04:
@@ -110,4 +110,11 @@
  - Cài đặt gói offline ở CentOS
       
    + Đọc hướng dẫn tại: [https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/](https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/)
+
+# Tài liệu tham khảo:
+ 
+ - [https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/](https://news.cloud365.vn/huong-dan-cai-dat-cac-goi-tren-centos-7-su-dung-file-rpm/)
+
+ -  [https://news.cloud365.vn/centos-8-dnf-la-trinh-quan-ly-goi-mac-dinh-thay-cho-yum-trong-centos-8/](https://news.cloud365.vn/centos-8-dnf-la-trinh-quan-ly-goi-mac-dinh-thay-cho-yum-trong-centos-8/)
+   
 
