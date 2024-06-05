@@ -1,0 +1,17 @@
+# SSH Logs
+
+ Ta có thể kiểm tra log của SSH trong file `/var/log/auth.log`
+
+## Lọc Log của SSH 
+ 
+ ```
+ cat /var/log/auth.log | grep sshd
+ ```
+  ![alt text](<../Images/Screenshot 2024-06-03 165605.png>)
+
+## Lọc logs SSH đăng nhập thất bại
+ 
+ ```
+ cat /var/log/auth.log | grep sshd | grep Failed
+ ```
+

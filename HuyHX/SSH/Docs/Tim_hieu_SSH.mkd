@@ -25,7 +25,7 @@
   
 ### 3.1 Mã hoá đối xứng 
 -  Symmetrical encryption là loại encryption mà một key có thể được sử dụng để encryt messages rồi gửi đến bên nhận , và cũng để decrypt messages nhận được . Điều này có nghĩa bất cứ ai có key đều có thể encrypt và decrypt messages.
-- Loại encryption này thường được gọi là “shared secret” encryption , hoặc “secret key” encryption . Thường chỉ cos một key được sử dụng cho tất cả các hoạt động ,hoặc một key pair , mơi mối quan hệ giữa chúng dễ dàng để phát hiện và dễ dàng lấy được key còn lại từ key đã có .
+- Loại encryption này thường được gọi là “shared secret” encryption , hoặc “secret key” encryption . Thường chỉ có một key được sử dụng cho tất cả các hoạt động ,hoặc một key pair , nơi mối quan hệ giữa chúng dễ dàng để phát hiện và dễ dàng lấy được key còn lại từ key đã có .
 - Symetric keys được sử dụng bởi SSH để encrypt toàn bộ connection .
 - SSH được cấu hình để sử dụng một loạt các hệ thống mật mã symetric key khác nhau , bao gồm : AES , Blowfish,3DEC,CAST128 và Arcfour. 
   
@@ -40,6 +40,20 @@
 Trong giai đoạn này , server sẽ key pair và gửi public key cho client , client sẽ tạo symmetrical encryption và được encrypt bằng public key , sau đó gửi lại cho server , server dùng private key để decrypt . Vậy là quá trình thỏa thuận encryption key để encrypt session đã xong.
 
  ![alt text](../Images/1.2.png)
+
+### 3.3 Hàm băm (Hashing)
+
+- Về cơ bản hashing là quá trình biến một dữ liệu đầu vào thành một chuỗi đầu ra đặc trưng có độ dài cố định 
+
+- Ở trong SSH hàm băm được sử dụng để đảm bảo tính toàn vẹn và bảo mật của dữ liệu
+
+  + Kiểm tra tính toàn vẹn của dữ liệu: 
+
+    Khi dữ liệu được truyền qua mạng, hàm băm được sử dụng để tạo ra một giá trị băm (hash value) từ dữ liệu đó. Giá trị băm này sau đó được gửi kèm theo dữ liệu. Ở phía nhận, hàm băm được áp dụng lên dữ liệu nhận được và so sánh với giá trị băm ban đầu. Nếu hai giá trị băm khớp nhau, dữ liệu được coi là không bị thay đổi trong quá trình truyền.
+
+  + Xác thực khoá công khai:
+
+    Khi một kết nối SSH được thiết lập lần đầu tiên, máy chủ sẽ gửi khóa công khai của mình cho máy khách. Để đảm bảo rằng khóa này không bị giả mạo, SSH sử dụng hàm băm để tạo ra một giá trị băm duy nhất cho khóa công khai đó. Máy khách có thể sử dụng giá trị băm này để xác thực khóa công khai của máy chủ, thường bằng cách so sánh với giá trị băm đã biết hoặc được lưu trữ trước đó.    
 
 ## 4.Quá trình làm việc của SSH 
 
@@ -107,11 +121,10 @@ Một phiên làm việc của SSH được thiết lập trong 2 giai đoạn r
 
 - Quá trình xác thực sử dụng SSH key pair diễn ra sau khi kết nối mã hóa đối xứng đường truyền được thiết lập. Các bước thực hiện như sau:
 
-   ![alt text](../Images/1.9.png)
 
- + Client bắt đầu gửi ID của key pair muốn xác thực tới server. Thường là ID của public key (Pi như trong hình)
+ + Client bắt đầu gửi ID của key pair muốn xác thực tới server. Thường là ID của public key 
 
- + Server kiểm tra Pi trong file authorized_keys của tài khoản user mà client request tới. Nếu một public key phù hợp với ID được tìm thấy trong file, server sẽ tạo ra một số ngẫu nhiên N và sử dụng public key đó mã hóa N.
+ + Server kiểm tra ID trong file authorized_keys của tài khoản user mà client request tới. Nếu một public key phù hợp với ID được tìm thấy trong file, server sẽ tạo ra một số ngẫu nhiên N và sử dụng public key đó mã hóa N.
 
  + Server gửi lại bản tin là N đã được mã hóa tới client.
 
@@ -123,6 +136,13 @@ Một phiên làm việc của SSH được thiết lập trong 2 giai đoạn r
 
 
 Hệ thống key bất đối xứng cho phép server mã hóa bản tin gửi tới client sử dụng public key. Client có thể chứng minh nó đã có private key bằng cách giải mã chính xác bản tin đó. (do không thể tìm ngược lại được private key, nên client nào đang chứa private key có thể chứng thực được bản thân). 2 loại mã hóa trên được sử dụng đã tận dụng được điểm mạnh của từng loại trong mô hình của SSH (mã hóa đối xứng để mã hóa kết nối và mã hóa bất đối xứng để xác thực). 
+
+
+
+
+
+
+
 
 
 
