@@ -1,0 +1,131 @@
+# Tìm hiểu về SSH
+## 1.SSH là gì
+
+- SSH (Secure Socket Shell) là một giao thức mạng cho phép truy cập  máy tính từ xa  một cách an toàn, bằng cách mã hóa đường truyền giữa hai máy tính. SSH hoạt động ở lớp trên trong mô hình phân lớp TCP/IP và sử dụng kỹ thuật cryptographic để đảm bảo tất cả các giao tiếp gửi tới và gửi từ máy chủ ở xa luôn trong tình trạng bảo mật, hạn chế việc nghe trộm, đánh cắp thông tin trên đường truyền. 
+
+- SSH thường được lập trình viên sử dụng để tương tác giữa máy chủ và máy khách, nhằm bảo vệ các giao dịch an toàn và hiệu quả nhất. 
+
+## 2.Đặc điểm của SSH 
+
+-  Các đặc điểm chính của giao thức SSH là:
+
+ + Tính bí mật (Privacy) của dữ liệu thông qua việc mã hoá mạnh mẽ
+  
+ + Tính toàn vẹn (integrity) của thông tin truyền, đảm bảo chúng không bị biến đổi.
+  
+ + Chứng minh xác thực (authentication) nghĩa là bằng chứng để nhận dạng bên gửi và bên nhận
+  
+ + Giấy phép (authorization) :dùng để điều khiển truy cập đến tài khoản.  
+
+ + Chuyển tiếp (forwarding) hoặc tạo đường hầm (tunneling) để mã hoá những phiên khác dựa trên giao thức TCP/IP. 
+
+## 3.Cách thức làm việc của SSH 
+
+- Để bảo mật thông tin trên kênh truyền, SSH triển khai một số loại thao tác khác nhau với dữ liệu tại từng điểm khác nhau của phiên làm việc.Những công nghệ này bao gồm: mã hóa đối xứng (symmetrical encryption) , mã hóa bất đối xứng (asymmetrical encryption) và hàm băm (hashing) .
+  
+### 3.1 Mã hoá đối xứng 
+-  Symmetrical encryption là loại encryption mà một key có thể được sử dụng để encryt messages rồi gửi đến bên nhận , và cũng để decrypt messages nhận được . Điều này có nghĩa bất cứ ai có key đều có thể encrypt và decrypt messages.
+- Loại encryption này thường được gọi là “shared secret” encryption , hoặc “secret key” encryption . Thường chỉ cos một key được sử dụng cho tất cả các hoạt động ,hoặc một key pair , mơi mối quan hệ giữa chúng dễ dàng để phát hiện và dễ dàng lấy được key còn lại từ key đã có .
+- Symetric keys được sử dụng bởi SSH để encrypt toàn bộ connection .
+- SSH được cấu hình để sử dụng một loạt các hệ thống mật mã symetric key khác nhau , bao gồm : AES , Blowfish,3DEC,CAST128 và Arcfour. 
+  
+  ![alt text](../Images/1.1.png)
+
+### 3.2 Mã hoá bất đối xứng
+
+- Asymmetrical Encryption khác symmetrical encryption trong đó data được gửi theo một hướng duy nhất . Một key gọi là private key , khóa kia gọi là public key .
+- Public key có thể được shared tự do với bất kỳ bên nào . Data sẽ được encrypt bằng public key và chỉ được decrypt bằng private key . Đây là một chiều , có nghĩa là public không có khả năng decrypt message nó viết .
+- Private key được giữ bí mật và không bao giờ được share .
+- SSH sử dụng asymmetrical encryption trong một vài trường hợp khác nhau . Trong quá trình trao đổi key ban đầu để thiết lập symmetrical ( được sử dụng encrypt session ) , asymmetrical encryption là được sử dụng .
+Trong giai đoạn này , server sẽ key pair và gửi public key cho client , client sẽ tạo symmetrical encryption và được encrypt bằng public key , sau đó gửi lại cho server , server dùng private key để decrypt . Vậy là quá trình thỏa thuận encryption key để encrypt session đã xong.
+
+ ![alt text](../Images/1.2.png)
+
+## 4.Quá trình làm việc của SSH 
+
+Giao thức SSH triển hai theo mô hình client – server để xác thực giữa 2 bên và mã hóa dữ liệu giữa chúng.
+
+Server lắng nghe trên một cổng được chỉ định cho các kết nối. Nó sẽ đáp trả lại các đàm phán tạo kết nối an toàn tư client, xác thực bên đang kết nối tới, và tạo ra môi trường kết nối bảo mật nếu bên định danh của client được chấp thuận.
+
+Client có trách nhiệm bắt đầu tạo kết nối TCP với server, thỏa thuận tạo ra một kết nối an toàn, xác nhận thông tin định danh của server phu hợp với các bản ghi thông tin được cấp trước đó, và cung cấp nhận dạng của mình để xác thực với server.
+  
+  ![alt text](../Images/1.4.png)
+
+Một phiên làm việc của SSH được thiết lập trong 2 giai đoạn riêng biệt:
+
+- Giai đoạn đầu tiên là đồng ý và thiết lập đường truyền mã hóa để bảo vệ an toàn liên kết sau đó.
+
+- Giai đoạn thứ 2 là xác thực user và gán quyền được phép truy cập tới server như nào.
+
+### 4.1 Negotiating Encryption for the Session - Thiết lập mã hóa phiên kết nối 
+ 
+ - Client request tới server tạo một kết nối TCP. Khi kết nối TCP được thiết lập bởi client, server đáp trả lại version protocol mà nó hỗ trợ. Nếu client phù hợp với một trong các version protocol được chấp thuận, kết nối sẽ tiếp tục.
+
+ - Server cung cấp public key của nó, để client có thể xác định đây chính là máy chủ cần kết nối.
+
+ - Client tạo ra một key bí mật, được sử dụng với các thuật toán mã hóa đối xứng – key này gọi là session key sẽ dùng để thiết lập kết nối bí mật chỉ có mình client và server biết. Sau đó, dùng public key vừa nhận được từ server, mã hóa sesion key và gửi cho server.
+
+ - Client gửi session key đã mã hóa bằng public key lại cho server.
+
+ - Server dùng private key của nó để giải mã session key vừa nhận được. (do chỉ mình server là có private key, nên nếu server giải mã được session key thì nó đã xác thực được nó chính là server mà client muốn truy cập tới)
+
+ - Sau khi cả 2 bên đều có session key bí mật, kết nối TCP giữa client và server sẽ được mã hóa bằng session key bí mật chung mà chỉ có 2 bên mới có.
+
+ - Hoàn thành quá trình thiết lập kết nối bảo mật an toàn để truyền dữ liệu giữa client và server.
+
+ - Sau khi quá trình mã hóa phiên được thiết lập, sẽ tới quá trình xác thực người dùng.
+
+  ![alt text](../Images/1.5.png)
+
+### 4.2 Authenticating the User's Access to the Server - Xác thực người dùng
+
+- Client gửi request xác thực tới server (có 2 phương thức là dùng password và sử dụng SSH keypair)
+
+- Khi nhận được request xác thực, server sẽ đáp trả lại list các danh sách các phương thức xác thực mà nó hỗ trợ và client phải vượt qua được thì mới được xác thực.
+
+- Client chọn một phương thức xác thực trong danh sách trên và tạo ra request xác thực gồm có username, phương thức xác thực và thông tin liên quan tới phương thức xác thực đó:
+
+ + Nếu là xác thực theo password, thông tin kèm theo sẽ password.
+
+ + Nếu là xác thực theo key, thông tin kèm theo là id public key trong keypair hoặc chữ kí số của client để xác thực.  
+
+- Dựa trên cấu hình của client, nếu client đã được xác thực trước đó, server sẽ có từng hành động cụ thể với client:
+
+ + Nếu client đã vượt qua kiểm tra xác thực trước đó và không phải trải qua vòng xác thực nào nữa, server sẽ gửi cho client một thông báo đã xác thực thành công và cho phép truy cập.
+
+ + Nếu client đã qua xác thực trước đó nhưng vẫn phải tiếp tục các loại xác thực khác, server sẽ gửi tới client một thử thách xác thực mang theo loại xác thực mà client phải vượt qua.
+
+ + Nếu client không vượt qua vòng xác thực mà thời gian để cho xác thực vẫn chưa hết thì server sẽ gửi lại thử thách xác thực cho server.
+
+ + Nếu client vẫn xác thực sai và thời gian xác thực hết, server sẽ gửi lại thông báo xác thực sai cho client và ngắt kết nối. 
+
+## 5. Xác thực người dùng bằng SSH key pair
+
+- Phương pháp thông dụng nhất được khuyến cáo dùng để xác thực thay thế cho phương pháp xác thực bằng password là sử dụng SSH key pairs. Cặp key SSH key là khóa bất đối xứng, nghĩa là mỗi key có chức năng khác nhau.
+
+- Public key được dùng để mã hóa dữ liệu mà chỉ có thể được giải mã bởi private key. Public key có thể được chia sẻ tự do, bởi vì nó chỉ được dùng để mã hóa dữ liệu mà giải mã được bởi private key, không có cách nào để tìm được private key từ public key. => Nếu một bản tin mật mà được mã hóa bởi server sử dụng public key, mà client có thể giãi mã được bản tin đó thì client sẽ chứng minh được với server rằng nó chính là client có private key chứ không phải một client khác. Qua đó, client xác thực được với server một cách an toàn hơn vì không phải gửi password.
+
+- Quá trình xác thực sử dụng SSH key pair diễn ra sau khi kết nối mã hóa đối xứng đường truyền được thiết lập. Các bước thực hiện như sau:
+
+   ![alt text](../Images/1.9.png)
+
+ + Client bắt đầu gửi ID của key pair muốn xác thực tới server. Thường là ID của public key (Pi như trong hình)
+
+ + Server kiểm tra Pi trong file authorized_keys của tài khoản user mà client request tới. Nếu một public key phù hợp với ID được tìm thấy trong file, server sẽ tạo ra một số ngẫu nhiên N và sử dụng public key đó mã hóa N.
+
+ + Server gửi lại bản tin là N đã được mã hóa tới client.
+
+ + Nếu client có private key tương ứng, nó sẽ có thể giải mã được bản tin và tìm ra được số N ban đầu. Client kết hợp số N đó với session key bí mật giữa client và server tính ra được mã hash MD5.
+
+ + Client gửi mã hash đó lại cho server như câu trả lời cho bản tin mã hóa N mà server gửi về để xác thực đó đúng là client mà server muốn xác thực.
+
+ + Server sử dụng đúng session key được chia sẻ ở giai đoạn 1 và số N trước đó để tính toán ra giá trị MD5. Nó sẽ so sánh mã này và mã MD5 nhận được từ client. Nếu trùng nhau, client đã chứng minh được nó có private và được xác thực.
+
+
+Hệ thống key bất đối xứng cho phép server mã hóa bản tin gửi tới client sử dụng public key. Client có thể chứng minh nó đã có private key bằng cách giải mã chính xác bản tin đó. (do không thể tìm ngược lại được private key, nên client nào đang chứa private key có thể chứng thực được bản thân). 2 loại mã hóa trên được sử dụng đã tận dụng được điểm mạnh của từng loại trong mô hình của SSH (mã hóa đối xứng để mã hóa kết nối và mã hóa bất đối xứng để xác thực). 
+
+
+
+
+
+ 

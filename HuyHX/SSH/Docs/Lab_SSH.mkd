@@ -1,0 +1,63 @@
+# Lab SSH Keypair
+
+## 1.Tạo khoá trên Server  
+
+- Tạo một cặp ssh keys bằng câu lệnh 
+
+ ```
+ ssh-keygen -t rsa
+ ```
+Trong đó ssh-keygen là câu lệnh để tạo một cặp key còn tuỳ chọn `-t rsa` là sử dụng thuật toán rsa
+  
+  ![alt text](<../Images/Screenshot 2024-06-03 203319.png>)
+
+`/home/huyhx/.ssh/id_rsa` là nơi lưu trữ key. Ấn `enter` để mặc định nơi lưu trữ 
+
+- Tùy chọn này cho phép bạn nhập passphrase cho private_key của bạn . Theo mặc định mỗi lần bạn sử dụng private key này , bạn phải nhập passphrase này để sử dụng . Hãy nhấn phím ENTER để bỏ trống mục này nếu bạn không muốn phải điền mật khẩu mỗi lần dùng private key. Ở đây ta nhập `huyhx`
+ 
+  ![alt text](<../Images/Screenshot 2024-06-03 203543.png>) 
+
+- Như vậy ta đã tạo thành công 1 cặp key: 
+  
+  ![alt text](<../Images/Screenshot 2024-06-03 203814.png>)
+
+- Tiếp theo ta thực hiện đổi tên `id_rsa.pub` thành `authorized_keys` vì ở ssh public key được chứa ở file này
+   
+   ![alt text](<../Images/Screenshot 2024-06-03 204822.png>)
+
+- Tiếp theo ta lấy nội dung của `id_rsa` về: 
+
+   + Thực hiện câu lệnh 
+
+   ```
+    vi /home/huyhx/.ssh/id_rsa
+   ```
+
+   + Thực hiện copy ra windown bằng cách mở file text là thực hiện copy. Ở đây tôi lưu là `private key`
+
+       ![alt text](<../Images/Screenshot 2024-06-03 205749.png>)
+
+   
+- Tiếp theo là sửa file cấu hình SSH bằng câu lệnh: 
+
+  ```
+  vi /etc/ssh/sshd_config      
+  ```
+   
+   ![alt text](<../Images/Screenshot 2024-06-03 211159.png>)
+
+- Sau đó ở MobaXterm mở `session settings`  nhập địa chỉ ip và ấn vào `Advanced SSH settings`  và ấn vào `use private key`
+
+   ![alt text](<../Images/Screenshot 2024-06-03 221249.png>)
+
+- Như vậy quá trình cài đặt đã hoàn tất 
+
+   ![alt text](<../Images/Screenshot 2024-06-03 221448.png>)
+
+
+
+ 
+
+
+
+
