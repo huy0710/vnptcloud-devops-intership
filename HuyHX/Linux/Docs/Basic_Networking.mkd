@@ -1,0 +1,32 @@
+# Network interfaces
+
+- Network interfaces: là một kênh kết nối giữa một thiết bị và một mạng, Về mặt vật lý, thì network interfaces có thể triển khai thông qua NIC (network interface card) Đây là một thiết bị phần cứng được cài đặt trên máy tính hoặc thiết bị mạng khác để kết nối với mạng, cho phép truyền và nhận dữ liệu qua mạng. Hoặc có thể được triển khai một cách trừu tượng hơn dưới dạng phần mềm. Bạn có thể có nhiều giao diện mạng hoạt động cùng một lúc. Các giao diện cụ thể có thể được kích hoạt (kích hoạt) hoặc tắt (vô hiệu hóa) bất kỳ lúc nào. Một danh sách các giao diện mạng đang hoạt động hiện tại được báo cáo bởi tiện ích `ifconfig`. Tập tin cấu hình mạng là rất quan trọng để đảm bảo rằng các giao diện hoạt động đúng cách.
+
+- Đối với họ Debian, tập tin cấu hình mạng cơ bản là `/etc/network/interfaces`  Đối với họ RedHat, thông tin định tuyến và máy chủ được chứa trong `/etc/sysconfig/network`. Đối với họ SUSE, thông tin định tuyến và máy chủ và tập lệnh cấu hình giao diện mạng được chứa trong thư mục `/etc/sysconfig/network`. 
+
+# Routing table
+
+ - Khi bạn muốn xem bảng định tuyến thì hãy thực hiện câu lệnh: 
+
+   ```
+    route -n
+   ``` 
+
+    ![alt text](../Images/network.png)
+
+ - Khi bạn muốn thêm vào bảng định tuyến: 
+
+    ![alt text](../Images/network2.png) 
+
+    Ở đây ta sử dụng câu lệnh: 
+    ```
+    route add [destination] gw [IP gateway]
+    ```
+ - Khi bạn muốn xoá một đường đi trong bản định tuyến ta sử dụng câu lệnh:
+
+   ```
+   route del [destination]
+   ```
+   ![alt text](<../Images/Screenshot 2024-06-07 112851.png>)
+
+

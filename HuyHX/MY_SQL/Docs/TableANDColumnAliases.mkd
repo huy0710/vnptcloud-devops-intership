@@ -1,0 +1,101 @@
+# Table & Column Aliases
+
+## Chức năng
+
+ - MySQL Aliases dùng để cải thiện đọc của các truy vấn bằng cách đặt bí danh. MySQL hỗ trợ hai loại bí danh là bí danh cột và bí danh bảng 
+
+## Đặt bí danh cho các cột
+
+- Trong MySQL, bạn sử dụng bí danh cột để gán tên tạm thời cho một cột trong tập kết quả của truy vấn.
+
+### 1. Cú pháp
+
+  ```
+  SELECT 
+   [column_1 | expression] AS descriptive_name
+  FROM table_name;
+  ```
+
+ - Nếu bí danh chứa dấu cách, bạn phải đặt nó trong dấu ngoặc kép như sau:  
+
+   ```
+   SELECT 
+    [column_1 | expression] AS `descriptive name`
+   FROM 
+    table_name;
+
+   ```
+
+### 2. Ví dụ 
+
+ - Sử dụng bảng `employese`: 
+
+    ![alt text](../Images/My_SQL(40).png) 
+
+ - Truy vấn sau đây chọn tên và họ của nhân viên. Nó sử dụng hàm `CONCAT_WS ()` để ghép tên và họ thành tên đầy đủ.
+
+   ```
+   SELECT 
+    CONCAT_WS(', ', lastName, firstname)
+   FROM
+    employees;
+   ```
+
+    ![alt text](../Images/My_SQL(41).png) 
+
+ - Bảng kết quả tên cột nhìn dài và khó hiểu. Nên ta sẽ đặt bí danh cho nó:
+
+    ```
+    SELECT
+     CONCAT_WS(', ', lastName, firstname) AS `Full name`
+    FROM
+     employees;    
+    ```  
+     
+     ![alt text](../Images/My_SQL(42).png)
+
+
+## Đặt bí danh cho bảng
+
+ - Cũng giống như cột, bạn có thể đặt bí danh cho bảng.
+
+### 1. Cú pháp
+  
+  ```
+  table_name AS table_alias
+  ```
+### 2. Ví dụ
+
+ - Đặt `employese` bí danh bảng là `e`.
+
+   ```
+   SELECT * FROM employees e;
+   ```
+
+ - Sử dụng bảng `employese`. Truy vấn danh sách nhân viên sắp xếp theo `firstName`:
+
+    ![alt text](../Images/My_SQL(43).png) 
+
+  ```
+  SELECT 
+    e.firstName, 
+    e.lastName
+  FROM
+    employees e
+  ORDER BY e.firstName;
+  ```
+   ![alt text](../Images/My_SQL(44).png) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

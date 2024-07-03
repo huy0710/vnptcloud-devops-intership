@@ -1,0 +1,120 @@
+# ISCSI
+
+## 1.ISCSI là gì: 
+- iSCSI là viết tắt của Internet Small Computer System Interface (giao thức hệ thống máy tính Internet nhỏ). iSCSI là giao thức tầng vận chuyển hoạt động trên giao thức TCP/IP, điều này cho phép hệ thống có thể truy cập và sử dụng thiết bị lưu trữ như thể chúng kết nối trực tiếp với hệ thống 
+
+## 2. Các thành phần trong iSCSI
+
+- iSCSI Initiator (bộ khởi tạo ISCSI), HBA và iSOE
+
+ + Giao thức iSCSI sử dụng trình khởi tạo (initiator) để gửi các lệnh SCSI đến các thiết bị lưu trữ mục tiêu (target) trên các máy chủ từ xa. Bộ khởi tạo iSCSI có thể là phần mềm được cài hoặc được tích hợp cùng với hệ điều hành 
+
+ + HBA hay Host-based adapters là một giải pháp phần cứng, do đó nó đắt đỏ hơn so với bộ khởi tạo iSCSI tuy nhiên có hiệu năng cao hơn cũng như cung cấp nhiều tính năng hơn. 
+
+ + Một loại phần cứng tương đương là iSOE card với động cơ giảm tải iSCSI, giúp đảm nhiệm công việc của bộ khởi tạo iSCSI và giải phóng tài nguyên CPU trên máy chủ.  
+
+- iSCSI Target: 
+
+ + SCSI vận chuyển các packet qua mạng TCP/IP như LAN, WAN và Internet. Mục tiêu iSCSI (iSCSI target) là hệ thống lưu trữ từ xa, đóng vai trò như một ổ đĩa cục bộ của các máy chủ  
+
+   ![alt text](../Images/iscsi.png) 
+
+## 3. Cách thức hoạt động của iSCSI
+
+  -  Kết nối: Initiator thiết lập một kết nối TCP với target qua một địa chỉ IP và cổng được chỉ định.
+
+  - Gửi lệnh: Initiator gửi các lệnh SCSI được gói gọn trong các gói TCP/IP đến target.
+
+  - Xử lý lệnh: Target giải mã các lệnh SCSI và thực hiện các hành động cần thiết trên thiết bị lưu trữ.
+
+  - Phản hồi: Target gửi phản hồi lại cho initiator thông qua các gói TCP/IP.
+
+## 4. iSCSI lab 
+
+ ```
+ apt update -y
+ apt upgrade -y
+ ```
+ - Thực hiện câu lệnh trên trước khi cài đặt iSCSI Target và iSCSI Initiator
+  
+ - Thực hiện cài đặt bàng câu lệnh 
+
+  ```
+  systemctl status tgt
+  ```
+ - Thực hiện kiểm tra lại bằng câu lệnh 
+
+  ```
+  systemctl status tgt
+  ```
+ - Cấu hình iSCSI Target 
+  
+   + Chúng ta sẽ tạo một thiết bị Logical Unit Number (LUN) trên máy chủ iSCSI. LUN (Logical Unit Number) là một thuật ngữ dùng trong các hệ thống lưu trữ. Mỗi LUN đại diện cho một thiết bị hoặc một phần của thiết bị lưu trữ mà có thể được gán cho một máy chủ hoặc thiết bị cụ thể để truy xuất dữ liệu.
+
+     ```
+     nano /etc/tgt/conf.d/iscsi.conf
+     ```
+ - Thêm dòng
+
+   ```
+   <target iqn.2024-01.example.com:lun1>
+   backing-store /dev/sdb
+   initiator-address 192.168.1.20
+   incominguser iscsi-user password
+   outgoinguser iscsi-target secretpass
+   </target>    
+   ```
+ - Thực hiện câu lệnh 
+
+   ```
+   systemctl restart tgt
+   tgtadm --mode target --op show
+   ```      
+
+ - Cấu hình và cài đặt iSCSI Initiator
+
+  + Cài đặt gói: 
+
+   ```
+   apt install open-iscsi -y
+   ```
+  + Để iSCSI target tìm kiếm được máy iSCSI thì ta sử dụng câu lệnh 
+
+   ```
+   iscsiadm -m discovery -t st -p 192.168.1.10
+   ```
+  + Định nghĩa LUN ở trong file `initiatorname.iscsi`
+
+   ``` 
+   nano /etc/iscsi/initiatorname.iscsi
+   ```
+
+   Thêm câu lệnh `InitiatorName=iqn.2024-01.example.com:lun1` vào file đó 
+
+  + Tiếp theo, xác định giao thức CHAP là một giao thức xác thực bắt tay mà bạn đã định cấu hình trên iSCSI target để truy cập mục tiêu từ trình khởi tạo
+
+    ```
+    nano /etc/iscsi/nodes/iqn.2024-01.example.com:lun1/192.168.1.10,3260,1/default
+    ```
+  + Chỉnh sửa các dòng sau
+
+    ```
+    node.session.auth.authmethod = CHAP
+    node.session.auth.username = iscsi-user
+    node.session.auth.password = password
+    node.session.auth.username_in = iscsi-target
+    node.session.auth.password_in = secretpass
+    node.startup = automatic  
+    ```
+  + Lưu file lại và thực hiện câu lệnh 
+
+   ```
+   systemctl restart open-iscsi iscsid
+   systemctl status open-iscsi
+   iscsiadm -m session -o show
+   ```
+  + Thực hiện câu lệnh `lsblk` để kiểm tra lại    
+
+
+     
+   

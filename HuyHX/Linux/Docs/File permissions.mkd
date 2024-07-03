@@ -1,0 +1,28 @@
+# File permissions
+
+- File permissions là cốt lõi của mô hình bảo mật hệ thống của linux. Chúng có thể xác định ai có thể đọc, ghi, và thực thi thư mục cũng như các tệp 
+
+   + `chown`: Được sử dụng để thay đổi quyền sở hữu của người dùng đối với một tập tin hay một thư mục
+
+   + `chgrp`: Được sử dụng để thay đổi quyền sở hữu của một nhóm dùng đối với một tập tin hay một thư mục   
+
+   + `chmod `: Dùng để thay đổi quyền đọc ghi và thực thi của thư mục hay của file 
+
+Tệp có ba loại quyền: đọc (r), ghi (w), thực thi (x). Chúng thường được biểu diễn theo thứ tự sau rwx. Các quyền này ảnh hưởng đến ba nhóm chủ sở hữu: người dùng (u), nhóm (g) và những người khác (o). 
+
+ + 4: thể hiện của quyền đọc 
+
+ + 2: thể hiện của quyền ghi
+
+ + 1: thể hiện của quyền thực thi   
+
+Ví dụ ta có câu lệnh:
+
+ ```
+  chmod 755 test1
+ ```
+ Có nghĩa là user đang sở hữu tệp này có full quyền đọc ghi thực thi, group sở hữu tệp này có quyền đọc và thực thi, còn các user khác có quyền đọc và thực thi 
+
+- Thực hiện thay đổi user từ user `root` sang `huyhx`
+   
+   ![alt text](<../Images/Screenshot 2024-06-26 150058.png>)

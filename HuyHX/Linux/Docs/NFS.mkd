@@ -1,0 +1,138 @@
+# Network File System
+
+- Sử dụng NFS là một trong những phương pháp được sử dụng để chia sẽ dữ liệu trên các hệ thông vật lý. 
+- Được phát triển bởi SunMicrosystems và năm 1984, cho phép người dùng xem, tùy chọn lưu trữ và cập nhật trên máy tính từ xa.
+
+## 1. Cách hoạt động
+
+- Để truy cập được dữ liệu trên một máy chủ, server sẽ triển khai các quy trình nền NFS để cung cấp dữ liệu cho khách hàng. Quản trị viên xác định những gì cần cung cấp và có thể đảm bảo nhận ra các máy clients khi xác nhận 
+  
+- Từ client, yêu cầu truy cập vào dữ liệu đã xuất của server thì clients sử dùng lệnh `mount`
+
+- Server NFS tham chiếu tệp cấu hình `/etc/export` để xác định xem máy khách có được phép truy cập vào bất kỳ hệ thống nào không. Sau khi xác minh, tất cả hoạt động tập tin và thư mục được phép sử dụng trên Client 
+
+## 2. Các phiên bản 
+- NFSv2: Tháng 3 năm 1989
+ 
+ + Có thể sử dụng cả TCP và UDP qua mạng IP ( cổng 2049 )
+  
+ + Ban đầu chỉ hoạt động trên UDP
+  
+- NFSv3: Tháng 6 năm 1995
+ + An toàn và mạnh mẽ hơn khi xử lý lỗi so với v2
+  
+ + Sử dụng cả TCP và UDP qua cổng 2049
+  
+ + Vẫn là phiên bản được sử dụng rộng rãi nhất
+  
+- NFSv4: Tháng 4 năm 2003
+ 
+ + Hoạt động thông qua tường lửa và trên internet
+  
+ + Hỗ trợ ACL ( Danh sách các câu lệnh chỉ ra loại packet nào được chấp nhận, hủy bỏ dựa vào địa chỉ nguồn, đích hoặc số port)
+  
+ + Sử dụng giao thức TCP là bắt buộc
+  
+- NFSv4.1: Tháng 1 năm 2010
+ + khả năng cung cấp quyền truy cập song song có thể mở rộng vào các tệp được phân phối giữa nhiều máy chủ
+  
+- NFSv4.2: Tháng 11 năm 2016
+ + Sao chép và sao chép phía máy chủ
+  
+ + Một lợi thế lớn của NFSv4 so với các phiên bản trước đó là chỉ có một cổng IP được sử dụng để chạy dịch vụ, giúp đơn giản hóa việc sử dụng giao thức trên tường lửa.   
+
+## 3. Ưu, nhược điểm
+
+- Ưu điểm:
+
+ + NFS là 1 giải pháp chi phí thấp để chia sẻ tệp mạng.
+
+ + Dễ cài đặt vì nó sử dụng cơ sở hạ tầng IP hiện có
+
+ + Cho phép quản lý trung tâm, giảm nhu cầu thêm phần mềm cũ và dụng lượng đĩa trên các hệ thống người dùng cá nhân
+
+- Nhược điểm:
+ 
+ + NFS vốn không an toàn, chỉ nên sử dụng trên 1 mạng đáng tin cậy sau Firewall
+
+ + NFS bị chậm trong khi lưu lượng mạng lớn
+
+ + Client và server tin tưởng lần nhau vô điều kiện 
+
+ + Tên máy chủ có thể là giả mạo (tự xưng là máy khác)     
+
+## 4. NFS Protocol Layer
+
+- Remote Procedure Call (RPC): NFS sử dụng RPC để thực hiện các lời gọi thủ tục từ xa. RPC cho phép các ứng dụng trên máy khách yêu cầu dịch vụ từ các ứng dụng trên máy chủ thông qua mạng.
+
+- XDR (External Data Representation): XDR được sử dụng để chuẩn hóa cách dữ liệu được biểu diễn khi được truyền qua mạng, đảm bảo tính tương thích giữa các hệ thống khác nhau
+
+## 5. NFS Architecture
+
+   ![alt text](../Images/Network-File-System-Architecture.png)
+
+Ví dụ quá trình mở một tập tin    
+
+- Phía client: 
+
+  + Khi clients sử dụng lệnh mở file bằng câu lệnh  `open()` thì sẽ gọi đến hàm system call của hệ thống
+
+  + Kernel sẽ sử dụng đường dẫn của file để tìm ra vị trí của nó ở trong `file system`
+
+  + Sau đó Kernel sẽ gọi đến VFS (Virtual File System) để mở file  
+
+  + VFS sẽ kiểm tra file đó là file local hay file remote 
+
+  + Nếu là file local thì VFS sẽ gọi đến `local file system` đế mở file đó 
+
+  + Nếu là file remote sẽ gọi đến NFS client 
+
+  + NFS client sẽ sử dụng RPC để thực hiện giao tiếp giữa máy chủ mà và client 
+
+- Phía server: 
+
+ + RPC sẽ chuyển các yêu cầu cần xử lý lên NFS server và sau đó NFS server sẽ chuyển yêu cầu lên VFS server và sau đó nó sẽ truy cập đến file local server để lấy thông tin dữ liệu cần truyền đi 
+
+## 6.Cài đặt và cấu hình NFS trên server Linux
+
+  ```
+  Server 1: 192.168.20.131
+  Server 2: 192.168.20.141
+  ```
+
+- Cấu hình tại Server 1, mình có cài đặt NFS server:
+
+  ```
+  apt get update
+  ```
+
+  ```
+  apt install nfs-kernel-server
+  ```   
+- Kiểm tra trạng thái của NFS server
+ 
+  ```
+  service nfs-kernel-server status
+  ```
+
+  ![alt text](../Images/NFS3.png)
+
+- Để share được thư mục với NFS, bạn phải sưả nội dung bên trong `/etc/exports` bao gồm folder share, ip và một số đặc quyền. Đầu tiên hãy tạo 1 thư mục mà bạn muốn share, ở đây mình tạo thư mục có tên `nfs_share`. Bạn cũng có thể dùng luôn 1 thư mục sẵn có cũng được.
+
+  ```
+  mkdir nfs_share
+  ```
+   ![alt text](../Images/NFS4.png)
+
+ + Thay đổi nội dung trong `/etc/exports`
+
+  ```
+  vi /etc/exports
+  ```
+     
+    
+
+
+
+
+

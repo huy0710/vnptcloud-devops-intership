@@ -1,0 +1,120 @@
+# Tìm hiểu process trong Linux
+
+## 1 Process là gì: 
+
+- Process (tiến trình): Trong linux để một chương trình có thể thực thi được thì nó sẽ phải ở dạng mã máy. Mỗi chương trình chứa rất nhiều các đoạn mã máy khác nhau giúp máy tính hiểu được chương trình này cần phải làm gì. Các đoạn mã này sẽ được nạp vào bộ nhớ khi thực thi, được cấp pháp vùng hoạt động và thời gian thực thi. Khi quy trình này xảy ra thì người ta gọi là một tiến trình 
+
+  ![alt text](<../Images/process 1.png>) 
+
+- Các trạng thái của process:
+
+ + New: Tiến trình được tạo 
+
+ + Running: Tiến trình đang được thực thi
+
+ + Waiting: Tiến trình đang đợi để được thực thi
+
+ + Ready: Tiến trình đã sẵn sàng để được thực thi 
+
+ + Terminated: Kết thúc tiến trình
+
+- Đối với các tiến trình thì mỗi tiến trình đều có một hay nhiều `threads` là đợi vị thực thi nhỏ nhất của process chia sẻ cùng một không gian địa chỉ và tài nguyên của process 
+
+- Các khái niệm khác của process: 
+
+ + `Interactive`: là những process yêu cầu và chờ đợi sự tương tác từ người dùng. Chúng thường chạy trong một terminal và nhận đầu vào từ bàn phím hoặc các thiết bị đầu vào khác. 
+
+ + `Batch`: là một phương pháp tự động thực hiện các công việc một cách tuần tự, thường là trong một quy trình không cần sự can thiệp của người dùng sau khi công việc được khởi động.
+
+ + `Daemons`: là những process của hệ thống 
+
+ + `Kernel threads`: là những threads được quản lý trực tiếp bởi kernel 
+
+    Ví dụ như `Process Scheduling`:Kernel threads được sử dụng để thực hiện lập lịch và quản lý thời gian thực thi của các process trên hệ thống.      
+
+- Khi một tiến trình đang ở trạng thái `running`. Điều đó có nghĩa là tiến trình đó đang được thực hiện bởi CPU. Một hàm quan trong được gọi trong kernel gọi là `scheduler` (bộ lập lịch) nó liên tục di chuyển giữa các tiến trình vào ra khỏi CPU để chia sẻ thời gian thực hiện dựa trên mức độ ưu tiên, thời gian cần thiết và thời gian đã được cấp cho một process 
+
+- Trạng thái zombie: Đôi khi các tiến trình con đã hoàn thành mà tiến trình cha chưa hỏi về trạng thái tiến trình con thì tiến trình cha vẫn còn tồn tại trong danh sách tiến trình của hệ thống thì được gọi là `zombie state`
+
+     
+
+## 2. Cách lệnh quản lý process:
+
+- Lệnh `ps`: Liệt kê trạng thái của từng tiếng trình đang chạy trên terminal hiện tại  
+
+   ![alt text](<../Images/process 2.png>)
+
+ Trong đó 
+
+   + PID (Process IDentifier): Là một số nguyên được gán cho một process đang chay để phân biệt chúng với các process khác
+     
+   + TTY (Teletypewriter): TTY đại diện cho giao diện dòng lệnh hoặc thiết bị đầu cuối (terminal) mà người dùng tương tác trực tiếp với hệ thống
+
+   + TIME: Tổng thời gian sử dụng CPU
+
+   + CMD: Thể hiện tên tiến trình đã được khởi chạy
+
+- Lệnh `ps aux`: Liệt kê trạng thái của các tiến trình đang chạy của hệ thống 
+
+ Trong đó:
+
+   + `a`: Thể hiện các process trên hệ thống 
+
+   + `u`: Hiển thị thông tin chi tiết về người dùng/owner của các
+  process, bao gồm user ID, user name, group ID, group name, và các thông tin khác.
+
+   + `x`: Hiển thị cả các process không có terminal kết nối      
+
+      ![alt text](<../Images/process 3.png>)
+
+
+   + USER: Thể hiện tên người dùng đang chạy tiến trình 
+    
+   + PID: Là một số nguyên được gán cho một process đang chay để phân biệt chúng với các process khác
+
+   + %CPU: Phần trăm sử dụng CPU
+
+   + %MEM: Phần trăm sử dụng bộ nhớ 
+
+   + VSZ: Thể hiện kích thước ảo tính bằng Kbyte 
+
+   + RSS: Thể hiện kích thước của bộ nhớ thực sự mà một process đang sử dụng trong bộ nhớ vật lý của hệ thống tại một thời điểm cụ thể.      
+
+   + TT: Là một trường hiển thị tên của thiết bị đầu cuối (terminal) mà process đó đang liên kết hoặc gắn kết với. Nếu không có thường để ?
+
+   + STAT: Là một chuỗi ký tự mô tả trạng thái hoạt động hiện tại của process 
+
+   + STARTED: Thời gian của bắt đầu cuả tiến trình 
+
+   + CMD: Thể hiện tên tiến trình đã được khởi chạy 
+
+
+- Lệnh `top`: Liệt kê tất cả các tiến trình đang chạy ở trong Linux (liệt kê tiến trình một cách trực tiếp)
+
+    ![alt text](<../Images/process 4png.png>) 
+
+ Dòng đầu tiên của top hiển thị một bản tóm tắt nhanh chóng về những gì đang xảy ra trong hệ thống :
+
+   + Hệ thống đã hoạt động được bao lâu rồi
+  
+   + Có bao nhiêu người dùng
+     
+   + Trung bình tải
+
+ Dòng thứ hai của `top` hiển thị tổng số quá trình, số lượng quá trình chạy, ngủ, dừng và zombie. Nhằm đánh giá xem hệ thống có đang hoạt động hiệu quả hay không. 
+
+
+## 3. Kill Process: 
+
+- Ở trong Linux để Kill một tiến trình thì ngườI ta sử dụng câu lệnh `kill PID`
+
+- Ngoài ra cũng có thể sử dụng câu lệnh `kill -9 PID`  
+ 
+
+  
+
+
+
+
+
+

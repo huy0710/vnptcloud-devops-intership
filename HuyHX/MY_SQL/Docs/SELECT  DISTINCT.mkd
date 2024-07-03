@@ -1,0 +1,67 @@
+# SELECT  DISTINCT
+## 1. Chức năng
+
+- Dùng để loại bỏ các hàng trùng lặp trong tập kết quả.
+
+## 2. Cú pháp cơ bản
+ 
+ ```
+ SELECT DISTINCT
+    select_list
+ FROM
+    table_name;
+ ```
+## 3. Cách sử dụng
+
+- Ta sẽ sử dụng bảng `employees` để thử truy vấn.
+
+   ![alt text](../Images/My_SQL(22).png) 
+
+- Trước tiên, ta sẽ thử truy vấn không có `DISTINCT`:
+
+  ``` 
+  SELECT 
+    lastname
+  FROM
+    employees
+  ORDER BY 
+    lastname;
+  ```
+
+- Kết quả:
+
+   ![alt text](../Images/My_SQL(23).png) 
+
+ + Ở đây có một số cái tên trùng nhau nếu bây giờ ta thêm `DISTINCT`:
+
+   ```
+   SELECT DISTINCT
+    lastname
+   FROM
+    employees
+   ORDER BY 
+    lastname;
+   ```
+- Kết quả:
+
+    ![alt text](../Images/My_SQL(24).png) 
+
+ + Mỗi tên chỉ xuất hiện một lần. Không có trùng lặp.
+
+
+## 4.Chú ý
+
+- Nếu trong cột có các giá trị `NULL` thì sẽ vẫn còn lại một giá trị `NULL`
+ 
+- Có thể sử dụng khi `SELECT` nhiều cột
+ 
+- `DISTINCT` hoạt động giống như sử dụng `GROUP BY` mà không có các hàm tổng hợp dữ liệu.
+ 
+- Về cơ bản `DISTINCT` là trường hợp đặt biệt của `GROUP BY`, chỉ khác nhau ở chỗ `DISTINCT` không được sắp xếp
+ 
+- Ngoài ra trong `MySQL-8.x` `GROUP BY` đã loại bỏ sắp xếp nên nó tương tự như `DISTINCT`
+
+
+
+
+

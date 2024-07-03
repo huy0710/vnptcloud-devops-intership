@@ -1,0 +1,78 @@
+# Backup 
+
+## 1. Rsync
+
+- Rsync (Remote Sync) là một công cụ mạnh mẽ trong hệ điều hành Unix/Linux để đồng bộ hóa tệp và thư mục giữa hai địa điểm, thường là giữa một máy tính cục bộ và một máy chủ từ xa hoặc giữa hai máy chủ từ xa. Nó rất phổ biến do hiệu quả và tốc độ của nó, chủ yếu nhờ vào cách nó xử lý dữ liệu:
+
+ + Sao chép chỉ các tệp thay đổi: Rsync chỉ sao chép các tệp đã thay đổi từ lần sao chép cuối cùng, thay vì sao chép toàn bộ tệp mỗi lần.
+  
+ + Nén dữ liệu: Rsync có thể nén dữ liệu trước khi truyền tải, giúp tiết kiệm băng thông.
+  
+ + Dùng thuật toán delta-transfer: Thuật toán này chỉ truyền các phần thay đổi của tệp, giảm lượng dữ liệu cần truyền.
+  
+ + Khả năng bảo mật: Rsync có thể sử dụng SSH để truyền tải dữ liệu an toàn. 
+
+- Một số options phổ biến 
+
+ `-a` : Chế độ lưu trữ, sao chép đệ quy và giữ nguyên quyền hạn, liên kết, và thời gian.
+
+ `-v` : Hiển thị chi tiết quá trình đồng bộ.
+
+ `-z` : Nén dữ liệu trong khi truyền tải.
+
+ `-e `: Xác định phương thức truyền tải từ xa (thường dùng với SSH). 
+
+- Thực hành 
+
+ + Thực hiện backup file `ABC.txt` từ thư mục `data` sang thư mục `backup` 
+
+   ![alt text](../Images/backup.png) 
+
+ + Thực hiện backup thư mục `data` ở host `192.168.20.140` sang host `192.168.20.131`
+    
+   ![alt text](../Images/backup1.png) 
+
+## 2. Nén dữ liệu 
+
+- Việc nén dữ liệu thường xuyên được thực hiện để tiết kiệm dung lương lưu trữ trên disk và đồng thời tránh quá tải khi truyền đi. Linux sử dụng một số phương pháp để thực hiện việc nén này.
+
+ + `gzip`: Tiện ích nén Linux được sử dụng thường xuyên nhất
+
+ + `bzip2`: Được sử dụng để nén với các tệp có kích thước nhỏ hơn `gzip` 
+
+ + `xz`: Hiệu suất nén cao hơn nhiều so với nhiều công cụ nén khác như gzip hay bzip2, giúp tiết kiệm không gian lưu trữ 
+
+ + `zip`: Không chỉ nén tệp mà còn cho phép bạn gom nhiều tệp và thư mục thành một tệp nén duy nhất, dễ dàng cho việc lưu trữ và chia sẻ. 
+
+## 3. Copying disks
+- `dd` là một tiện ích dòng lệnh dành cho hệ điều hành Unix và giống Unix, với mục đích chính là chuyển đổi và sao chép file.
+
+- Một số ví dụ thực tế về lệnh `dd`
+
+ + Sao lưu toàn bộ ổ cứng
+
+ ```
+ dd if = /dev/sda of = /dev/sdb
+ ```
+
+   “If” đại diện cho file đầu vào và “of” đại diện cho file đầu ra. Vì vậy, bản sao chính xác của /dev/sda sẽ có trong /dev/sdb.   
+
+- Tạo image của ổ cứng
+
+ Thay vì tạo bản sao lưu của ổ cứng, bạn có thể tạo file image của ổ cứng và lưu nó trong các thiết bị lưu trữ khác. Có nhiều ưu điểm của việc sao lưu dữ liệu vào disk image, một trong số đó là tính dễ sử dụng. Phương pháp này thường nhanh hơn so với các kiểu sao lưu khác, cho phép bạn nhanh chóng khôi phục dữ liệu sau một sự cố không mong muốn. Nó tạo ra image của ổ cứng `/dev/hda`. 
+
+ ```
+ # dd if = /dev/hda of = ~/hdadisk.img
+ ```
+
+- Tạo CDROM Backup
+
+ + Lệnh dd cho phép bạn tạo một file ISO từ một file nguồn. Vì vậy, người dùng có thể chèn đĩa CD và nhập lệnh dd để tạo file ISO cho nội dung CD.
+
+  ```
+  # dd if = /dev/cdrom of = tgsservice.iso bs = 2048
+  ```
+    
+
+     
+

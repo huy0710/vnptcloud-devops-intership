@@ -1,0 +1,206 @@
+# WHERE 
+
+- Dùng để lọc kết quả truy vấn(SELECT), cập nhật(UPDATE), xóa (DELETE)
+
+## Cú pháp cơ bản
+
+  ```
+  SELECT 
+    select_list
+  FROM
+    table_name
+  WHERE
+    search_condition;
+  ```  
+ - Trong đó: 
+  
+   `search_condition` là sự kết hợp của một hoặc nhiều biểu thức sử dụng toán tử logic AND, OR và NOT  
+
+   Trong MySQL một biểu thức boolean có các giá trị TRUE, FALSE hoặc UNKNOWN.
+
+## Thứ tự đánh giá SQL
+
+  ![alt text](../Images/My_SQL(12).png)
+
+## Cách sử dụng 
+
+ Ta sẽ sử dụng bảng `employees` để thực hiện
+  
+  ![alt text](../Images/My_SQL(13).png)
+
+### 1. Sử dụng WHERE với toán tử =:
+
+ - Lọc các nhân viên có `jobtitle` là "Sales Rep"
+ 
+  ```
+  SELECT 
+    lastname, 
+    firstname, 
+    jobtitle
+  FROM
+    employees
+  WHERE
+    jobtitle = 'Sales Rep';
+  ```
+ - Kết quả     
+
+   ![alt text](../Images/My_SQL(14).png) 
+
+### 2. Sử dụng WHERE với toán tử AND:
+
+- Lọc các nhân viên có jobtitle là "Sales Rep" và officeCode = 2;
+   
+   ```
+   SELECT 
+    lastname, 
+    firstname, 
+    jobtitle,
+    officeCode
+   FROM
+    employees
+   WHERE
+    jobtitle = 'Sales Rep' AND 
+    officeCode = 2;
+   ```
+- Kết quả:
+   
+  ![alt text](../Images/My_SQL(15).png) 
+
+### 3.Sử dụng WHERE với toán tử OR:
+
+- Lọc các nhân viên có `jobtitle` là "Sales Rep" hoặc officeCode = 1;
+
+   ```
+   SELECT 
+    lastName, 
+    firstName, 
+    jobTitle, 
+    officeCode
+   FROM
+    employees
+   WHERE
+    jobtitle = 'Sales Rep' OR 
+    officeCode = 1;
+   ```
+- Kết quả:
+
+   ![alt text](../Images/My_SQL(16).png)  
+
+### 4. Sử dụng WHERE với toán tử BETWEEN:
+- BETWEEN kết hợp với AND tạo ra khoảng lọc nhất định
+
+- Lọc các nhân viên có `officeCode` trong khoảng từ 1 đến 3: 
+
+   ```
+   select 
+	firstName,
+	lastName,
+	officeCode
+   from
+	employees
+   where
+	officeCode between 1 and 3;
+
+   ```
+- Kết quả:
+
+   ![alt text](../Images/My_SQL(17).png) 
+
+### 5. Sử dụng WHERE với toán tử LIKE:
+
+- Truy vấn các nhân viên có tên kết thúc là `son`:
+   
+   ```
+   SELECT 
+    firstName, 
+    lastName
+   FROM
+    employees
+   WHERE
+    lastName LIKE '%son';
+   ```
+- Kết quả:
+
+   ![alt text](../Images/My_SQL(18).png) 
+
+### 6. Sử dụng WHERE với toán tử IN:
+
+- Lọc ra những nhân viên có `officeCode` có giá trị là 1 và 3.
+
+   ```
+   SELECT 
+    firstName, 
+    lastName, 
+    officeCode
+   FROM
+    employees
+   WHERE
+    officeCode IN (1 , 3);
+
+   ```
+- Kết quả: 
+
+   ![alt text](../Images/My_SQL(19).png) 
+
+### 7. Sử dụng WHERE với IS NULL
+
+- Lọc những nhân viên mà cột `reportTo` có giá trị NULL:
+
+   ```
+   SELECT 
+	lastName,
+    firstName,
+    reportsTo
+   FROM 
+	employees
+   WHERE
+	reportsTo IS NULL;
+   ```
+- Kết quả: 
+
+     ![alt text](../Images/My_SQL(20).png)
+
+### 8. Sử dụng WHERE với toán tử so sánh
+
+| Toán tử | Ý nghĩa |
+|-------|-------|
+| = | Bằng. Có thể sử dụng với hầu hết các loại dữ liệu | 
+| <> hoặc != | Không bằng | 
+|< | Nhỏ hơn. Thường sử dụng với các loại dữ liệu số và ngày, thời gian | 
+|> | Lớn hơn|
+|<= | Nhỏ hơn hoặc bằng|
+|>= | Lớn hơn hoặc bằng| 
+
+- Ta sẽ lọc các nhân viên mà `jobtitle` không phải "Sales Rep":
+
+   ```
+   SELECT
+    lastname,
+    firstname,
+    jobTitle
+   FROM
+    employees
+   WHERE
+    jobTitle <> 'Sales Rep';
+   ```
+- Kết quả:     
+
+   ![alt text](../Images/My_SQL(21).png)   
+
+
+
+    
+
+
+
+
+
+
+
+
+
+         
+    
+
+
+ 

@@ -1,0 +1,108 @@
+# ROLLUP
+
+ `ROLLUP` là một phần mở rộng của mệnh đề `GROUP BY` trong SQL, cho phép tạo ra các báo cáo tổng hợp với các cấp độ tổng khác nhau. Nó giúp bạn tính toán các tổng phụ và tổng số mà không cần viết nhiều câu lệnh `GROUP BY` riêng lẻ.
+
+## Tạo bảng mẫu
+
+ - Đoạn truy vấn dưới đây tạo ra bảng mới tên là `sales`, nó lưu trữ các giá trị đơn hàng được tóm tắt theo dòng sản phẩm và năm. Dữ liệu đến từ các bảng `products`, `orders` và `orderDetails` trong database mẫu 
+
+    ```
+    CREATE TABLE sales
+    SELECT
+     productLine,
+     YEAR(orderDate) orderYear,
+     SUM(quantityOrdered * priceEach) orderValue
+    FROM
+     orderdetails
+        INNER JOIN
+     orders USING (orderNumber)
+        INNER JOIN
+     products USING (productCode)
+    GROUP BY
+     productLine ,
+     YEAR(orderDate); 
+    ``` 
+
+ - Thử truy vấn kết quả bảng `sales` sau khi tạo
+
+    ```
+    SELECT * FROM sales;
+    ```
+     
+      ![alt text](../Images/My_SQL(83).png)
+
+## Tổng quan về ROLLUP
+  
+  Grouping set là tập hợp các cột mà bạn muốn nhóm.
+
+ - Query dưới đây tạo ra 1 Grouping set được biểu thị bởi `productline`
+
+    ```
+    SELECT 
+     productline, 
+     SUM(orderValue) totalOrderValue
+    FROM
+     sales
+    GROUP BY 
+     productline; 
+    ```
+ - Kết quả: 
+
+    ![alt text](../Images/My_SQL(84).png) 
+
+ - Query dưới đây tạo 1 Grouping set trống được kí hiệu là ()
+
+   ```
+   SELECT 
+    SUM(orderValue) totalOrderValue
+   FROM
+    sales; 
+   ```
+
+ - Kết quả:  
+
+    ![alt text](../Images/My_SQL(85).png) 
+
+ - Nếu muốn tạo 2 hay nhiều Grouping set trong cùng 1 câu truy vấn, bạn có thể sử dụng toán tử `UNION ALL` như sau:
+
+   ```
+   SELECT 
+    productline, 
+    SUM(orderValue) totalOrderValue
+   FROM
+    sales
+   GROUP BY 
+    productline 
+   UNION ALL
+   SELECT 
+    NULL, 
+    SUM(orderValue) totalOrderValue
+   FROM
+    sales; 
+   ```
+ - Kết quả: 
+
+   ![alt text](../Images/My_SQL(86).png) 
+
+   `UNION ALL` yêu cầu các câu truy vấn phải có cùng số cột, ta thêm cột NULL để thỏa mãn yêu cầu này.  
+
+ - `ROLLUP` là phần mở rộng của mệnh đề `GROUP BY` với cú pháp sau:
+
+    ```
+    SELECT 
+     select_list
+    FROM
+     table_name
+    GROUP BY 
+     c1, c2, c3, WITH ROLLUP;
+    ```
+
+  + ROLLUP sẽ giả định có phân cấp sau  
+
+    ```
+    c1 > c2 > c3
+    ``` 
+
+
+
+

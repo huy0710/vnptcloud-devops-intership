@@ -1,0 +1,136 @@
+# Logical Volume Manager layout
+
+## 1. Khái niệm 
+
+- Logical Volume Management(LVM) dùng quản lí các thiết bị lưu trữ .LVM là một tiện ích cho phép chia không gian đĩa cứng thành những Logical Volume từ đó giúp cho việc thay đổi kích thước trở nên dễ dàng.
+
+- Tại sao cần phải sử dụng LVM: 
+
+ + Quản lý dung lượng dễ dàng: LVM cho phép quản lý dung lượng một cách linh hoạt và dễ dàng hơn.
+  
+ + Tính linh hoạt cao: LVM cho phép chia sẻ dữ liệu giữa nhiều hệ thống hoặc cung cấp bảo vệ dữ liệu bằng cách sao lưu dữ liệu sang các ổ đĩa khác.
+  
+ + Bảo mật dữ liệu: LVM cung cấp tính năng snapshot, cho phép tạo ra các bản sao của các phân vùng, giúp bảo vệ dữ liệu trước các sự cố như lỗi phần cứng hoặc virus.
+  
+ + Tối ưu hóa hiệu suất: LVM cho phép tối ưu hóa hiệu suất bằng cách tạo ra các phân vùng ở các vị trí vật lý khác nhau trên nhiều ổ đĩa, giúp tăng tốc độ truy xuất dữ liệu.
+  
+ + Dễ dàng quản lý: LVM cung cấp các công cụ quản lý dễ sử dụng để tạo, xóa hoặc tăng kích thước các phân vùng.  
+
+## 3. Thành phần trong LVM
+
+- Physical Volumes(PV): 
+
+ + Đĩa cứng vật lý trong server
+  
+ + Có thể kết hợp nhiều PV để tạo thành một Volume Group
+  
+ + PV chỉ là đại diện cho các ổ đĩa vật lý chứ không phải là bản thân ổ đĩa đó, vì vậy để cần phải tạo PV từ cá dev đã mount. 
+
+- Volume Groups(VG) 
+
+ + Một tập hợp các PV từ VG có thể phân chia thành các Logical Volumes và các Logical Volumes này có thể thay đổi kích thước dễ dàng.
+
+- Logical Volume(LV)  
+
+ + Đơn vị cuối cùng của hệ thống LVM, các LV tương đương với partition theo cách phân chia truyền thống.
+  
+ + LV có thể thay đổi kích thước dễ dàng, tất cả chỉ phụ thuộc vào kích thước của VG. 
+
+## 4. Quản lý và tạo LVM
+
+ - Tạo Physical Volume
+
+  ```
+  [root@localhost ~]# pvcreate /dev/sdb
+  Physical volume "/dev/sdb" successfully created.
+  [root@localhost ~]# pvs
+  PV         VG     Fmt  Attr PSize   PFree
+  /dev/sda2  centos lvm2 a--  <39.00g     0
+  /dev/sdb          lvm2 ---   20.00g 20.00g
+  [root@localhost ~]# pvscan
+  PV /dev/sda2   VG centos          lvm2 [<39.00 GiB / 0    free]
+  PV /dev/sdb                       lvm2 [20.00 GiB]
+  Total: 2 [<59.00 GiB] / in use: 1 [<39.00 GiB] / in no VG: 1 [20.00 GiB]
+  [root@localhost ~]# pvdisplay
+  --- Physical volume ---
+  PV Name               /dev/sda2
+  VG Name               centos
+  PV Size               <39.00 GiB / not usable 3.00 MiB
+  Allocatable           yes (but full)
+  PE Size               4.00 MiB
+  Total PE              9983
+  Free PE               0
+  Allocated PE          9983
+  PV UUID               LvblGh-onym-1lG9-z17B-jHGI-5DRI-ppNv2f
+
+  "/dev/sdb" is a new physical volume of "20.00 GiB"
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb
+  VG Name
+  PV Size               20.00 GiB
+  Allocatable           NO
+  PE Size               0
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               6nOIiy-yTOm-pAeU-ltoH-E6KO-UOUd-tbf66C
+ ```
+
+- Tạo group volume
+
+ ```
+ [root@localhost ~]# vgcreate storage /dev/sdb
+  Volume group "storage" successfully created
+[root@localhost ~]# vgscan
+  Reading volume groups from cache.
+  Found volume group "storage" using metadata type lvm2
+  Found volume group "centos" using metadata type lvm2
+[root@localhost ~]# vgs
+  VG      #PV #LV #SN Attr   VSize   VFree
+  centos    1   2   0 wz--n- <39.00g      0
+  storage   1   0   0 wz--n- <20.00g <20.00g
+[root@localhost ~]# vgdisplay
+  --- Volume group ---
+  VG Name               storage
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  1
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                0
+  Open LV               0
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               <20.00 GiB
+  PE Size               4.00 MiB
+  Total PE              5119
+  Alloc PE / Size       0 / 0
+  Free  PE / Size       5119 / <20.00 GiB
+  VG UUID               KOFl5g-JMvG-J72U-IxJg-jtTk-cobE-d3cXg3
+
+  --- Volume group ---
+  VG Name               centos
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  3
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                2
+  Open LV               2
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               <39.00 GiB
+  PE Size               4.00 MiB
+  Total PE              9983
+  Alloc PE / Size       9983 / <39.00 GiB
+  Free  PE / Size       0 / 0
+  VG UUID               oASILo-huly-gDk2-fXjH-EQGx-cy0Z-W4Fxms
+ ``` 
+
+ 

@@ -1,0 +1,57 @@
+# LIKE
+
+## Chức năng
+
+ - `LIKE` dùng để truy vấn dữ liệu dựa trên một mô hình cụ thể.
+
+## Cú pháp cơ bản
+
+ - Toán tử `LIKE` là toán tử logic kiểm tra xem một chuỗi có chứa một mẫu đã chỉ định hay không.
+
+   ```
+   expression LIKE pattern ESCAPE escape_character
+   ```
+ - MySQL cung cấp hai ký tự đại diện để xây dựng mô hình hay định dạng:
+
+   + Ký tự `%` khớp với bất kỳ chuỗi nào có 0 hoặc nhiều ký tự.
+
+   + Ký tự `_` khớp với bất kỳ ký tự đơn nào
+
+   + Nếu dữ liệu bạn cần có chứa `"%"` hay `"_"` thì bạn cần dùng `"\"` để chỉ định kí tự thoát. Nếu bạn không chỉ định rõ ràng ký tự thoát, ký tự dấu gạch chéo ngược `"\"` là ký tự thoát mặc định. 
+  
+ - Ví dụ:
+
+   ```
+   SELECT 
+    productCode, 
+    productName
+   FROM
+    products
+   WHERE
+    productCode LIKE '%\_20%';
+
+   ```
+
+  + Kết quả: 
+
+    ![alt text](../Images/My_SQL(29).png)
+
+  + Hoặc bạn có thể chỉ định một ký tự thoát khác, ví dụ: `$` bằng cách sử dụng mệnh đề `ESCAPE`:  
+
+    ```
+    SELECT 
+     productCode, 
+     productName
+    FROM
+     products
+    WHERE
+    productCode LIKE '%$_20%' ESCAPE '$';
+    ```
+
+  + Kết quả: 
+     
+     ![alt text](../Images/My_SQL(30).png)
+
+
+
+                 

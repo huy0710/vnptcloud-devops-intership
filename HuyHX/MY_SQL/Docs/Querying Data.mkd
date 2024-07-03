@@ -1,0 +1,253 @@
+# QUERYING DATA
+
+## 1. SELECT FROM
+
+- Câu lệnh `SELECT` cho phép bạn chọn dữ liệu từ một hoặc nhiều bảng. Để sử dụng lệnh SELECT trong MySQL, bạn sử dụng cú pháp sau:
+
+  ```
+  SELECT select_list
+  FROM table_name;
+  ```
+  + Đầu tiên, chỉ định một hoặc nhiều cột mà bạn muốn chọn dữ liệu qua từ khóa `SELECT`. Nếu `select_list` có nhiều cột thì bạn cần phân tách chúng bằng dấu phẩy (,). 
+
+  + Thứ hai, chỉ định tên của bảng mà bạn muốn chọn dữ liệu qua từ khóa `FROM`  
+
+  + Dấu chấm phẩy (;) là tùy chọn, biểu thị sự kết thúc của câu lệnh. Nếu bạn có hai câu lệnh trở lên, bạn cần sử dụng dấu chấm phẩy (;) để phân tách chúng để MySQL thực thi từng câu lệnh riêng lẻ. 
+  
+  + Vì SQL không phân biệt chữ hoa chữ thường nên bạn có thể viết câu lệnh SQL bằng chữ thường, chữ hoa
+
+- Thứ tự đánh giá của SQL
+
+  ![alt text](../Images/My_SQL(1).png) 
+
+  Tức là SQL sẽ xét `FROM` trước rồi đến `SELECT`
+
+- Ví dụ: 
+
+ + Chúng ta sử dụng  bảng `employees` ở `sample database`
+
+   ![alt text](../Images/My_SQL(2).png) 
+
+ Ở trong bảng `employees` gồm 8 cột employeeNumber, lastName, firstName, extension, email, officeCode, reportsTo, and jobTitle.  
+
+   ![alt text](<../Images/Screenshot 2024-06-27 151323.png>) 
+
+ + Khi ta sử dụng câu lệnh 
+  ```
+   SELECT lastName
+   FROM employees;
+
+  ```
+ Output: 
+  
+  ```
+  +-----------+
+  | lastName  |
+  +-----------+
+  | Murphy    |
+  | Patterson |
+  | Firrelli  |
+  | Patterson |
+  | Bondur    |
+  | Bow       |
+  | Jennings  |
+   ...
+  ```
+ 
+ + Khi ta sử dụng câu lệnh: 
+
+   ```
+   SELECT 
+    lastName, 
+    firstName, 
+    jobTitle
+   FROM
+    employees;
+   ```
+  Thì output sẽ là dữ liệu của 3 cột  lastName, firstName, jobTitle
+
+ + Lấy tất cả dữ liệu của bảng:
+
+    ```
+    SELECT *
+    FROM employees;
+    ```
+
+   Kết quả: 
+   ![alt text](../Images/My_SQL(3).png)
+
+ + Chú ý
+ Sử dụng `SELECT *` không nên được sử dụng bừa bãi vì một số lý do sau:
+
+ Nó trả về dữ liệu từ tất cả các cột mà có thể ta không dùng đến.
+
+ Khi chỉ định rõ tên cột sẽ dễ dàng quản lý hơn.
+
+ Khi một bảng có sự thay đổi thì tập kết quả trả về sẽ thay đổi và có thể dẫn đến những lỗi xử lý.
+
+ Có thể bị tiết lộ những thông tin nhạy cảm cho người dùng trái phép.  
+
+## 2. MySQL SELECT
+
+- Trong MySQL, câu lệnh `SELECT` không yêu cầu mệnh đề FROM. Điều đó có nghĩa là bạn có thể có câu lệnh `SELECT` mà không cần mệnh đề `FROM` như thế này:
+
+  ```
+  MariaDB [(none)]> SELECT 1 + 1;
+  +-------+
+  | 1 + 1 |
+  +-------+
+  |     2 |
+  +-------+
+  1 row in set (0.000 sec)
+  ```     
+
+## 3. MySQL ORDER BY
+
+- Dùng để sắp xếp các dữ liệu được trả về từ truy vấn `SELECT`.
+
+- Cú pháp 
+
+  ```
+    SELECT 
+     select_list
+    FROM 
+     table_name
+    ORDER BY 
+     column1 [ASC|DESC], 
+     column2 [ASC|DESC],
+   ...;
+   ```
+Trong đó:
+
+ `ASC`: (ascending) là sắp xếp tăng dần
+
+ `DESC`: (descending) là sắp xếp giảm dần
+
+- Thứ tự đánh giá của SQL
+
+   ![alt text](../Images/My_SQL(4).png) 
+
+ `ORDER BY` luôn được đánh giá sau `FROM` và `SELECT`
+
+- Ví dụ 
+ 
+ Sử dụng bảng `customers` 
+
+   ![alt text](../Images/My_SQL(5).png)
+
+ + Sắp xếp dữ liệu theo 1 cột
+
+   Sắp xếp `customers` theo giá trị tăng dần từ cột `contactLastName`
+
+    ```
+    SELECT
+    contactLastname,
+    contactFirstname
+    FROM
+    customers
+    ORDER BY
+    contactLastname;
+
+    ```
+    Kết quả:   
+
+     ![alt text](../Images/My_SQL(6).png)
+
+ + Sắp xếp dữ liệu theo nhiều cột
+
+   Sắp xếp các `customers` theo giảm dần của `contactLastname` và tăng dần của `contactFirstname`. Ta sử dụng `DESC` và `ASC`:   
+
+     ```
+     SELECT
+     contactLastname,
+     contactFirstname
+     FROM
+     customers
+     ORDER BY
+     contactLastname DESC,
+     contactFirstname ASC;  
+     ```
+   Kết quả 
+    
+     ![alt text](../Images/My_SQL(7).png)
+
+ + Sắp xếp kết quả của một phép tính
+
+   Sử dụng bảng `orderdetails` 
+
+     ![alt text](../Images/My_SQL(8).png)
+
+   Sắp xếp dựa trên phép tính `quantityOrdered` * `priceEach`
+
+    ```
+    SELECT 
+    orderNumber, 
+    orderlinenumber, 
+    quantityOrdered * priceEach
+    FROM
+    orderdetails
+    ORDER BY 
+    quantityOrdered * priceEach DESC;  
+    ```
+
+ +  Để kết quả truy vấn dễ đọc hơn, ta có thể gán cột `quantityOrdered * priceEach` bằng tên khác ngắn hơn, sử dụng `AS`
+   ```
+     SELECT 
+     orderNumber,
+     orderLineNumber,
+     quantityOrdered * priceEach AS subtotal
+     FROM
+     orderdetails
+     ORDER BY subtotal DESC;
+   ```
+  Kết quả: 
+
+    ![alt text](../Images/My_SQL(9).png)
+
+ + Sắp xếp tùy chỉnh   
+
+   Sử dụng `FIELD()`
+
+   Ta sử dụng bảng `order`:
+
+     ![alt text](../Images/My_SQL(10).png)
+
+   Bạn muốn sắp xếp đơn hàng theo thứ tự trạng thái như sau:
+
+     In Process
+     On Hold
+     Canceled
+     Resolved
+     Disputed
+     Shipped
+
+   ```
+   SELECT 
+    orderNumber, 
+    status
+   FROM
+    orders
+   ORDER BY 
+    FIELD(status,
+        'In Process',
+        'On Hold',
+        'Cancelled',
+        'Resolved',
+        'Disputed',
+        'Shipped'); 
+   ```
+  Kết quả:     
+
+     ![alt text](../Images/My_SQL(11).png)     
+
+
+
+
+
+
+         
+        
+      
+
+
+   
