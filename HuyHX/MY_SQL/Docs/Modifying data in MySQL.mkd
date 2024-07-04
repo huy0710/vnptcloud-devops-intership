@@ -1,0 +1,75 @@
+# Modifying data in MySQL
+
+## INSERT (chèn dữ liệu)
+
+ - INSERT cho phép ta chèn 1 hoặc nhiều hàng vào 1 bảng.
+
+ - Đầu tiên, ta chỉ định tên bảng và danh sách các cột được phân tách bằng dấu phẩy bên trong dấu ngoặc đơn sau mệnh đề `INSERT INTO`
+
+ - Sau đó, ta đặt danh sách các giá trị được phân tách bằng dấu phẩy của các cột tương ứng bên trong dấu ngoặc đơn theo từ khóa `VALUES`
+
+ - Số lượng cột và giá trị phải giống nhau. Ngoài ra, vị trí của các cột phải tương ứng với vị trí của các giá trị của chúng.
+  
+ - Ví dụ: 
+
+   + Đầu tiên ta tạo 1 bảng mới có tên task để thực hành INSERT. 
+
+     ```
+     CREATE TABLE IF NOT EXISTS tasks (
+      task_id INT AUTO_INCREMENT,
+      title VARCHAR(255) NOT NULL,
+      start_date DATE,
+      due_date DATE,
+      priority TINYINT NOT NULL DEFAULT 3,
+      description TEXT,
+     PRIMARY KEY (task_id)
+     );
+     ```
+   + Câu lệnh sau chèn 1 hàng mới vào bảng `tasks`
+
+     ```
+     INSERT INTO tasks(title,priority)
+     VALUES('Learn MySQL INSERT Statement',1);
+     ```
+   + Để kiểm tra dữ liệu đã nhập vào từ bảng tasks:
+
+     ```
+     select*from tasks;
+     ```
+
+     ![](../Images/My_SQL(117).png)
+
+   + Theo như bảng đã tạo, giá trị mặc định của `priority` là 3. Nên nếu muốn để giá trị mặc định khi thêm dữ liệu, ta sẽ chỉ định cột priority là `default`.
+
+     ```
+     INSERT INTO tasks(title,priority)
+     VALUES('Understanding DEFAULT keyword in INSERT statement',DEFAULT);
+     ```          
+      ![alt text](../Images/My_SQL(118).png)
+
+ - Chèn ngày
+
+   + Để chèn dữ liệu ngày vào bảng, ta sử dụng định dạng sau:
+
+    ```
+    'YYYY-MM-DD'
+    ```
+
+    YYYY đại diện cho một năm có bốn chữ số, ví dụ, năm 2018.
+
+    MM đại diện cho một tháng có hai chữ số, ví dụ: 01, 02 và 12.
+
+    DD đại diện cho một ngày có hai chữ số, ví dụ: 01, 02, 30.  
+
+  + Ví dụ để chèn ngày vào bảng `tasks` với ngày bắt đầu và ngày đáo hạn:
+
+    ```
+    INSERT INTO tasks(title, start_date, due_date)
+    VALUES('Insert date into table','2024-07-04','2024-07-15');
+    ``` 
+     ![alt text](../Images/My_SQL(119).png)    
+
+ - Chèn nhiều dữ liệu vào cùng lúc:
+
+    ![alt text](../Images/My_SQL(120).png) 
+    
